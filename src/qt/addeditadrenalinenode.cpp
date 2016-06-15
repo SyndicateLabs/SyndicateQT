@@ -12,7 +12,6 @@
 #include "script.h"
 #include "init.h"
 #include "base58.h"
-#include "rpcconsole.h"
 #include <QMessageBox>
 
 AddEditAdrenalineNode::AddEditAdrenalineNode(QWidget *parent) :

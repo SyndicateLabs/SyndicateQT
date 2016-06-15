@@ -160,6 +160,9 @@ void MasternodeManager::updateNodeList()
 void MasternodeManager::setClientModel(ClientModel *model)
 {
     this->clientModel = model;
+    if(model)
+    {
+    }
 }
 
 void MasternodeManager::setWalletModel(WalletModel *model)
