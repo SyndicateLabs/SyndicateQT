@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = Syndicate-qt
-VERSION = 1.0.0.2
+VERSION = 1.0.0.3
 INCLUDEPATH += src src/json src/qt src/qt/plugins/mrichtexteditor
 QT += network printsupport
 DEFINES += ENABLE_WALLET
@@ -17,7 +17,7 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 # use: qmake BOOST_LIB_SUFFIX=-mt
 # for boost thread win32 with _win32 sufix
 # use: BOOST_THREAD_LIB_SUFFIX=_win32-...
-# or when linking against a specific BerkelyDB version: BDB_LIB_SUFFIX=-4.8    
+# or when linking against a specific BerkelyDB version: BDB_LIB_SUFFIX=-4.8	
 
 # 	 Dependency library locations can be customized with:
 #    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,

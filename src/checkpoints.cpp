@@ -1,4 +1,4 @@
-// Copyright (c) 2009-2012 The Bitcoin developers
+﻿// Copyright (c) 2009-2012 The Bitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -29,6 +29,7 @@ namespace Checkpoints
         boost::assign::map_list_of
         (    0,	Params().HashGenesisBlock() )
         ( 1000, uint256("0x47aebcfdd0b3f23e8cc153ed322e53d1706822784942726adae2c18de4cb1408"))
+       ( 10000, uint256("0x47aebcfdd0b3f23e8cc153ed322e53d1706822784942726adae2c18de4cb1408"))
     ;
 
     // TestNet has no checkpoints
