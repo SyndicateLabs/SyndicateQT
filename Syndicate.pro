@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = Syndicate-qt
-VERSION = 1.0.0.1
+VERSION = 1.0.0.2
 INCLUDEPATH += src src/json src/qt src/qt/plugins/mrichtexteditor
 QT += network printsupport
 DEFINES += ENABLE_WALLET
@@ -17,7 +17,7 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 # use: qmake BOOST_LIB_SUFFIX=-mt
 # for boost thread win32 with _win32 sufix
 # use: BOOST_THREAD_LIB_SUFFIX=_win32-...
-# or when linking against a specific BerkelyDB version: BDB_LIB_SUFFIX=-4.8	
+# or when linking against a specific BerkelyDB version: BDB_LIB_SUFFIX=-4.8    
 
 # 	 Dependency library locations can be customized with:
 #    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
@@ -274,12 +274,12 @@ HEADERS += src/qt/bitcoingui.h \
     src/crypto/sha1.h \
     src/crypto/sha256.h \
     src/crypto/sha512.h \
-	src/smessage.h \
+    src/smessage.h \
     src/qt/masternodemanager.h \
     src/qt/addeditadrenalinenode.h \
     src/qt/adrenalinenodeconfigdialog.h \
     src/qt/qcustomplot.h \
-	src/qt/blockexplorer.h \
+    src/qt/blockexplorer.h \
     src/qt/messagepage.h \
     src/qt/messagemodel.h \
     src/qt/sendmessagesdialog.h \
@@ -314,6 +314,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/bitcoinaddressvalidator.cpp \
     src/alert.cpp \
     src/base58.cpp \
+    src/allocators.cpp \
     src/chainparams.cpp \
     src/version.cpp \
     src/sync.cpp \
@@ -409,7 +410,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/messagemodel.cpp \
     src/qt/sendmessagesdialog.cpp \
     src/qt/sendmessagesentry.cpp \
-	src/qt/blockexplorer.cpp \
+    src/qt/blockexplorer.cpp \
     src/qt/qvalidatedtextedit.cpp \
     src/qt/plugins/mrichtexteditor/mrichtextedit.cpp \
     src/rpcsmessage.cpp \
@@ -448,7 +449,7 @@ FORMS += \
     src/qt/forms/messagepage.ui \
     src/qt/forms/sendmessagesentry.ui \
     src/qt/forms/sendmessagesdialog.ui \
-	src/qt/forms/blockexplorer.ui \
+    src/qt/forms/blockexplorer.ui \
     src/qt/plugins/mrichtexteditor/mrichtextedit.ui
     
 
