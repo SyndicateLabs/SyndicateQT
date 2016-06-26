@@ -68,6 +68,10 @@ static const int64_t MAX_MONEY = 25000000 * COIN; // 9,950,000 Million from POW
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 /** Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp. */
 static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20 1985 UTC
+/** Number of blocks that can be requested at any given time from a single peer. */
+static const int MAX_BLOCKS_IN_TRANSIT_PER_PEER = 128;
+/** Timeout in seconds before considering a block download peer unresponsive. */
+static const unsigned int BLOCK_DOWNLOAD_TIMEOUT = 60;
 
 static const int64_t DRIFT = 600;
 inline int64_t FutureDrift(int64_t nTime) { return nTime + DRIFT; }
@@ -116,6 +120,7 @@ class CReserveKey;
 class CTxDB;
 class CTxIndex;
 class CWalletInterface;
+struct CNodeStateStats;
 
 /** Register a wallet to receive updates from core */
 void RegisterWallet(CWalletInterface* pwalletIn);
@@ -174,11 +179,16 @@ int GetInputAgeIX(uint256 nTXHash, CTxIn& vin);
 int GetIXConfirmations(uint256 nTXHash);
 /** Abort with a message */
 bool AbortNode(const std::string &msg, const std::string &userMessage="");
+/** Get statistics from node state */
+bool GetNodeStateStats(NodeId nodeid, CNodeStateStats &stats);
 /** Increase a node's misbehavior score. */
 void Misbehaving(NodeId nodeid, int howmuch);
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue);
 
+struct CNodeStateStats {
+    int nMisbehavior;
+};
 
 /** Position on disk for a particular transaction. */
 class CDiskTxPos
@@ -937,6 +947,8 @@ public:
     unsigned int nTime;
     unsigned int nBits;
     unsigned int nNonce;
+    // (memory only) Sequencial id assigned to distinguish order in which blocks are received.
+    uint32_t nSequenceId;
 
     CBlockIndex()
     {
@@ -955,6 +967,7 @@ public:
         hashProof = 0;
         prevoutStake.SetNull();
         nStakeTime = 0;
+		nSequenceId = 0;
 
         nVersion       = 0;
         hashMerkleRoot = 0;
@@ -978,6 +991,7 @@ public:
         nStakeModifier = 0;
         bnStakeModifierV2 = 0;
         hashProof = 0;
+		nSequenceId = 0;
         if (block.IsProofOfStake())
         {
             SetProofOfStake();
