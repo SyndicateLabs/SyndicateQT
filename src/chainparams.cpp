@@ -95,6 +95,10 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4);
 
+        vSeeds.push_back(CDNSSeedData("SYNX1", "198.199.100.4"));
+        vSeeds.push_back(CDNSSeedData("SYNX2", "107.170.247.240"));
+        vSeeds.push_back(CDNSSeedData("SYNX3", "162.243.0.171"));
+        vSeeds.push_back(CDNSSeedData("SYNX4", "162.243.62.235"));
         vSeeds.push_back(CDNSSeedData("SyndicateBlockExplorer", "107.170.232.206"));
 		vSeeds.push_back(CDNSSeedData("SyndicateNode1", "162.243.121.185"));
         convertSeeds(vFixedSeeds, pnSeed, ARRAYLEN(pnSeed), nDefaultPort);
