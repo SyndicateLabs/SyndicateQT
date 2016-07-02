@@ -119,7 +119,6 @@ void Shutdown()
         bitdb.Flush(false);
 #endif
     StopNode();
-	UnregisterNodeSignals(GetNodeSignals());
     DumpMasternodes();
     {
         LOCK(cs_main);

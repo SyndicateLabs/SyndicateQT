@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2009-2010 Satoshi Nakamoto
+// Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -50,16 +50,11 @@ void StartNode(boost::thread_group& threadGroup);
 bool StopNode();
 void SocketSendData(CNode *pnode);
 
-typedef int NodeId;
-
 // Signals for message handling
 struct CNodeSignals
 {
-	boost::signals2::signal<int ()> GetHeight;
     boost::signals2::signal<bool (CNode*)> ProcessMessages;
     boost::signals2::signal<bool (CNode*, bool)> SendMessages;
-    boost::signals2::signal<void (NodeId, const CNode*)> InitializeNode;
-    boost::signals2::signal<void (NodeId)> FinalizeNode;
 };
 
 CNodeSignals& GetNodeSignals();
@@ -124,8 +119,6 @@ extern CCriticalSection cs_vAddedNodes;
 extern NodeId nLastNodeId;
 extern CCriticalSection cs_nLastNodeId;
 
-extern NodeId nLastNodeId;
-extern CCriticalSection cs_nLastNodeId;
 
 class CNodeStats
 {
@@ -141,6 +134,7 @@ public:
     std::string strSubVer;
     bool fInbound;
     int nStartingHeight;
+    int nMisbehavior;
     uint64_t nSendBytes;
     uint64_t nRecvBytes;
     bool fSyncNode;
@@ -276,6 +270,7 @@ protected:
     std::vector<std::string> vecRequestsFulfilled; //keep track of what client has asked for
 
 public:
+    int nMisbehavior;
     uint256 hashContinue;
     CBlockIndex* pindexLastGetBlocksBegin;
     uint256 hashLastGetBlocksEnd;
@@ -336,6 +331,7 @@ public:
         nStartingHeight = -1;
         fStartSync = false;
         fGetAddr = false;
+        nMisbehavior = 0;
         hashCheckpointKnown = 0;
         setInventoryKnown.max_size(SendBufferSize() / 1000);
         nPingNonceSent = 0;
@@ -351,7 +347,6 @@ public:
         // Be shy and don't send version until we hear
         if (hSocket != INVALID_SOCKET && !fInbound)
             PushVersion();
-		GetNodeSignals().InitializeNode(GetId(), this);
     }
 
     ~CNode()
@@ -361,8 +356,6 @@ public:
             closesocket(hSocket);
             hSocket = INVALID_SOCKET;
         }
-		
-		GetNodeSignals().FinalizeNode(GetId());
     }
 
 private:
@@ -459,7 +452,7 @@ public:
         LogPrint("net", "askfor %s   %d (%s)\n", inv.ToString(), nRequestTime, DateTimeStrFormat("%H:%M:%S", nRequestTime/1000000));
 
         // Make sure not to reuse time indexes to keep things in the same order
-        int64_t nNow = GetTimeMicros() - 1000000;
+        int64_t nNow = (GetTime() - 1) * 1000000;
         static int64_t nLastTime;
         ++nLastTime;
         nNow = std::max(nNow, nLastTime);
@@ -772,7 +765,7 @@ template<typename T1, typename T2, typename T3, typename T4, typename T5, typena
     // new code.
     static void ClearBanned(); // needed for unit testing
     static bool IsBanned(CNetAddr ip);
-    static bool Ban(const CNetAddr &ip);
+    bool Misbehaving(int howmuch); // 1 == a little, 100 == a lot
     void copyStats(CNodeStats &stats);
 
     // Network stats

@@ -30,7 +30,7 @@
 using namespace std;
 using namespace boost;
 
-static const int MAX_OUTBOUND_CONNECTIONS = 16;
+static const int MAX_OUTBOUND_CONNECTIONS = 300;
 
 bool OpenNetworkConnection(const CAddress& addrConnect, CSemaphoreGrant *grantOutbound = NULL, const char *strDest = NULL, bool fOneShot = false);
 
@@ -479,14 +479,29 @@ bool CNode::IsBanned(CNetAddr ip)
     return fResult;
 }
 
-bool CNode::Ban(const CNetAddr &addr) {
-    int64_t banTime = GetTime()+GetArg("-bantime", 60*60*24);  // Default 24-hour ban
+bool CNode::Misbehaving(int howmuch)
+{
+    if (addr.IsLocal())
     {
-        LOCK(cs_setBanned);
-        if (setBanned[addr] < banTime)
-            setBanned[addr] = banTime;
+        LogPrintf("Warning: Local node %s misbehaving (delta: %d)!\n", addrName, howmuch);
+        return false;
     }
-	return true;
+
+    nMisbehavior += howmuch;
+    if (nMisbehavior >= GetArg("-banscore", 100))
+    {
+        int64_t banTime = GetTime()+GetArg("-bantime", 60*60*24);  // Default 24-hour ban
+        LogPrintf("Misbehaving: %s (%d -> %d) DISCONNECTING\n", addr.ToString(), nMisbehavior-howmuch, nMisbehavior);
+        {
+            LOCK(cs_setBanned);
+            if (setBanned[addr] < banTime)
+                setBanned[addr] = banTime;
+        }
+        CloseSocketDisconnect();
+        return true;
+    } else
+        LogPrintf("Misbehaving: %s (%d -> %d)\n", addr.ToString(), nMisbehavior-howmuch, nMisbehavior);
+    return false;
 }
 
 #undef X
@@ -504,6 +519,7 @@ void CNode::copyStats(CNodeStats &stats)
     X(strSubVer);
     X(fInbound);
     X(nStartingHeight);
+    X(nMisbehavior);
     X(nSendBytes);
     X(nRecvBytes);
     stats.fSyncNode = (this == pnodeSync);
