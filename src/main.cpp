@@ -3810,20 +3810,10 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         CTxIn vin;
         vector<unsigned char> vchSig;
         int64_t sigTime;
-        CInv inv;
-        CTxDB txdb("r");
 
         if(strCommand == "tx") {
-        	CInv inv(MSG_TX, tx.GetHash());
-            // Check for recently rejected (and do other quick existence checks)
-            if (AlreadyHave(txdb, inv))
-                return true;
             vRecv >> tx;
         } else if (strCommand == "dstx") {
-        	CInv inv(MSG_DSTX, tx.GetHash());
-            // Check for recently rejected (and do other quick existence checks)
-            if (AlreadyHave(txdb, inv))
-                return true;
             //these allow masternodes to publish a limited amount of free transactions
             vRecv >> tx >> vin >> vchSig >> sigTime;
 
@@ -3862,6 +3852,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
             }
         }
 		
+		CInv inv(MSG_TX, tx.GetHash());
         pfrom->AddInventoryKnown(inv);
 
         LOCK(cs_main);

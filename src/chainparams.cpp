@@ -94,8 +94,18 @@ public:
         base58Prefixes[STEALTH_ADDRESS] = list_of(40);
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4);
-
-        vSeeds.push_back(CDNSSeedData("SYNX1", "198.199.100.4"));
+		
+		vSeeds.push_back(CDNSSeedData("Syndicate1", "192.241.215.173"));
+		vSeeds.push_back(CDNSSeedData("Syndicate2", "192.241.237.60"));
+		vSeeds.push_back(CDNSSeedData("Syndicate3", "162.243.130.27"));
+		vSeeds.push_back(CDNSSeedData("Syndicate4", "162.243.131.87"));
+		vSeeds.push_back(CDNSSeedData("Syndicate5", "107.170.229.36"));
+		vSeeds.push_back(CDNSSeedData("Syndicate6", "104.131.58.180"));
+		vSeeds.push_back(CDNSSeedData("Syndicate7", "104.236.233.90"));
+		vSeeds.push_back(CDNSSeedData("Syndicate8", "45.55.179.6"));
+		vSeeds.push_back(CDNSSeedData("Syndicate9", "45.55.181.27"));
+		vSeeds.push_back(CDNSSeedData("Syndicate10", "45.55.181.37"));
+		vSeeds.push_back(CDNSSeedData("SYNX1", "198.199.100.4"));
         vSeeds.push_back(CDNSSeedData("SYNX2", "107.170.247.240"));
         vSeeds.push_back(CDNSSeedData("SYNX3", "162.243.0.171"));
         vSeeds.push_back(CDNSSeedData("SYNX4", "162.243.62.235"));

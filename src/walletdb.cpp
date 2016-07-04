@@ -376,8 +376,13 @@ ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue,
             ssKey >> hash;
             CWalletTx& wtx = pwallet->mapWallet[hash];
             ssValue >> wtx;
-			if (!(wtx.CheckTransaction() && (wtx.GetHash() == hash)))
+            if (wtx.CheckTransaction() && (wtx.GetHash() == hash))
+                wtx.BindWallet(pwallet);
+            else
+            {
+                pwallet->mapWallet.erase(hash);
                 return false;
+				}
 
             // Undo serialize changes in 31600
             if (31404 <= wtx.fTimeReceivedIsTxTime && wtx.fTimeReceivedIsTxTime <= 31703)
