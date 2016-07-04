@@ -99,7 +99,7 @@ public:
 		vSeeds.push_back(CDNSSeedData("Syndicate2", "192.241.237.60"));
 		vSeeds.push_back(CDNSSeedData("Syndicate3", "162.243.130.27"));
 		vSeeds.push_back(CDNSSeedData("Syndicate4", "162.243.131.87"));
-		vSeeds.push_back(CDNSSeedData("Syndicate5", "107.170.229.36"));
+		vSeeds.push_back(CDNSSeedData("Syndicate5", "104.131.145.170"));
 		vSeeds.push_back(CDNSSeedData("Syndicate6", "104.131.58.180"));
 		vSeeds.push_back(CDNSSeedData("Syndicate7", "104.236.233.90"));
 		vSeeds.push_back(CDNSSeedData("Syndicate8", "45.55.179.6"));
