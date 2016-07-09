@@ -154,7 +154,7 @@ OverviewPage::OverviewPage(QWidget *parent) :
       ui->diffplot->setBackground(QColor(103, 108, 118));
 
       // set the pens
-      ui->diffplot->graph(0)->setPen(QPen(QColor(255, 255, 255)));
+      ui->diffplot->graph(0)->setPen(QPen(QColor(42, 171, 228)));
       ui->diffplot->graph(0)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 3));
 
       ui->diffplot->graph(1)->setPen(QPen(QColor(0,0,255)));
