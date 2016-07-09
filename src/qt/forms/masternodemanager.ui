@@ -13,20 +13,8 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="topLayout">
-   <property name="leftMargin">
-    <number>0</number>
-   </property>
-   <property name="topMargin">
-    <number>0</number>
-   </property>
-   <property name="rightMargin">
-    <number>0</number>
-   </property>
-   <property name="bottomMargin">
-    <number>0</number>
-   </property>
-   <item>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="0" column="0">
     <layout class="QVBoxLayout" name="verticalLayout">
      <property name="bottomMargin">
       <number>0</number>
@@ -128,7 +116,7 @@
        </widget>
        <widget class="QWidget" name="tab_2">
         <attribute name="title">
-         <string>My Master Nodes</string>
+         <string>My Masternodes</string>
         </attribute>
         <layout class="QGridLayout" name="gridLayout_2">
          <item row="0" column="0">
@@ -146,17 +134,18 @@
               </widget>
              </item>
              <item>
-              <spacer name="horizontalSpacer">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+              <widget class="QPushButton" name="editButton">
+               <property name="text">
+                <string>&amp;Edit</string>
                </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="removeButton">
+               <property name="text">
+                <string>&amp;Remove</string>
                </property>
-              </spacer>
+              </widget>
              </item>
             </layout>
            </item>
@@ -205,54 +194,6 @@
             </widget>
            </item>
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_2">
-             <property name="bottomMargin">
-              <number>0</number>
-             </property>
-             <item>
-              <widget class="QPushButton" name="editButton">
-               <property name="text">
-                <string>&amp;Edit</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="removeButton">
-               <property name="text">
-                <string>&amp;Remove</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="UpdateButton">
-               <property name="text">
-                <string>&amp;Update</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_2">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_4">
-             <property name="bottomMargin">
-              <number>0</number>
-             </property>
-            </layout>
-           </item>
-           <item>
             <layout class="QHBoxLayout" name="horizontalLayout_5">
              <property name="bottomMargin">
               <number>0</number>
@@ -272,17 +213,11 @@
               </widget>
              </item>
              <item>
-              <spacer name="horizontalSpacer_5">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+              <widget class="QPushButton" name="UpdateButton">
+               <property name="text">
+                <string>&amp;Update</string>
                </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
+              </widget>
              </item>
             </layout>
            </item>
