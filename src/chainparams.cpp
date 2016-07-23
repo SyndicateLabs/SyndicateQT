@@ -97,7 +97,6 @@ public:
 		
 
         vSeeds.push_back(CDNSSeedData("syndicatelabs.org", "dnsseed1.syndicatelabs.org"));
-        vSeeds.push_back(CDNSSeedData("syndicatelabs.org", "dnsseed2.syndicatelabs.org"));
         convertSeeds(vFixedSeeds, pnSeed, ARRAYLEN(pnSeed), nDefaultPort);
 		
 

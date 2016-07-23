@@ -15,8 +15,10 @@
         <location line="+41"/>
         <source>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014 The Syndicate developers</source>
-        <translation type="unfinished"/>
+Copyright © 2016 The Syndicate developers</source>
+        <translation><source>Copyright © 2009-2014 Die Bitcoin Entwickler
+Copyright © 2012-2014 Die NovaCoin Entwickler
+Copyright © 2016 Die Syndicate Entwickler</source></translation>
     </message>
     <message>
         <location line="+15"/>
@@ -26,7 +28,7 @@ This is experimental software.
 Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/a&gt;.
 
 This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;a href=&quot;https://www.openssl.org/&quot;&gt;https://www.openssl.org/&lt;/a&gt;) and cryptographic software written by Eric Young (&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;eay@cryptsoft.com&lt;/a&gt;) and UPnP software written by Thomas Bernard.</source>
-        <translation type="unfinished"/>
+        <translation>Veröffentlicht unter der MIT-Softwarelizenz, siehe beiligende Datei COPYING oder &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
     </message>
 </context>
 <context>
@@ -39,7 +41,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="+22"/>
         <source>Double-click to edit address or label</source>
-        <translation>Doppelklicken, um die Adresse oder die Bezeichnung zu bearbeiten</translation>
+        <translation>Doppelklick zum Bearbeiten der Adresse oder der Bezeichnung</translation>
     </message>
     <message>
         <location line="+24"/>
@@ -59,7 +61,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="-43"/>
         <source>These are your Syndicate addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Das sind Ihre Syndicate Adressen um Zahlungen zu erhalten. Sie werden vielleicht verschiedene an jeden Sender vergeben, damit Sie im Auge behalten können wer Sie bezahlt.</translation>
+        <translation>Das sind Ihre Syndicate Adressen um Zahlungen zu erhalten. Sie werden vielleicht verschiedene an jeden Sender vergeben, damit Sie im Auge behalten können wer Sie bezahlt hat.</translation>
     </message>
     <message>
         <location line="+53"/>
@@ -89,7 +91,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="-10"/>
         <source>Verify a message to ensure it was signed with a specified Syndicate address</source>
-        <translation>Verifizieren Sie ob eine Nachricht einer bestimmten Syndicate Adresse signiert wurde</translation>
+        <translation>Nachrichten verifizieren, um sicherzustellen, dass diese mit den angegebenen Bitcoin-Adressen signiert wurden</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -109,7 +111,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="+2"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Editieren</translation>
+        <translation>&amp;Bearbeiten</translation>
     </message>
     <message>
         <location line="+250"/>
@@ -175,7 +177,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="+33"/>
         <source>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</source>
-        <translation type="unfinished"/>
+        <translation>Dient dazu, um das einfache Versenden zu deaktiviren wenn das Betriebssystem kompromittiert wurde. Bietet keine wirkliche Sicherheit.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -225,17 +227,17 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="+1"/>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR COINS&lt;/b&gt;!</source>
-        <translation>Warnung: Wenn Sie Ihre Wallet verschlüsseln und die Passphrase verlieren, führt dies zum &lt;b&gt;VERLUST ALLER COINS&lt;/b&gt;!</translation>
+        <translation>Warnung: Wenn Sie Ihr Wallet verschlüsseln und die Passphrase verlieren, führt dies zum &lt;b&gt;VERLUST ALLER COINS&lt;/b&gt;!</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Are you sure you wish to encrypt your wallet?</source>
-        <translation>Sind Sie sich sicher, dass Sie Ihre Wallet verschlüsseln möchten?</translation>
+        <translation>Sind Sie sich sicher, dass Sie Ihr Wallet verschlüsseln möchten?</translation>
     </message>
     <message>
         <location line="+15"/>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
-        <translation>WICHTIG: Alle vorherigen Wallet-Sicherungen sollten durch die neu erzeugte, verschlüsselte Wallet ersetzt werden. Aus Sicherheitsgründen werden vorherige Sicherungen der unverschlüsselten Wallet nutzlos, sobald Sie die neue, verschlüsselte Wallet verwenden.</translation>
+        <translation>WICHTIG: Alle vorherigen Wallet-Sicherungen sollten durch das neu erzeugte, verschlüsselte Wallet ersetzt werden. Aus Sicherheitsgründen werden vorherige Sicherungen des unverschlüsselten Wallet nutzlos sobald Sie das neue, verschlüsselte Wallet verwenden.</translation>
     </message>
     <message>
         <location line="+103"/>
@@ -252,12 +254,12 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="-140"/>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Geben Sie die neue Passphrase für das Wallet ein.&lt;br/&gt; Bitte verwenden Sie eine Passphrase mit &lt;b&gt;zehn oder mehr zufälligen Zeichen&lt;/b&gt;, oder &lt;b&gt;acht oder mehr Worten&lt;/b&gt;.</translation>
     </message>
     <message>
         <location line="+82"/>
         <source>Syndicate will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
-        <translation>Syndicate wird sich schließen um den Verschlüsselungsvorgang abzuschließen. Beachten Sie, dass die Verschlüsselung Ihrer Wallet keinen vollständigen Schutz vor Diebstahl Ihrer Coins duch auf Ihrem Computer installierte Malware gewährleistet</translation>
+        <translation>Syndicate wird sich schließen um den Verschlüsselungsvorgang abzuschließen. Beachten Sie, dass die Verschlüsselung Ihres Wallets keinen vollständigen Schutz vor Diebstahl Ihrer Coins duch auf Ihrem Computer installierte Malware gewährleistet.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -499,7 +501,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <location line="+0"/>
         <location line="+58"/>
         <source>Syndicate client</source>
-        <translation type="unfinished"/>
+        <translation>Syndicate Client</translation>
     </message>
     <message numerus="yes">
         <location line="+70"/>
@@ -514,17 +516,17 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="+6"/>
         <source>Not staking because wallet is locked</source>
-        <translation>Keine Zinsen werden erzeugt, da die Brieftasche gesperrt ist</translation>
+        <translation>Es werden keine Zinsen erzeugt, da die Brieftasche gesperrt ist</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Not staking because wallet is offline</source>
-        <translation>Es werden keine Zinsen werden erzeugt, da die Brieftasche gesperrt ist</translation>
+        <translation>Es werden keine Zinsen werden erzeugt, da das Wallet gesperrt ist</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Not staking because wallet is syncing</source>
-        <translation>Es werden keine Zinsen werden erzeugt, da die Brieftasche nicht synchronisiert ist</translation>
+        <translation>Es werden keine Zinsen werden erzeugt, da das Wallet nicht synchronisiert ist</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -534,17 +536,17 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="-808"/>
         <source>&amp;Dashboard</source>
-        <translation type="unfinished"/>
+        <translation>Übersichtsseite</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>&amp;Receive</source>
-        <translation type="unfinished"/>
+        <translation>Empfangen</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>&amp;Send</source>
-        <translation type="unfinished"/>
+        <translation>Senden</translation>
     </message>
     <message>
         <location line="+49"/>
@@ -559,7 +561,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="+43"/>
         <source>Catching up...</source>
-        <translation>Hole auf...</translation>
+        <translation>Synchronisiere...</translation>
     </message>
     <message>
         <location line="+113"/>
@@ -592,18 +594,18 @@ Adresse: %4</translation>
         <location line="+100"/>
         <location line="+15"/>
         <source>URI handling</source>
-        <translation type="unfinished"/>
+        <translation>URI Handhabung</translation>
     </message>
     <message>
         <location line="-15"/>
         <location line="+15"/>
         <source>URI can not be parsed! This can be caused by an invalid Syndicate address or malformed URI parameters.</source>
-        <translation>Die URI kann nicht erkannt werden! Die Ursache hierfür kann eine ungültige Syndicate Adresse oder eine fehlerhafte Angabe der URI Parameter sein.</translation>
+        <translation>Die URI konnte nicht verarbeitet werden! Die Ursache hierfür kann eine ungültige Syndicate Adresse oder eine fehlerhafte Angabe der URI Parameter sein.</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Wallet is &lt;b&gt;not encrypted&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Wallet ist &lt;b&gt;nicht verschlüsselt&lt;/b&gt;</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -623,7 +625,7 @@ Adresse: %4</translation>
     <message>
         <location line="+0"/>
         <source>Wallet Data (*.dat)</source>
-        <translation type="unfinished"/>
+        <translation>Wallet Daten (*.dat)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -654,7 +656,7 @@ Adresse: %4</translation>
     <message>
         <location line="-456"/>
         <source>Processed %1 blocks of transaction history.</source>
-        <translation type="unfinished"/>
+        <translation>%1 Blöcke des Transaktionsverlaufs verarbeitet.</translation>
     </message>
     <message numerus="yes">
         <location line="+27"/>
@@ -666,27 +668,27 @@ Adresse: %4</translation>
         <location line="-429"/>
         <location line="+6"/>
         <source>%n week(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n Woche</numerusform><numerusform>%n Wochen</numerusform></translation>
     </message>
     <message>
         <location line="+0"/>
         <source>%1 and %2</source>
-        <translation type="unfinished"/>
+        <translation>%1 und 2%</translation>
     </message>
     <message numerus="yes">
         <location line="+0"/>
         <source>%n year(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n Jahr</numerusform><numerusform>%n Jahre</numerusform></translation>
     </message>
     <message>
         <location line="+5"/>
         <source>%1 behind</source>
-        <translation type="unfinished"/>
+        <translation>%1 im Rückstand</translation>
     </message>
     <message>
         <location line="+15"/>
         <source>Last received block was generated %1 ago.</source>
-        <translation type="unfinished"/>
+        <translation>Der letzte empfangene Block ist %1 alt.</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -696,27 +698,27 @@ Adresse: %4</translation>
     <message>
         <location line="+23"/>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Fehler.</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Warning</source>
-        <translation type="unfinished"/>
+        <translation>Warnung</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Information</source>
-        <translation type="unfinished"/>
+        <translation>Information</translation>
     </message>
     <message>
         <location line="+69"/>
         <source>This transaction is over the size limit. You can still send it for a fee of %1, which goes to the nodes that process your transaction and helps to support the network. Do you want to pay the fee?</source>
-        <translation type="unfinished"/>
+        <translation>Diese Transaktion liegt über dem Größenlimit. Sie kann für eine Gebühr von %1 versendet werden und geht an die Nodes, die die Transaktion verarbeiten und unterstützt gleichzeitig das Netzwerk. Möchten Sie die Gebühr bezahlen?</translation>
     </message>
     <message>
         <location line="+324"/>
         <source>Not staking</source>
-        <translation type="unfinished"/>
+        <translation>Keine Zinsen</translation>
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+104"/>
@@ -737,7 +739,7 @@ Adresse: %4</translation>
     <message>
         <location filename="../forms/coincontroldialog.ui" line="+14"/>
         <source>Coin Control</source>
-        <translation type="unfinished"/>
+        <translation>Münzauswahl ("Coin Control")</translation>
     </message>
     <message>
         <location line="+31"/>
@@ -942,7 +944,12 @@ Adresse: %4</translation>
  This means a fee of at least %1 per kb is required.
 
  Can vary +/- 1 Byte per input.</source>
-        <translation type="unfinished"/>
+        <translation>Dieses Label wird rot, sobald die Größe der Transaktion 10000 Bytes überschreitet.
+
+ Das bedeutet eine Gebühr von mindestens %1 pro KB ist notwendig.
+
+ Kann +/- 1 Byte pro Input variieren.        
+        </translation>
     </message>
     <message>
         <location line="+1"/>
@@ -951,7 +958,11 @@ Adresse: %4</translation>
 This label turns red, if the priority is smaller than &quot;medium&quot;.
 
  This means a fee of at least %1 per kb is required.</source>
-        <translation type="unfinished"/>
+        <translation>Transaktionen mit einer höheren Priorität werden mit größerer Wahrscheinlichkeit in einen Block aufgenommen.
+        
+Dieses Label wird rot, sofern die Priorität kleiner als &quot;medium&quot; ist.
+
+ Das bedeutet eine Gebühr von mindestens %1 pro KB ist notwendig.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -960,14 +971,20 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
  This means a fee of at least %2 is required. 
 
  Amounts below 0.546 times the minimum relay fee are shown as DUST.</source>
-        <translation type="unfinished"/>
+        <translation>Dieses Label wird rot, sofern ein Empfänger weniger als %1 erhält.
+        
+ Das bedeutet eine Gebühr von mindestens %2 ist notwendig.
+
+ Beträge geringer als 0.546 mal die minimale Weiterleitungsgebühr werden als DUST angezeigt.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>This label turns red, if the change is smaller than %1.
 
  This means a fee of at least %2 is required.</source>
-        <translation type="unfinished"/>
+<translation>Dieses Label wird rot, sobald das Wechselgeld weniger als %1 beträgt.
+        
+ Das bedeutet eine Gebühr von mindestens %2 ist notwendig.</translation>
     </message>
     <message>
         <location line="+36"/>
@@ -1060,7 +1077,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location filename="../guiutil.cpp" line="+426"/>
         <location line="+12"/>
         <source>Syndicate-Qt</source>
-        <translation type="unfinished"/>
+        <translation>Syndicate-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1080,12 +1097,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+4"/>
         <source>UI options</source>
-        <translation type="unfinished"/>
+        <translation>UI Optionen</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Set language, for example &quot;de_DE&quot; (default: system locale)</source>
-        <translation type="unfinished"/>
+        <translation>Sprache wählen, zum Beispiel &quot;de_DE&quot; (Default: Systemsprache)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1095,7 +1112,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+1"/>
         <source>Show splash screen on startup (default: 1)</source>
-        <translation type="unfinished"/>
+        <translation>Splash Bildschirm beim Start anzeigen</translation>
     </message>
 </context>
 <context>
@@ -1158,12 +1175,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+7"/>
         <source>Connect to the Syndicate network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation type="unfinished"/>
+        <translation>Über einen SOCKS5-Proxy mit dem Syndicate-Netzwerk verbinden.</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>&amp;Connect through SOCKS proxy:</source>
-        <translation>&amp;Verbinde über SOCKS Proxy:</translation>
+        <translation>&amp;Verbinde über einen SOCKS Proxy:</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -1258,17 +1275,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+7"/>
         <source>Whether to select the coin outputs randomly or with minimal coin age.</source>
-        <translation type="unfinished"/>
+        <translation>Outputs zufällig oder mit Mindestalter auswählen</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Minimize weight consumption (experimental)</source>
-        <translation type="unfinished"/>
+        <translation>Minimiere Ressourcenverbrauch (experimentell)</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Use black visual theme (requires restart)</source>
-        <translation type="unfinished"/>
+        <translation>Schwarzes Theme verwenden (Neustart notwendig)</translation>
     </message>
     <message>
         <location line="+71"/>
@@ -1324,7 +1341,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="-173"/>
         <source>Stake:</source>
-        <translation type="unfinished"/>
+        <translation>Zinsen:</translation>
     </message>
     <message>
         <location line="+32"/>
@@ -1379,7 +1396,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="-32"/>
         <source>Total of coins that was staked, and do not yet count toward the current balance</source>
-        <translation type="unfinished"/>
+        <translation>Gesamtzahl Münzen mit Zinsen die noch nicht freigegeben sind</translation>
     </message>
     <message>
         <location filename="../overviewpage.cpp" line="+116"/>
@@ -1393,7 +1410,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
         <source>Cannot start Syndicate: click-to-pay handler</source>
-        <translation type="unfinished"/>
+        <translation>Kann Syndicate nicht starten: Klick-Handler für die Bezahlung</translation>
     </message>
 </context>
 <context>
@@ -1511,7 +1528,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+23"/>
         <source>Block chain</source>
-        <translation>Block kette</translation>
+        <translation>Block chain</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1521,32 +1538,32 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+197"/>
         <source>&amp;Network Traffic</source>
-        <translation type="unfinished"/>
+        <translation>&amp; Netzwerk Verkehr</translation>
     </message>
     <message>
         <location line="+52"/>
         <source>&amp;Clear</source>
-        <translation type="unfinished"/>
+        <translation>Zurücksetzen</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>Totals</source>
-        <translation type="unfinished"/>
+        <translation>Summen</translation>
     </message>
     <message>
         <location line="+64"/>
         <source>In:</source>
-        <translation type="unfinished"/>
+        <translation>Eingehend:</translation>
     </message>
     <message>
         <location line="+80"/>
         <source>Out:</source>
-        <translation type="unfinished"/>
+        <translation>Ausgehend</translation>
     </message>
     <message>
         <location line="-383"/>
         <source>Last block time</source>
-        <translation>Letzte Blockzeit</translation>
+        <translation>Zeitpunkt letzter Block</translation>
     </message>
     <message>
         <location line="+52"/>
@@ -1561,7 +1578,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+7"/>
         <source>Show the Syndicate-Qt help message to get a list with possible Syndicate command-line options.</source>
-        <translation type="unfinished"/>
+        <translation>Zeige die Syndicate-Qt Hilfe um eine Liste der möglichen Syndicate Kommandozeilen Parameter zu erhalten.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1596,7 +1613,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+7"/>
         <source>Open the Syndicate debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation type="unfinished"/>
+        <translation>Öffne die Syndicate Debug Logdatei im aktuellen Datenverzeichnis. Das kann für große Dateien einige Sekunden dauern.</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -1606,7 +1623,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../rpcconsole.cpp" line="+325"/>
         <source>Welcome to the Syndicate RPC console.</source>
-        <translation type="unfinished"/>
+        <translation>Willkommen in der Syndicate RPC Konsole.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1621,37 +1638,37 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+127"/>
         <source>%1 B</source>
-        <translation type="unfinished"/>
+        <translation>%1 B</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>%1 KB</source>
-        <translation type="unfinished"/>
+        <translation>%1 KB</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>%1 MB</source>
-        <translation type="unfinished"/>
+        <translation>%1 MB</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>%1 GB</source>
-        <translation type="unfinished"/>
+        <translation>%1 GB</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>%1 m</source>
-        <translation type="unfinished"/>
+        <translation>%1 m</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>%1 h</source>
-        <translation type="unfinished"/>
+        <translation>%1 h</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>%1 h %2 m</source>
-        <translation type="unfinished"/>
+        <translation>%1 h %2 m</translation>
     </message>
 </context>
 <context>
@@ -1697,7 +1714,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="+22"/>
         <location line="+35"/>
         <source>0</source>
-        <translation type="unfinished"/>
+        <translation>0</translation>
     </message>
     <message>
         <location line="-19"/>
@@ -1715,7 +1732,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="+86"/>
         <location line="+32"/>
         <source>0.00 SYNX</source>
-        <translation type="unfinished"/>
+        <translation>0.00 SYNX</translation>
     </message>
     <message>
         <location line="-191"/>
@@ -1725,7 +1742,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+19"/>
         <source>medium</source>
-        <translation type="unfinished"/>
+        <translation>mittel</translation>
     </message>
     <message>
         <location line="+32"/>
@@ -1740,7 +1757,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+19"/>
         <source>no</source>
-        <translation type="unfinished"/>
+        <translation>nein</translation>
     </message>
     <message>
         <location line="+32"/>
@@ -1750,12 +1767,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+35"/>
         <source>Change</source>
-        <translation type="unfinished"/>
+        <translation>Änderung</translation>
     </message>
     <message>
         <location line="+50"/>
         <source>custom change address</source>
-        <translation type="unfinished"/>
+        <translation>Benutzerdefinierte Wechseladresse</translation>
     </message>
     <message>
         <location line="+106"/>
@@ -1770,7 +1787,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+16"/>
         <source>Remove all transaction fields</source>
-        <translation type="unfinished"/>
+        <translation>Entferne alle Transaktionsfelder</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1785,7 +1802,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+16"/>
         <source>123.456 SYNX</source>
-        <translation type="unfinished"/>
+        <translation>123.456 SYNX</translation>
     </message>
     <message>
         <location line="+31"/>
@@ -1799,8 +1816,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location filename="../sendcoinsdialog.cpp" line="-173"/>
-        <source>Enter a Syndicate address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
-        <translation type="unfinished"/>
+        <source>Enter a Syndicate address (e.g. SSKYwMhQQt9DcWozt7zA1tR3DmRuw1gT6b)</source>
+        <translation>Gib eine Syndicate Adresse ein (z.B. SSKYwMhQQt9DcWozt7zA1tR3DmRuw1gT6b)</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -1845,7 +1862,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+86"/>
         <source>&lt;b&gt;%1&lt;/b&gt; to %2 (%3)</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;%1&lt;/b&gt; zu %2 (%3)</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1855,12 +1872,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+1"/>
         <source>Are you sure you want to send %1?</source>
-        <translation type="unfinished"/>
+        <translation>Sicher, dass Sie 1% versenden wollen?</translation>
     </message>
     <message>
         <location line="+0"/>
         <source> and </source>
-        <translation type="unfinished"/>
+        <translation> und </translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1890,12 +1907,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+5"/>
         <source>Error: Transaction creation failed!</source>
-        <translation type="unfinished"/>
+        <translation>Fehler: Erstellung der Transaktion fehlgeschlagen!</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Error: The transaction was rejected. This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation type="unfinished"/>
+        <translation>Fehler: Die Transaktion wurde abgelehnt. Das kann passieren wenn einige der Münzen im Wallet bereits ausgegeben wurden, z.B. wenn eine Kopie der wallet.dat verwendet wurde mit der Münzen versendet aber nicht entsprechend markiert wurden.</translation>
     </message>
     <message>
         <location line="+247"/>
@@ -1918,7 +1935,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../forms/sendcoinsentry.ui" line="+14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Formular</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -1932,8 +1949,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+34"/>
-        <source>The address to send the payment to (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
-        <translation type="unfinished"/>
+        <source>The address to send the payment to (e.g. SSKYwMhQQt9DcWozt7zA1tR3DmRuw1gT6b)</source>
+        <translation>Die Adresse an die die Zahlung geht (z.B. SSKYwMhQQt9DcWozt7zA1tR3DmRuw1gT6b)</translation>
     </message>
     <message>
         <location line="+60"/>
@@ -1973,8 +1990,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a Syndicate address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
-        <translation type="unfinished"/>
+        <source>Enter a Syndicate address (e.g. SSKYwMhQQt9DcWozt7zA1tR3DmRuw1gT6b)</source>
+        <translation>Geben Sie eine Syndicate Adresse ein (z.B. SSKYwMhQQt9DcWozt7zA1tR3DmRuw1gT6b)</translation>
     </message>
 </context>
 <context>
@@ -1997,8 +2014,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to sign the message with (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
-        <translation type="unfinished"/>
+        <source>The address to sign the message with (e.g. SSKYwMhQQt9DcWozt7zA1tR3DmRuw1gT6b)</source>
+        <translation>Die Adresse mit der die Nachricht signiert werden soll (z.B. SSKYwMhQQt9DcWozt7zA1tR3DmRuw1gT6b)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -2061,13 +2078,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+21"/>
-        <source>The address the message was signed with (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
-        <translation type="unfinished"/>
+        <source>The address the message was signed with (e.g. SSKYwMhQQt9DcWozt7zA1tR3DmRuw1gT6b)</source>
+        <translation>Die Adresse mit der die Nachricht signiert wurde (z.B. SSKYwMhQQt9DcWozt7zA1tR3DmRuw1gT6b)</translation>
     </message>
     <message>
         <location line="+40"/>
         <source>Verify the message to ensure it was signed with the specified Syndicate address</source>
-        <translation type="unfinished"/>
+        <translation>Überprüfen ob die Nachricht mit der angegebenen Syndicate Adresse signiert wurde</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2077,8 +2094,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a Syndicate address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
-        <translation type="unfinished"/>
+        <source>Enter a Syndicate address (e.g. SSKYwMhQQt9DcWozt7zA1tR3DmRuw1gT6b)</source>
+        <translation>Syndicate Adresse eingeben (z.B. SSKYwMhQQt9DcWozt7zA1tR3DmRuw1gT6b)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -2162,7 +2179,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../trafficgraphwidget.cpp" line="+75"/>
         <source>KB/s</source>
-        <translation type="unfinished"/>
+        <translation>KB/s</translation>
     </message>
 </context>
 <context>
@@ -2397,7 +2414,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+6"/>
         <source>Offline</source>
-        <translation type="unfinished"/>
+        <translation>Offline</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2667,7 +2684,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../bitcoinstrings.cpp" line="+173"/>
         <source>Syndicate version</source>
-        <translation type="unfinished"/>
+        <translation>Syndicate Version</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2727,7 +2744,18 @@ If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
 for example: alertnotify=echo %%s | mail -s &quot;Syndicate Alert&quot; admin@foo.com
 </source>
-        <translation type="unfinished"/>
+        <translation>%s, das Setzen von rpcpassword in der Konfigurationsdatei:
+%s
+Es wird empfohlen das folgende, zufällige Passwort zu verwenden:
+rpcuser=Syndicaterpc
+rpcpassword=%s
+(Sie müssen sich dieses Passwort nicht merken)
+Benutzername und Passwort müssen sich unterscheiden.
+Wenn die Datei nicht existiert, sollte sie mir der Berechtigung nur-lesen für den Eigentümer konfiguriert werden.
+Es ist auch empfohlen alertnotify zu aktivieren um bei Problemen verständigt zu werden;
+Zum Beispiel: alertnotify=echo %%s | mail -s &quot;Syndicate Alarm&quot; admin@foo.com
+        
+</translation>
     </message>
     <message>
         <location line="+27"/>
@@ -2762,17 +2790,17 @@ for example: alertnotify=echo %%s | mail -s &quot;Syndicate Alert&quot; admin@fo
     <message>
         <location line="+4"/>
         <source>Bind to given address. Use [host]:port notation for IPv6</source>
-        <translation type="unfinished"/>
+        <translation>Angegebene Adresse verwenden. Verwendedie [host]:port Notation für IPv6</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
-        <translation type="unfinished"/>
+        <translation>Adressen von Gegenstellen via DNS-Namensauflösung finden, falls zu wenige Adressen verfügbar sind (Standard: 1, außer bei -connect)</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Always query for peer addresses via DNS lookup (default: 0)</source>
-        <translation type="unfinished"/>
+        <translation>Adressen von Gegenstellen immer über DNS-Namensauflösung abfragen (Standard: %u)</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -2872,17 +2900,17 @@ for example: alertnotify=echo %%s | mail -s &quot;Syndicate Alert&quot; admin@fo
     <message>
         <location line="-91"/>
         <source>Sync checkpoints policy (default: strict)</source>
-        <translation type="unfinished"/>
+        <translation>Sync Kontrollpunkt Policy (default: strikt)</translation>
     </message>
     <message>
         <location line="+89"/>
         <source>Invalid -tor address: &apos;%s&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Ungültige -tor Adresse: &apos;%s&apos;</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Invalid amount for -reservebalance=&lt;amount&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Umzulässiger Wert für -reservebalance=&lt;amount&gt;</translation>
     </message>
     <message>
         <location line="-88"/>
@@ -2979,22 +3007,22 @@ for example: alertnotify=echo %%s | mail -s &quot;Syndicate Alert&quot; admin@fo
     <message>
         <location line="+44"/>
         <source>Error: Wallet locked, unable to create transaction!</source>
-        <translation type="unfinished"/>
+        <translation>Fehler: Wallet gesperrt, Transaktion kann nicht erstellt werden!</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
-        <translation type="unfinished"/>
+        <translation>FEhler: Diese Transaktion erfordert aufgrund des Werts, der Komplexität oder zuletzt empfangenen Zahlung eine Transaktionsgebühr von mindestens %s!</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Error: Transaction creation failed!</source>
-        <translation type="unfinished"/>
+        <translation>Fehler: Transaktion kann nicht erstellt werden!</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation type="unfinished"/>
+        <translation>Fehler: Die Transaktion wurde abgelehnt. Das kann passieren wenn einige der Münzen im Wallet bereits ausgegeben wurden, z.B. wenn eine Kopie der wallet.dat verwendet wurde mit der Münzen versendet aber nicht entsprechend markiert wurden.</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -3004,12 +3032,12 @@ for example: alertnotify=echo %%s | mail -s &quot;Syndicate Alert&quot; admin@fo
     <message>
         <location line="+1"/>
         <source>Information</source>
-        <translation type="unfinished"/>
+        <translation>Information</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>WARNING: syncronized checkpoint violation detected, but skipped!</source>
-        <translation type="unfinished"/>
+        <translation>WARNUNG: Verletzung eines Kontrollpunkts erkannt und ignoriert!</translation>
     </message>
     <message>
         <location line="-1"/>
@@ -3029,7 +3057,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Syndicate Alert&quot; admin@fo
     <message>
         <location line="-32"/>
         <source>Sync time with other nodes. Disable if time on your system is precise e.g. syncing with NTP (default: 1)</source>
-        <translation type="unfinished"/>
+        <translation>Zeit mit anderen Nodes synchronisieren. Deaktivieren wenn die Zeit auf dem System präzise ist, d.h. mit NTP synchronisiert wird (default: 1)</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -3039,22 +3067,22 @@ for example: alertnotify=echo %%s | mail -s &quot;Syndicate Alert&quot; admin@fo
     <message>
         <location line="+6"/>
         <source>Output debugging information (default: 0, supplying &lt;category&gt; is optional)</source>
-        <translation type="unfinished"/>
+        <translation>Debug informationen ausgeben (default: 0, &lt;Kategorie&gt; ist optional</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>If &lt;category&gt; is not supplied, output all debugging information.</source>
-        <translation type="unfinished"/>
+        <translation>Sofern keine &lt;category&gt; angegeben ist, werden alle Debug Informationen ausgegeben.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>&lt;category&gt; can be:</source>
-        <translation type="unfinished"/>
+        <translation>&lt;Kategorie&gt; kann sein:</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly. This is intended for regression testing tools and app development.</source>
-        <translation type="unfinished"/>
+        <translation>Regression Test Modus aktivieren. Dieser verwendet eine spezielle Blockchain in der Blocks sofort gelöst werden können. Das dient insbesondere Regressionstests und der Anwendungsentwicklung.</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -3069,12 +3097,12 @@ for example: alertnotify=echo %%s | mail -s &quot;Syndicate Alert&quot; admin@fo
     <message>
         <location line="+1"/>
         <source>Wait for RPC server to start</source>
-        <translation type="unfinished"/>
+        <translation>Warte auf den Start des RPC Servers</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Set the number of threads to service RPC calls (default: 4)</source>
-        <translation type="unfinished"/>
+        <translation>Anzahl Threads für die Verarbeitung von RPC Aufrufen (default: 4)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3114,7 +3142,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Syndicate Alert&quot; admin@fo
     <message>
         <location line="+3"/>
         <source>How thorough the block verification is (0-6, default: 1)</source>
-        <translation type="unfinished"/>
+        <translation>Legt fest, wie gründlich die Blockverifikation von -checkblocks ist (0-4, Standard: %u)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3139,7 +3167,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Syndicate Alert&quot; admin@fo
     <message>
         <location line="+10"/>
         <source>Initialization sanity check failed. Syndicate is shutting down.</source>
-        <translation type="unfinished"/>
+        <translation>Initialization der Integritätsprüfung fehlgeschlagen. Syndicate wird beendet.</translation>
     </message>
     <message>
         <location line="+50"/>
@@ -3154,7 +3182,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Syndicate Alert&quot; admin@fo
     <message>
         <location line="+1"/>
         <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation type="unfinished"/>
+        <translation>Dies ist ein pre-Release Test Build - Verwendung auf eigene Gefahr - nicht für das Mining oder Handelstätigkeiten nutzen</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -3294,7 +3322,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Syndicate Alert&quot; admin@fo
     <message>
         <location line="+3"/>
         <source>Keep at most &lt;n&gt; unconnectable blocks in memory (default: %u)</source>
-        <translation type="unfinished"/>
+        <translation>Maximal &lt;n&gt; nicht-verbindbare Transaktionen im Speicher halten (Standard: %u)</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -3304,7 +3332,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Syndicate Alert&quot; admin@fo
     <message>
         <location line="+3"/>
         <source>Warning: Deprecated argument -debugnet ignored, use -debug=net</source>
-        <translation type="unfinished"/>
+        <translation>Warnung: Veraltete Option -debugnet ignoriert, -debug=net verwenden</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -3314,12 +3342,12 @@ for example: alertnotify=echo %%s | mail -s &quot;Syndicate Alert&quot; admin@fo
     <message>
         <location line="+3"/>
         <source>Cannot obtain a lock on data directory %s. Syndicate is probably already running.</source>
-        <translation type="unfinished"/>
+        <translation>Datenverzeichnis %s kann nicht gesperrt werden. Evtl. wurde %s bereits gestartet.</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Error initializing wallet database environment %s!</source>
-        <translation type="unfinished"/>
+        <translation>Fehler bei der Initialisierung der Wallet Datenbank Umgebung %s!</translation>
     </message>
     <message>
         <location line="+17"/>

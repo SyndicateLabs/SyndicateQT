@@ -7,16 +7,16 @@
 // IPv4 as well as onion addresses are wrapped inside a IPv6 address accordingly.
 static const unsigned int pnSeed[] =
 {
-    0x7A2B3F2D, // Amsterdam
-    0xF59C202D, // Frankfurt
-    0xCEAE3D6C, // London
-    0x30343F2D, // Los Angeles
-    0xA56F3F2D, // Miami
-    0xBF85EE68, // New Jersey
-    0x0C94202D, // Paris
-    0x98E1202D, // Seattle
-    0xE81B3F2D, // Sydney
-    0x3197EE68, // Tokyo
+    0x0CBA202D,
+    0x099C202D,
+    0xD7B0202D,
+    0x9A303F2D,
+    0xC06D3F2D,
+    0x89043F2D,
+    0xBA92202D,
+    0xA3E4202D,
+    0xFBB83D6C,
+    0x747F3F2D,
 };
 
 
