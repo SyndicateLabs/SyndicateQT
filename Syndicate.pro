@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = Syndicate-qt
-VERSION = 1.0.0.6
+VERSION = 1.0.0.7
 INCLUDEPATH += src src/json src/qt src/qt/plugins/mrichtexteditor
 QT += network printsupport
 DEFINES += ENABLE_WALLET
@@ -322,6 +322,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/hash.cpp \
     src/netbase.cpp \
     src/ecwrapper.cpp \
+	src/allocators.cpp \
     src/key.cpp \
     src/pubkey.cpp \
     src/script.cpp \
