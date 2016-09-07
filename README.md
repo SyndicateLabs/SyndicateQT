@@ -1,12 +1,13 @@
 [![Stories in Ready](https://badge.waffle.io/SyndicateLabs/SyndicateQT.png?label=ready&title=Ready)](https://waffle.io/SyndicateLabs/SyndicateQT)
+
+[![Throughput Graph](https://graphs.waffle.io/SyndicateLabs/SyndicateQT/throughput.svg)](https://waffle.io/SyndicateLabs/SyndicateQT/metrics/throughput)
+
 Welcome to Syndicate!
 ===================
 
 Syndicate is a Proof-of-work & Proof-of stake based cryptocurrency which utilizes updated & working Darksend, Masternodes, Masternode Staking, Block Explorer, & Encrypted Messaging.
 
 http://blockexplorer.syndicatelabs.com
-
-[![Throughput Graph](https://graphs.waffle.io/SyndicateLabs/SyndicateQT/throughput.svg)](https://waffle.io/SyndicateLabs/SyndicateQT/metrics/throughput)
 
 ----------
 
