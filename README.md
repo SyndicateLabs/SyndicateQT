@@ -6,44 +6,7 @@ Syndicate is a Proof-of-work & Proof-of stake based cryptocurrency which utilize
 
 http://blockexplorer.syndicatelabs.com
 
-Current addnodes:
-
-addnode=107.170.206.191
-
-addnode=159.203.253.102
-
-addnode=192.241.215.173
-
-addnode=192.241.237.60
-
-addnode=162.243.130.27
-
-addnode=162.243.131.87
-
-addnode=104.131.145.170
-
-addnode=104.131.58.180
-
-addnode=104.236.233.90
-
-addnode=45.55.179.6
-
-addnode=45.55.181.27
-
-addnode=45.55.181.37
-
-addnode=198.199.100.4
-
-addnode=107.170.247.240
-
-addnode=162.243.0.171
-
-addnode=162.243.62.235
-
-addnode=107.170.232.206
-
-addnode=162.243.121.185
-
+[![Throughput Graph](https://graphs.waffle.io/SyndicateLabs/SyndicateQT/throughput.svg)](https://waffle.io/SyndicateLabs/SyndicateQT/metrics/throughput)
 
 ----------
 
