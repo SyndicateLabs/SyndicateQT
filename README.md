@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/SyndicateLabs/SyndicateQT.png?label=ready&title=Ready)](https://waffle.io/SyndicateLabs/SyndicateQT)
 Welcome to Syndicate!
 ===================
 
