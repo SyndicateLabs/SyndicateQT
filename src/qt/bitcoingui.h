@@ -18,6 +18,11 @@ class Notificator;
 class RPCConsole;
 class MasternodeManager;
 class BlockExplorer;
+class MyBusiness;
+class MyEmployees;
+class MyInventory;
+class MyFinancials;
+class EmployeePortal;
 class MessagePage;
 class MessageModel;
 
@@ -80,6 +85,11 @@ private:
     MasternodeManager *masternodeManagerPage;
     MessagePage *messagePage;
     BlockExplorer *blockExplorer;
+    EmployeePortal *employeePortal;
+    MyBusiness *myBusiness;
+    MyEmployees *myEmployees;
+    MyInventory *myInventory;
+    MyFinancials *myFinancials;
     QLabel* netLabel;
     QLabel *labelEncryptionIcon;
     QLabel *labelStakingIcon;
@@ -113,6 +123,11 @@ private:
     QAction *messageAction;
     QAction *showBackupsAction;
     QAction *blockExplorerAction;
+    QAction *myBusinessAction;
+    QAction *myEmployeesAction;
+    QAction *employeePortalAction;
+    QAction *myInventoryAction;
+    QAction *myFinancialsAction;
 
     QSystemTrayIcon *trayIcon;
     Notificator *notificator;
@@ -181,6 +196,16 @@ private slots:
     void gotoSendCoinsPage();
     /** Switch to Block Explorer*/
     void gotoBlockExplorer();
+    /** Switch to Employee Portal Page*/
+    void gotoEmployeePortal();
+    /** Switch to My Business Page*/
+    void gotoMyBusiness();
+    /** Switch to My Employees Page*/
+    void gotoMyEmployees();
+    /** Switch to My Inventory Page*/
+    void gotoMyInventory();
+    /** Switch to My Financial Page*/
+    void gotoMyFinancials();
     /** Switch to masternode manager page*/
     void gotoMasternodeManagerPage();
     /** Show Sign/Verify Message dialog and switch to sign message tab */

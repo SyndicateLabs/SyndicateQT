@@ -22,7 +22,7 @@
      <item>
       <widget class="QTabWidget" name="tabWidget">
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="tab">
         <attribute name="title">
@@ -178,16 +178,6 @@
              </column>
              <column>
               <property name="text">
-               <string>Donation %</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>Donation Address</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
                <string>Status</string>
               </property>
              </column>
@@ -222,6 +212,99 @@
             </layout>
            </item>
           </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tab_3">
+        <attribute name="title">
+         <string>Masternode Manager</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="0" column="0" colspan="2">
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <item>
+              <widget class="QLabel" name="aliasLabel">
+               <property name="text">
+                <string>Alias           </string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="addressLabel">
+               <property name="text">
+                <string>Address     </string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="privkeyLabel">
+               <property name="text">
+                <string>Private Key</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="txidLabel">
+               <property name="text">
+                <string>TXID          </string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="outputLabel">
+               <property name="text">
+                <string>Outputs     </string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <item>
+              <widget class="QLineEdit" name="aliasEdit"/>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="addressEdit"/>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="privkeyEdit"/>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="txidEdit"/>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="outputEdit"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item row="2" column="0" colspan="2">
+          <widget class="QTextEdit" name="masternodeEditor"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QPushButton" name="editMnButton">
+           <property name="text">
+            <string>Edit Configuration</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QPushButton" name="saveMnButton">
+           <property name="text">
+            <string>Save Configuration</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="QPushButton" name="pushButton">
+           <property name="text">
+            <string>Add</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>

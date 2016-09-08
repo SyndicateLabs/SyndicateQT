@@ -1,4 +1,4 @@
-#include "guiutil.h"
+﻿#include "guiutil.h"
 #include "guiconstants.h"
 #include "bitcoinunits.h"
 #include "optionsmodel.h"

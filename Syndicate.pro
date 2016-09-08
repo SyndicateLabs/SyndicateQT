@@ -1,15 +1,15 @@
 TEMPLATE = app
 TARGET = Syndicate-qt
-VERSION = 1.0.0.7
+VERSION = 1.0.1.7
 INCLUDEPATH += src src/json src/qt src/qt/plugins/mrichtexteditor
-QT += network printsupport
+QT += network printsupport widgets sql
 DEFINES += ENABLE_WALLET
 DEFINES += BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
 CONFIG += thread
 
 greaterThan(QT_MAJOR_VERSION, 4) {
-    QT += widgets webkitwidgets
+    QT += network printsupport widgets webkitwidgets sql
     DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
 }
 
@@ -17,7 +17,7 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 # use: qmake BOOST_LIB_SUFFIX=-mt
 # for boost thread win32 with _win32 sufix
 # use: BOOST_THREAD_LIB_SUFFIX=_win32-...
-# or when linking against a specific BerkelyDB version: BDB_LIB_SUFFIX=-4.8	
+# or when linking against a specific BerkelyDB version: BDB_LIB_SUFFIX=-4.8
 
 # 	 Dependency library locations can be customized with:
 #    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
@@ -251,6 +251,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/ui_interface.h \
     src/qt/rpcconsole.h \
     src/version.h \
+	src/qt/mybusiness.h \
     src/netbase.h \
     src/clientversion.h \
     src/threadsafety.h \
@@ -298,7 +299,11 @@ HEADERS += src/qt/bitcoingui.h \
     src/sph_shavite.h \
     src/sph_simd.h \
     src/sph_types.h \
-
+    src/qt/myemployees.h \
+    src/qt/myinventory.h \
+    src/qt/myfinancials.h \
+    src/qt/editemployees.h \
+    src/qt/employeeportal.h
 
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/transactiontablemodel.cpp \
@@ -308,22 +313,27 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/coincontroldialog.cpp \
     src/qt/coincontroltreewidget.cpp \
     src/qt/addressbookpage.cpp \
+	src/qt/mybusiness.cpp \
+	src/qt/myfinancials.cpp \
+	src/qt/myemployees.cpp \
     src/qt/signverifymessagedialog.cpp \
     src/qt/aboutdialog.cpp \
     src/qt/editaddressdialog.cpp \
     src/qt/bitcoinaddressvalidator.cpp \
     src/alert.cpp \
     src/base58.cpp \
+	src/allocators.cpp \
     src/chainparams.cpp \
     src/version.cpp \
+	src/qt/myinventory.cpp \
     src/sync.cpp \
     src/txmempool.cpp \
     src/util.cpp \
     src/hash.cpp \
     src/netbase.cpp \
     src/ecwrapper.cpp \
-	src/allocators.cpp \
     src/key.cpp \
+	src/qt/editemployees.cpp \
     src/pubkey.cpp \
     src/script.cpp \
     src/scrypt.cpp \
@@ -406,6 +416,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/adrenalinenodeconfigdialog.cpp \
     src/qt/qcustomplot.cpp \
     src/smessage.cpp \
+	src/qt/employeeportal.cpp \
     src/qt/messagepage.cpp \
     src/qt/messagemodel.cpp \
     src/qt/sendmessagesdialog.cpp \
@@ -443,6 +454,7 @@ FORMS += \
     src/qt/forms/rpcconsole.ui \
     src/qt/forms/optionsdialog.ui \
     src/qt/forms/darksendconfig.ui \
+	src/qt/forms/mybusiness.ui \
     src/qt/forms/masternodemanager.ui \
     src/qt/forms/addeditadrenalinenode.ui \
     src/qt/forms/adrenalinenodeconfigdialog.ui \
@@ -450,7 +462,12 @@ FORMS += \
     src/qt/forms/sendmessagesentry.ui \
     src/qt/forms/sendmessagesdialog.ui \
     src/qt/forms/blockexplorer.ui \
-    src/qt/plugins/mrichtexteditor/mrichtextedit.ui
+	src/qt/forms/myemployees.ui \
+	src/qt/forms/myinventory.ui \
+    src/qt/plugins/mrichtexteditor/mrichtextedit.ui \
+    src/qt/forms/myfinancials.ui \
+    src/qt/forms/editemployees.ui \
+    src/qt/forms/employeeportal.ui
     
 
 
@@ -594,11 +611,11 @@ macx:QMAKE_CXXFLAGS_THREAD += -pthread
 macx:QMAKE_INFO_PLIST = share/qt/Info.plist
 
 # Set libraries and includes at end, to use platform-defined defaults if not overridden
-INCLUDEPATH += $$BOOST_INCLUDE_PATH $$BDB_INCLUDE_PATH $$OPENSSL_INCLUDE_PATH $$QRENCODE_INCLUDE_PATH
-LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
+INCLUDEPATH += $$BOOST_INCLUDE_PATH $$BDB_INCLUDE_PATH $$OPENSSL_INCLUDE_PATH $$QRENCODE_INCLUDE_PATH $$BOTAN_INCLUDE_PATH
+LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,) $$join(BOTAN_LIB_PATH,, -L,)
 LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX
 # -lgdi32 has to happen after -lcrypto (see  #681)
-windows:LIBS += -lws2_32 -lshlwapi -lmswsock -lole32 -loleaut32 -luuid -lgdi32
+windows:LIBS += -lws2_32 -lshlwapi -lmswsock -lole32 -loleaut32 -luuid -lgdi32 -lBotan
 !windows: {
     LIBS += -lgmp
 }

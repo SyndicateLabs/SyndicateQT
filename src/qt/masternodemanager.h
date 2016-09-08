@@ -4,6 +4,8 @@
 #include "util.h"
 #include "sync.h"
 
+#include <boost/filesystem.hpp>
+#include <boost/filesystem/fstream.hpp>
 #include <QWidget>
 #include <QTimer>
 
@@ -50,5 +52,8 @@ private slots:
     void on_startButton_clicked();
     void on_startAllButton_clicked();
     void on_tableWidget_2_itemSelectionChanged();
+    void on_editMnButton_clicked();
+    void on_saveMnButton_clicked();
+
 };
 #endif // MASTERNODEMANAGER_H

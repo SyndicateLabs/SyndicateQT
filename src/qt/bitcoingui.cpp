@@ -8,7 +8,6 @@
 #include <QApplication>
 
 #include "bitcoingui.h"
-
 #include "transactiontablemodel.h"
 #include "addressbookpage.h"
 #include "sendcoinsdialog.h"
@@ -37,6 +36,11 @@
 #include "messagemodel.h"
 #include "messagepage.h"
 #include "blockexplorer.h"
+#include "mybusiness.h"
+#include "myemployees.h"
+#include "myinventory.h"
+#include "myfinancials.h"
+#include "employeeportal.h"
 
 #ifdef Q_OS_MAC
 #include "macdockiconhandler.h"
@@ -128,18 +132,17 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     QVBoxLayout *vbox = new QVBoxLayout();
     transactionView = new TransactionView(this);
     vbox->addWidget(transactionView);
-    transactionsPage->setLayout(vbox);
-
-    blockExplorer = new BlockExplorer(this);
-
+    transactionsPage->setLayout(vbox);	
+	blockExplorer = new BlockExplorer(this);
+    myBusiness = new MyBusiness(this);
+    employeePortal = new EmployeePortal(this);
+    myEmployees = new MyEmployees(this);
+    myInventory = new MyInventory(this);
+    myFinancials = new MyFinancials(this);
     addressBookPage = new AddressBookPage(AddressBookPage::ForEditing, AddressBookPage::SendingTab);
-
     receiveCoinsPage = new AddressBookPage(AddressBookPage::ForEditing, AddressBookPage::ReceivingTab);
-
     sendCoinsPage = new SendCoinsDialog(this);
-
     signVerifyMessageDialog = new SignVerifyMessageDialog(this);
-
     masternodeManagerPage = new MasternodeManager(this);
     messagePage = new MessagePage(this);
 
@@ -153,6 +156,11 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     centralStackedWidget->addWidget(masternodeManagerPage);
     centralStackedWidget->addWidget(messagePage);
     centralStackedWidget->addWidget(blockExplorer);
+    centralStackedWidget->addWidget(myBusiness);
+    centralStackedWidget->addWidget(myEmployees);
+    centralStackedWidget->addWidget(myInventory);
+    centralStackedWidget->addWidget(myFinancials);
+    centralStackedWidget->addWidget(employeePortal);
 
     QWidget *centralWidget = new QWidget();
     QVBoxLayout *centralLayout = new QVBoxLayout(centralWidget);
@@ -298,18 +306,46 @@ void BitcoinGUI::createActions()
     tabGroup->addAction(addressBookAction);
 
     blockExplorerAction = new QAction(QIcon(":/icons/blockexplorer"), tr("&Block Explorer"), this);
-    blockExplorerAction->setToolTip(tr("Official Syndicate Block Explorer"));
+    blockExplorerAction->setToolTip(tr("Official Syndicate block explorer"));
     blockExplorerAction->setCheckable(true);
     blockExplorerAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
     tabGroup->addAction(blockExplorerAction);
 
+    myEmployeesAction = new QAction(QIcon(":/icons/employees"), tr("&My Employees"), this);
+    myEmployeesAction->setToolTip(tr("Add & edit employees"));
+    myEmployeesAction->setCheckable(true);
+    myEmployeesAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_8));
+    tabGroup->addAction(myEmployeesAction);
+
+    myBusinessAction = new QAction(QIcon(":/icons/store"), tr("&My Business"), this);
+    myBusinessAction->setToolTip(tr("Setup my business"));
+    myBusinessAction->setCheckable(true);
+    myBusinessAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_9));
+    tabGroup->addAction(myBusinessAction);
+
+    myInventoryAction = new QAction(QIcon(":/icons/inventory"), tr("&My Inventory"), this);
+    myInventoryAction->setToolTip(tr("Manage my inventory"));
+    myInventoryAction->setCheckable(true);
+    myInventoryAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_0));
+    tabGroup->addAction(myInventoryAction);
+
+    myFinancialsAction = new QAction(QIcon(":/icons/financials"), tr("&My Financials"), this);
+    myFinancialsAction->setToolTip(tr("Manage my financials"));
+    myFinancialsAction->setCheckable(true);
+    tabGroup->addAction(myFinancialsAction);
+
+    employeePortalAction = new QAction(QIcon(":/icons/portal"), tr("&Employee Portal"), this);
+    employeePortalAction->setToolTip(tr("Employee time clock & login"));
+    employeePortalAction->setCheckable(true);
+    tabGroup->addAction(employeePortalAction);
+
     masternodeManagerAction = new QAction(QIcon(":/icons/masternodes"), tr("&Masternodes"), this);
-    masternodeManagerAction->setToolTip(tr("Show Master Nodes status and configure your nodes."));
+    masternodeManagerAction->setToolTip(tr("View my masternodes & Syndicate network"));
     masternodeManagerAction->setCheckable(true);
     tabGroup->addAction(masternodeManagerAction);
 
     messageAction = new QAction(QIcon(":/icons/edit"), tr("&Messages"), this);
-    messageAction->setToolTip(tr("View and Send Encrypted messages"));
+    messageAction->setToolTip(tr("View and send encrypted messages"));
     messageAction->setCheckable(true);
     tabGroup->addAction(messageAction);
 
@@ -317,6 +353,11 @@ void BitcoinGUI::createActions()
     showBackupsAction->setStatusTip(tr("S"));
 
     connect(blockExplorerAction, SIGNAL(triggered()), this, SLOT(gotoBlockExplorer()));
+    connect(myInventoryAction, SIGNAL(triggered()), this, SLOT(gotoMyInventory()));
+    connect(employeePortalAction, SIGNAL(triggered()), this, SLOT(gotoEmployeePortal()));
+    connect(myFinancialsAction, SIGNAL(triggered()), this, SLOT(gotoMyFinancials()));
+    connect(myEmployeesAction, SIGNAL(triggered()), this, SLOT(gotoMyEmployees()));
+    connect(myBusinessAction, SIGNAL(triggered()), this, SLOT(gotoMyBusiness()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(gotoOverviewPage()));
     connect(receiveCoinsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -441,13 +482,18 @@ void BitcoinGUI::createToolBars()
 	toolbar->addAction(sendCoinsAction);
     toolbar->addAction(receiveCoinsAction);    
     toolbar->addAction(historyAction);
+    toolbar->addAction(blockExplorerAction);
     toolbar->addAction(masternodeManagerAction);
     if (!fLiteMode){
         toolbar->addAction(messageAction);
     }
     netLabel = new QLabel();
-    toolbar->addAction(blockExplorerAction);
     toolbar->addAction(addressBookAction);
+    toolbar->addAction(myBusinessAction);
+    toolbar->addAction(myInventoryAction);
+    toolbar->addAction(myFinancialsAction);
+    toolbar->addAction(myEmployeesAction);    
+    toolbar->addAction(employeePortalAction);
 
     QWidget *spacer = makeToolBarSpacer();
     netLabel->setObjectName("netLabel");
@@ -459,7 +505,7 @@ void BitcoinGUI::createToolBars()
     addToolBar(Qt::LeftToolBarArea, toolbar);
 
     foreach(QAction *action, toolbar->actions()) {
-        toolbar->widgetForAction(action)->setFixedWidth(157);
+        toolbar->widgetForAction(action)->setFixedWidth(160);
     }
 }
 
@@ -922,6 +968,56 @@ void BitcoinGUI::gotoBlockExplorer()
     exportAction->setEnabled(false);
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
 	connect(exportAction, SIGNAL(triggered()), blockExplorer, SLOT(exportClicked()));
+}
+
+void BitcoinGUI::gotoMyBusiness()
+{
+    myBusinessAction->setChecked(true);
+    centralStackedWidget->setCurrentWidget(myBusiness);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+    connect(exportAction, SIGNAL(triggered()), myBusiness, SLOT(exportClicked()));
+}
+
+void BitcoinGUI::gotoEmployeePortal()
+{
+    employeePortalAction->setChecked(true);
+    centralStackedWidget->setCurrentWidget(employeePortal);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+    connect(exportAction, SIGNAL(triggered()), employeePortal, SLOT(exportClicked()));
+}
+
+void BitcoinGUI::gotoMyEmployees()
+{
+    myEmployeesAction->setChecked(true);
+    centralStackedWidget->setCurrentWidget(myEmployees);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+    connect(exportAction, SIGNAL(triggered()), myEmployees, SLOT(exportClicked()));
+}
+
+void BitcoinGUI::gotoMyInventory()
+{
+    myInventoryAction->setChecked(true);
+    centralStackedWidget->setCurrentWidget(myInventory);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+    connect(exportAction, SIGNAL(triggered()), myInventory, SLOT(exportClicked()));
+}
+
+void BitcoinGUI::gotoMyFinancials()
+{
+    myFinancialsAction->setChecked(true);
+    centralStackedWidget->setCurrentWidget(myFinancials);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+    connect(exportAction, SIGNAL(triggered()), myFinancials, SLOT(exportClicked()));
 }
 
 void BitcoinGUI::gotoOverviewPage()

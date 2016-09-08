@@ -24,16 +24,6 @@
      </property>
     </widget>
    </item>
-   <item row="6" column="0">
-    <widget class="QLineEdit" name="donationaddressLineEdit"/>
-   </item>
-   <item row="9" column="0">
-    <widget class="QPushButton" name="okButton">
-     <property name="text">
-      <string>&amp;OK</string>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="0">
     <widget class="QLabel" name="label">
      <property name="maximumSize">
@@ -53,18 +43,9 @@ text-decoration: underline;
     </widget>
    </item>
    <item row="7" column="0">
-    <widget class="QLineEdit" name="donationpercentageLineEdit"/>
-   </item>
-   <item row="4" column="0">
-    <widget class="QLineEdit" name="txhashLineEdit"/>
-   </item>
-   <item row="10" column="0">
-    <widget class="QPushButton" name="cancelButton">
+    <widget class="QPushButton" name="okButton">
      <property name="text">
-      <string>&amp;Cancel</string>
-     </property>
-     <property name="autoDefault">
-      <bool>false</bool>
+      <string>&amp;OK</string>
      </property>
     </widget>
    </item>
@@ -75,18 +56,31 @@ text-decoration: underline;
      </property>
     </widget>
    </item>
-   <item row="3" column="0">
-    <widget class="QLineEdit" name="privkeyLineEdit"/>
-   </item>
-   <item row="5" column="0">
-    <widget class="QLineEdit" name="outputindexLineEdit"/>
-   </item>
-   <item row="8" column="0">
+   <item row="6" column="0">
     <widget class="Line" name="line">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
+   </item>
+   <item row="8" column="0">
+    <widget class="QPushButton" name="cancelButton">
+     <property name="text">
+      <string>&amp;Cancel</string>
+     </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLineEdit" name="txhashLineEdit"/>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLineEdit" name="privkeyLineEdit"/>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLineEdit" name="outputindexLineEdit"/>
    </item>
   </layout>
  </widget>
