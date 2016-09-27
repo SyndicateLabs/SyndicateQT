@@ -52,12 +52,8 @@
         <file alias="onion">res/icons/onion.png</file>
         <file alias="onionblack">res/icons/onion-black.png</file>
         <file alias="browse">res/icons/browse.png</file>
-		<file alias="store">res/icons/store.png</file>
-		<file alias="employees">res/icons/employees.png</file>
-		<file alias="inventory">res/icons/inventory.png</file>
-		<file alias="financials">res/icons/financials.png</file>
 		<file alias="lock">res/icons/lock.png</file>
-		<file alias="portal">res/icons/portal.png</file>
+		<file alias="synx">res/icons/synx.png</file>
     </qresource>
     <qresource prefix="/icons/black">
         <file alias="connect_0">res/icons/black/connect0_16.png</file>

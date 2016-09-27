@@ -45,18 +45,11 @@ MasternodeManager::MasternodeManager(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //Placeholder text
-    ui->aliasEdit->setPlaceholderText("Enter your Masternode alias");
-    ui->addressEdit->setPlaceholderText("Enter your IP & port");
-    ui->privkeyEdit->setPlaceholderText("Enter your Masternode private key");
-    ui->txidEdit->setPlaceholderText("Enter your 5000 SYNX TXID");
-    ui->outputEdit->setPlaceholderText("Enter your transaction output index");
-
     ui->editButton->setEnabled(false);
     ui->startButton->setEnabled(false);
 
-    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    ui->tableWidget_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->tableWidget_2->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateNodeList()));
@@ -304,26 +297,4 @@ void MasternodeManager::on_UpdateButton_clicked()
             }
         }
     }
-}
-
-void MasternodeManager::on_editMnButton_clicked()
-{
-    QFile file("C:\\Users\\Nobody\\Desktop\\PPAPPDATA\\masternode.conf");
-    if(!file.open(QIODevice::ReadWrite))
-        QMessageBox::information(0,"info",file.errorString());
-
-    QTextStream in(&file);
-
-    ui->masternodeEditor->setText(in.readAll());
-}
-
-void MasternodeManager::on_saveMnButton_clicked()
-{
-    QFile file("C:\\Users\\Nobody\\Desktop\\PPAPPDATA\\masternode.conf");
-    file.open(QIODevice::ReadWrite | QIODevice::Text);
-
-    QTextStream out(&file);
-    out << ui->masternodeEditor->toPlainText() << endl;
-    file.close();
-    ui->masternodeEditor->clear();
 }

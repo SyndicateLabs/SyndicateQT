@@ -7,9 +7,10 @@ DEFINES += ENABLE_WALLET
 DEFINES += BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
 CONFIG += thread
+CONFIG += static
 
 greaterThan(QT_MAJOR_VERSION, 4) {
-    QT += network printsupport widgets webkitwidgets sql
+    QT += network printsupport widgets sql
     DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
 }
 
@@ -18,6 +19,24 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 # for boost thread win32 with _win32 sufix
 # use: BOOST_THREAD_LIB_SUFFIX=_win32-...
 # or when linking against a specific BerkelyDB version: BDB_LIB_SUFFIX=-4.8
+
+BOOST_LIB_SUFFIX=-mgw49-mt-s-1_57
+BOOST_INCLUDE_PATH=D:/deps/boost_1_57_0
+BOOST_LIB_PATH=D:/deps/boost_1_57_0/stage/lib
+BDB_INCLUDE_PATH=D:/deps/db-4.8.30.NC/build_unix
+BDB_LIB_PATH=D:/deps/db-4.8.30.NC/build_unix
+OPENSSL_INCLUDE_PATH=D:/deps/openssl-1.0.1p/include
+OPENSSL_LIB_PATH=D:/deps/openssl-1.0.1p/lib
+MINIUPNPC_INCLUDE_PATH=D:/deps/
+MINIUPNPC_LIB_PATH=D:/deps/miniupnpc
+QRENCODE_INCLUDE_PATH=D:/deps/qrencode-3.4.4
+QRENCODE_LIB_PATH=D:/deps/qrencode-3.4.4/.libs
+LIBEVENT_INCLUDE_PATH=D:/deps/libevent-2.0.21-stable/include
+LIBEVENT_LIB_PATH=D:/deps/libevent-2.0.21-stable/.libs
+SECP256K1_LIB_PATH = D:/deps/secp256k1/.libs
+SECP256K1_INCLUDE_PATH = D:/deps/secp256k1/include
+BOTAN_LIB_PATH = D:/deps/Botan-1.10.8/build/lib
+BOTAN_INCLUDE_PATH = D:/deps/Botan-1.10.8/build/include
 
 # 	 Dependency library locations can be customized with:
 #    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
@@ -96,7 +115,7 @@ SOURCES += src/txdb-leveldb.cpp \
         QMAKE_RANLIB = $$replace(QMAKE_STRIP, strip, ranlib)
     }
     LIBS += -lshlwapi
-    genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libleveldb.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libmemenv.a
+    #genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libleveldb.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libmemenv.a
 }
 genleveldb.target = $$PWD/src/leveldb/libleveldb.a
 genleveldb.depends = FORCE
@@ -251,7 +270,6 @@ HEADERS += src/qt/bitcoingui.h \
     src/ui_interface.h \
     src/qt/rpcconsole.h \
     src/version.h \
-	src/qt/mybusiness.h \
     src/netbase.h \
     src/clientversion.h \
     src/threadsafety.h \
@@ -280,7 +298,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/qt/addeditadrenalinenode.h \
     src/qt/adrenalinenodeconfigdialog.h \
     src/qt/qcustomplot.h \
-    src/qt/blockexplorer.h \
+    src/qt/blockbrowser.h \
     src/qt/messagepage.h \
     src/qt/messagemodel.h \
     src/qt/sendmessagesdialog.h \
@@ -300,10 +318,9 @@ HEADERS += src/qt/bitcoingui.h \
     src/sph_simd.h \
     src/sph_types.h \
     src/qt/myemployees.h \
-    src/qt/myinventory.h \
-    src/qt/myfinancials.h \
     src/qt/editemployees.h \
-    src/qt/employeeportal.h
+    src/qt/employeeportal.h \
+    src/qt/syndicate.h
 
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/transactiontablemodel.cpp \
@@ -313,8 +330,6 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/coincontroldialog.cpp \
     src/qt/coincontroltreewidget.cpp \
     src/qt/addressbookpage.cpp \
-	src/qt/mybusiness.cpp \
-	src/qt/myfinancials.cpp \
 	src/qt/myemployees.cpp \
     src/qt/signverifymessagedialog.cpp \
     src/qt/aboutdialog.cpp \
@@ -325,13 +340,13 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
 	src/allocators.cpp \
     src/chainparams.cpp \
     src/version.cpp \
-	src/qt/myinventory.cpp \
     src/sync.cpp \
     src/txmempool.cpp \
     src/util.cpp \
     src/hash.cpp \
     src/netbase.cpp \
     src/ecwrapper.cpp \
+	src/qt/syndicate.cpp \
     src/key.cpp \
 	src/qt/editemployees.cpp \
     src/pubkey.cpp \
@@ -421,7 +436,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/messagemodel.cpp \
     src/qt/sendmessagesdialog.cpp \
     src/qt/sendmessagesentry.cpp \
-    src/qt/blockexplorer.cpp \
+    src/qt/blockbrowser.cpp \
     src/qt/qvalidatedtextedit.cpp \
     src/qt/plugins/mrichtexteditor/mrichtextedit.cpp \
     src/rpcsmessage.cpp \
@@ -454,20 +469,18 @@ FORMS += \
     src/qt/forms/rpcconsole.ui \
     src/qt/forms/optionsdialog.ui \
     src/qt/forms/darksendconfig.ui \
-	src/qt/forms/mybusiness.ui \
     src/qt/forms/masternodemanager.ui \
     src/qt/forms/addeditadrenalinenode.ui \
     src/qt/forms/adrenalinenodeconfigdialog.ui \
     src/qt/forms/messagepage.ui \
     src/qt/forms/sendmessagesentry.ui \
     src/qt/forms/sendmessagesdialog.ui \
-    src/qt/forms/blockexplorer.ui \
+    src/qt/forms/blockbrowser.ui \
 	src/qt/forms/myemployees.ui \
-	src/qt/forms/myinventory.ui \
     src/qt/plugins/mrichtexteditor/mrichtextedit.ui \
-    src/qt/forms/myfinancials.ui \
     src/qt/forms/editemployees.ui \
-    src/qt/forms/employeeportal.ui
+    src/qt/forms/employeeportal.ui \
+    src/qt/forms/syndicate.ui
     
 
 

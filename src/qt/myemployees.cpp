@@ -1,6 +1,7 @@
 ﻿#include "myemployees.h"
 #include "ui_myemployees.h"
 #include "editemployees.h"
+#include "syndicate.h"
 
 #include <QFile>
 #include <QDebug>

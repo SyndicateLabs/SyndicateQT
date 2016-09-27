@@ -33,7 +33,6 @@ static const char* ppszTypeName[] =
 CMessageHeader::CMessageHeader()
 {
     memcpy(pchMessageStart, Params().MessageStart(), MESSAGE_START_SIZE);
-    memset(pchCommand, 0, sizeof(pchCommand));
     pchCommand[1] = 1;
     nMessageSize = -1;
     nChecksum = 0;
