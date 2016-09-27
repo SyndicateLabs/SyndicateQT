@@ -24,26 +24,13 @@ LoginPortal::LoginPortal(QWidget *parent) :
 {
     ui->setupUi(this);
 
-        ui->loginpage->show();
-        ui->clockinpage->hide();
-        ui->portalstatus2->hide();
+    setWindowTitle(tr("Employee Portal"));
 
-        openEmployeePortal();
-        QSqlQuery query;
-        query.prepare("CREATE TABLE employeeportal (`Time In` varchar(255), `Time Out` varchar(255))");
-        query.exec();
-        closeEmployeePortal();
+    ui->loginpage->show();
+    ui->clockinpage->hide();
+    ui->portalstatus2->hide();
 
-    if(!openEmployeePortal())
-    {
-        ui->portalstatus->setText("Not Connected to Database..");
-        ui->portalstatus2->setText("Not Connected to Database..");
-    }
-    else
-    {
-        ui->portalstatus->setText("Connected to Database..");
-        ui->portalstatus2->setText("Connected to Database..");
-    }
+    createLoginDatabase();
 
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()),this,SLOT(localTime()));

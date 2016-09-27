@@ -19,14 +19,15 @@ EmployeeManager::EmployeeManager(QWidget *parent) :
     ui(new Ui::EmployeeManager)
 {
     ui->setupUi(this);
+
     setWindowTitle(tr("Employee Manager"));
 
-        ui->loginpage->show();
-        ui->addpage->hide();
-        ui->status_2->hide();
-        ui->tabWidget->hide();
+    ui->loginpage->show();
+    ui->addpage->hide();
+    ui->status_2->hide();
+    ui->tabWidget->hide();
 
-        createDatabase();
+    createEmployeeDatabase();
 }
 
 EmployeeManager::~EmployeeManager()

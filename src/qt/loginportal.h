@@ -70,6 +70,15 @@ public:
         }
     }
 
+    void createLoginDatabase()
+    {
+        openEmployeePortal();
+        QSqlQuery query;
+        query.prepare("CREATE TABLE employeeportal (`Time In` varchar(255), `Time Out` varchar(255))");
+        query.exec();
+        closeEmployeePortal();
+    }
+
 public:
     explicit LoginPortal(QWidget *parent = 0);
     ~LoginPortal();

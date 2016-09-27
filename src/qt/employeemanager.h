@@ -60,7 +60,7 @@ public:
 
     }
 
-    void createDatabase()
+    void createEmployeeDatabase()
     {
         openEmployeeDatabase();
         QSqlQuery query;
