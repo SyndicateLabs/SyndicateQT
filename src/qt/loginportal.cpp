@@ -24,11 +24,6 @@ LoginPortal::LoginPortal(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QDir::home().mkdir("Syndicate");
-    QDir::home().mkdir("Syndicate/Databases");
-    QDir::home().mkdir("Syndicate/Databases/Encrypted");
-    QDir::home().mkdir("Syndicate/Databases/Decrypted");
-
         ui->loginpage->show();
         ui->clockinpage->hide();
         ui->portalstatus2->hide();

@@ -5,6 +5,7 @@
 #include "loginportal.h"
 
 #include <QWidget>
+#include <QDir>
 
 namespace Ui {
 class Syndicate;
@@ -13,6 +14,19 @@ class Syndicate;
 class Syndicate : public QWidget
 {
     Q_OBJECT
+
+public:
+    void createSyndicateDirectories()
+    {
+        QString decryptedFolder = QDir::homePath();
+        decryptedFolder = decryptedFolder + QString("/Syndicate/Databases/Decrypted");
+
+        QString encryptedFolder = QDir::homePath();
+        encryptedFolder = encryptedFolder + QString("/Syndicate/Databases/Encrypted");
+
+        QDir::home().mkpath(decryptedFolder);
+        QDir::home().mkpath(encryptedFolder);
+    }
 
 public:
     explicit Syndicate(QWidget *parent = 0);

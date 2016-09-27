@@ -57,6 +57,23 @@ public:
             qDebug() << ("Connected to Database..");
             return true;
         }
+
+    }
+
+    void createDatabase()
+    {
+        openEmployeeDatabase();
+        QSqlQuery query;
+        query.prepare("CREATE TABLE employeeinfo (`Employee ID` varchar(255) primary key, Permissions varchar(255),"
+                      "`First Name` varchar(255),`Last Name` varchar(255),Age integer, `Date Of Birth` varchar(255),"
+                      "Address varchar(255),City varchar(255),State varchar(255), `Zip Code` integer,"
+                      "`Home Phone` varchar(255),`Cell Phone` varchar(255),Email varchar(255),Username varchar(255),"
+                      "Password varchar(255))");
+        query.exec();
+        query.prepare("INSERT INTO employeeinfo ([Employee ID], Permissions, Username, Password)"
+                      "values ('001', 'Admin', 'Admin', 'Admin')");
+        query.exec();
+        closeEmployeeDatabase();
     }
 
 public:

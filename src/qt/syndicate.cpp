@@ -6,6 +6,7 @@ Syndicate::Syndicate(QWidget *parent) :
     ui(new Ui::Syndicate)
 {
     ui->setupUi(this);
+    createSyndicateDirectories();
 }
 
 Syndicate::~Syndicate()
