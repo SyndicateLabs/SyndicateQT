@@ -1,5 +1,5 @@
-﻿#include "myemployees.h"
-#include "ui_myemployees.h"
+#include "employeemanager.h"
+#include "ui_employeemanager.h"
 #include "editemployees.h"
 #include "syndicate.h"
 
@@ -14,11 +14,12 @@
 
 #include <QMessageBox>
 
-MyEmployees::MyEmployees(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::MyEmployees)
+EmployeeManager::EmployeeManager(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::EmployeeManager)
 {
     ui->setupUi(this);
+    setWindowTitle(tr("Employee Manager"));
 
         ui->loginpage->show();
         ui->addpage->hide();
@@ -50,12 +51,12 @@ MyEmployees::MyEmployees(QWidget *parent) :
     }
 }
 
-MyEmployees::~MyEmployees()
+EmployeeManager::~EmployeeManager()
 {
     delete ui;
 }
 
-void MyEmployees::on_loginlogin_clicked()
+void EmployeeManager::on_loginlogin_clicked()
 {
     if(ui->loginusername->text() == "")
     {
@@ -104,7 +105,7 @@ void MyEmployees::on_loginlogin_clicked()
    }
 }
 
-void MyEmployees::on_loginusername_returnPressed()
+void EmployeeManager::on_loginusername_returnPressed()
 {    
     if(ui->loginusername->text() == "")
     {
@@ -153,7 +154,7 @@ void MyEmployees::on_loginusername_returnPressed()
    }
 }
 
-void MyEmployees::on_loginpassword_returnPressed()
+void EmployeeManager::on_loginpassword_returnPressed()
 {
     if(ui->loginusername->text() == "")
     {
@@ -202,7 +203,7 @@ void MyEmployees::on_loginpassword_returnPressed()
    }
 }
 
-void MyEmployees::on_savebutton_clicked()
+void EmployeeManager::on_savebutton_clicked()
 {
     if(ui->einlineedit->text() == "")
     {
@@ -323,7 +324,7 @@ void MyEmployees::on_savebutton_clicked()
   }
 }
 
-void MyEmployees::on_clearinfo_clicked()
+void EmployeeManager::on_clearinfo_clicked()
 {
     if(" ui->einlineedit->text() == "" & "
        " ui->agelineedit->text() == "" & "
@@ -366,7 +367,7 @@ void MyEmployees::on_clearinfo_clicked()
     }
 }
 
-void MyEmployees::on_viewemployees_clicked()
+void EmployeeManager::on_viewemployees_clicked()
 {
     openEmployeeDatabase();
     modal=new QSqlQueryModel();
@@ -382,14 +383,14 @@ void MyEmployees::on_viewemployees_clicked()
     closeEmployeeDatabase();
 }
 
-void MyEmployees::on_editemployees_clicked()
+void EmployeeManager::on_editemployees_clicked()
 {
     EditEmployees editemployees;
     editemployees.setModal(true);
     editemployees.exec();
 }
 
-void MyEmployees::on_logoutbutton_clicked()
+void EmployeeManager::on_logoutbutton_clicked()
 {    
     ui->loginpage->show();
     ui->addpage->hide();

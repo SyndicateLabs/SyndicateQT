@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>EmployeePortal</class>
- <widget class="QDialog" name="EmployeePortal">
+ <class>LoginPortal</class>
+ <widget class="QDialog" name="LoginPortal">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -317,10 +317,6 @@
         </layout>
        </item>
       </layout>
-      <zorder>historyButton</zorder>
-      <zorder>timecardtableView</zorder>
-      <zorder>horizontalSpacer_3</zorder>
-      <zorder>horizontalSpacer_4</zorder>
      </widget>
     </widget>
    </item>

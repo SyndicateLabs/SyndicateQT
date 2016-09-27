@@ -1,7 +1,7 @@
-﻿#ifndef EMPLOYEEPORTAL_H
-#define EMPLOYEEPORTAL_H
+#ifndef LOGINPORTAL_H
+#define LOGINPORTAL_H
 
-#include "myemployees.h"
+#include "employeemanager.h"
 
 #include <fstream>
 #include <iostream>
@@ -21,18 +21,20 @@
 
 using namespace std;
 
+#include <QDialog>
+
 namespace Ui {
-class EmployeePortal;
+class LoginPortal;
 }
 
-class EmployeePortal : public QDialog
+class LoginPortal : public QDialog
 {
     Q_OBJECT
 
 public:
     QSqlDatabase employeePortalDatabase;
     QSqlQueryModel *modal;
-    MyEmployees login;
+    EmployeeManager login;
     int count;
 
     string currentTime()
@@ -69,8 +71,8 @@ public:
     }
 
 public:
-    explicit EmployeePortal(QWidget *parent = 0);
-    ~EmployeePortal();
+    explicit LoginPortal(QWidget *parent = 0);
+    ~LoginPortal();
 
 private slots:
     void on_portalloginlogin_clicked();
@@ -83,7 +85,7 @@ private slots:
     void localTime();
 
 private:
-    Ui::EmployeePortal *ui;
+    Ui::LoginPortal *ui;
 };
 
-#endif // EMPLOYEEPORTAL_H
+#endif // LOGINPORTAL_H

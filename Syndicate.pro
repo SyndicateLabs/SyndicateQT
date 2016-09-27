@@ -317,10 +317,10 @@ HEADERS += src/qt/bitcoingui.h \
     src/sph_shavite.h \
     src/sph_simd.h \
     src/sph_types.h \
-    src/qt/myemployees.h \
     src/qt/editemployees.h \
-    src/qt/employeeportal.h \
-    src/qt/syndicate.h
+    src/qt/syndicate.h \
+    src/qt/employeemanager.h \
+    src/qt/loginportal.h
 
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/transactiontablemodel.cpp \
@@ -330,12 +330,12 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/coincontroldialog.cpp \
     src/qt/coincontroltreewidget.cpp \
     src/qt/addressbookpage.cpp \
-	src/qt/myemployees.cpp \
     src/qt/signverifymessagedialog.cpp \
     src/qt/aboutdialog.cpp \
     src/qt/editaddressdialog.cpp \
     src/qt/bitcoinaddressvalidator.cpp \
     src/alert.cpp \
+	src/qt/loginportal.cpp \
     src/base58.cpp \
 	src/allocators.cpp \
     src/chainparams.cpp \
@@ -431,11 +431,11 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/adrenalinenodeconfigdialog.cpp \
     src/qt/qcustomplot.cpp \
     src/smessage.cpp \
-	src/qt/employeeportal.cpp \
     src/qt/messagepage.cpp \
     src/qt/messagemodel.cpp \
     src/qt/sendmessagesdialog.cpp \
     src/qt/sendmessagesentry.cpp \
+	src/qt/employeemanager.cpp \
     src/qt/blockbrowser.cpp \
     src/qt/qvalidatedtextedit.cpp \
     src/qt/plugins/mrichtexteditor/mrichtextedit.cpp \
@@ -476,11 +476,11 @@ FORMS += \
     src/qt/forms/sendmessagesentry.ui \
     src/qt/forms/sendmessagesdialog.ui \
     src/qt/forms/blockbrowser.ui \
-	src/qt/forms/myemployees.ui \
     src/qt/plugins/mrichtexteditor/mrichtextedit.ui \
     src/qt/forms/editemployees.ui \
-    src/qt/forms/employeeportal.ui \
-    src/qt/forms/syndicate.ui
+    src/qt/forms/syndicate.ui \
+    src/qt/forms/employeemanager.ui \
+    src/qt/forms/loginportal.ui
     
 
 

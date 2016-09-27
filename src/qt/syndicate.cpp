@@ -28,14 +28,16 @@ void Syndicate::on_myfinancialsButton_clicked()
 
 }
 
-void Syndicate::on_myemployeesButton_clicked()
+void Syndicate::on_employeemanagerButton_clicked()
 {
-
+    employeeman = new EmployeeManager(this);
+    employeeman->show();
 }
 
 void Syndicate::on_employeeportalButton_clicked()
 {
-
+    portal = new LoginPortal(this);
+    portal->show();
 }
 
 void Syndicate::on_poeButton_clicked()

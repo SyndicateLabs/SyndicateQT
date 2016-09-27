@@ -1,5 +1,5 @@
-﻿#include "employeeportal.h"
-#include "ui_employeeportal.h"
+#include "loginportal.h"
+#include "ui_loginportal.h"
 
 #include <QFile>
 #include <QDebug>
@@ -18,9 +18,9 @@
 #include <QTimer>
 #include <QDateTime>
 
-EmployeePortal::EmployeePortal(QWidget *parent) :
+LoginPortal::LoginPortal(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::EmployeePortal)
+    ui(new Ui::LoginPortal)
 {
     ui->setupUi(this);
 
@@ -55,19 +55,19 @@ EmployeePortal::EmployeePortal(QWidget *parent) :
     timer->start();	
 }
 
-EmployeePortal::~EmployeePortal()
+LoginPortal::~LoginPortal()
 {
     delete ui;
 }
 
-void EmployeePortal::localTime()
+void LoginPortal::localTime()
 {
     QTime localTime = QTime::currentTime();
     QString timetext = localTime.toString("hh : mm : ss");
     ui->currenttime->setText(timetext);
 }
 
-void EmployeePortal::on_portalloginlogin_clicked()
+void LoginPortal::on_portalloginlogin_clicked()
 {    
     if(ui->portalloginusername->text() == "")
         {
@@ -115,7 +115,7 @@ void EmployeePortal::on_portalloginlogin_clicked()
       }
 }
 
-void EmployeePortal::on_portalloginusername_returnPressed()
+void LoginPortal::on_portalloginusername_returnPressed()
 {
     if(ui->portalloginusername->text() == "")
         {
@@ -163,7 +163,7 @@ void EmployeePortal::on_portalloginusername_returnPressed()
       }
 }
 
-void EmployeePortal::on_portalloginpassword_returnPressed()
+void LoginPortal::on_portalloginpassword_returnPressed()
 {
     if(ui->portalloginusername->text() == "")
         {
@@ -210,13 +210,13 @@ void EmployeePortal::on_portalloginpassword_returnPressed()
       }
 }
 
-void EmployeePortal::on_logoutbutton_clicked()
+void LoginPortal::on_logoutbutton_clicked()
 {
     ui->loginpage->show();
     ui->clockinpage->hide();
 }
 
-void EmployeePortal::on_clockinbutton_clicked()
+void LoginPortal::on_clockinbutton_clicked()
 {
     std::string loginClicked = currentTime();
     QString clockin = QString::fromStdString(loginClicked);
@@ -237,7 +237,7 @@ void EmployeePortal::on_clockinbutton_clicked()
     }
 }
 
-void EmployeePortal::on_clockoutbutton_clicked()
+void LoginPortal::on_clockoutbutton_clicked()
 {
 
     std::string logoutClicked = currentTime();
@@ -259,7 +259,7 @@ void EmployeePortal::on_clockoutbutton_clicked()
     }
 }
 
-void EmployeePortal::on_historyButton_clicked()
+void LoginPortal::on_historyButton_clicked()
 {
     openEmployeePortal();
     modal=new QSqlQueryModel();

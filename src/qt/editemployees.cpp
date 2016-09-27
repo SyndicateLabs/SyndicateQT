@@ -1,6 +1,6 @@
 ﻿#include "editemployees.h"
 #include "ui_editemployees.h"
-#include "myemployees.h"
+#include "employeemanager.h"
 
 #include <QMessageBox>
 
@@ -11,7 +11,7 @@ EditEmployees::EditEmployees(QWidget *parent) :
     ui->setupUi(this);
     setWindowTitle(tr("Edit Employee Info"));
 
-    MyEmployees myemp;
+    EmployeeManager myemp;
 
     myemp.openEmployeeDatabase();
     QSqlQueryModel * modal=new QSqlQueryModel();
@@ -40,7 +40,7 @@ EditEmployees::~EditEmployees()
 
 void EditEmployees::on_savebutton_clicked()
 {
-    MyEmployees myemp;
+    EmployeeManager myemp;
 
         if(ui->einlineedit2->text() == "")
         {
@@ -164,7 +164,7 @@ void EditEmployees::on_einlistview_clicked(const QModelIndex &index)
 {
     QString val=ui->einlistview->model()->data(index).toString();
 
-    MyEmployees myemp;
+    EmployeeManager myemp;
     myemp.openEmployeeDatabase();
     QSqlQuery query;
     query.prepare("select * from employeeinfo where [Employee ID]='"+val+"'");
@@ -203,7 +203,7 @@ void EditEmployees::on_deletebutton_clicked()
 
     ein=ui->einlineedit2->text();
 
-    MyEmployees myemp;
+    EmployeeManager myemp;
     myemp.openEmployeeDatabase();
     QSqlQuery query;
     query.prepare("DELETE from employeeinfo where [Employee ID]='"+ein+"'");

@@ -1,5 +1,5 @@
-﻿#ifndef MYEMPLOYEES_H
-#define MYEMPLOYEES_H
+#ifndef EMPLOYEEMANAGER_H
+#define EMPLOYEEMANAGER_H
 
 #include <fstream>
 #include <iostream>
@@ -16,13 +16,15 @@
 #include <QDir>
 #include <QString>
 
+#include <QDialog>
+
 using namespace std;
 
 namespace Ui {
-class MyEmployees;
+class EmployeeManager;
 }
 
-class MyEmployees : public QWidget
+class EmployeeManager : public QDialog
 {
     Q_OBJECT
 
@@ -58,8 +60,8 @@ public:
     }
 
 public:
-    explicit MyEmployees(QWidget *parent = 0);
-    ~MyEmployees();
+    explicit EmployeeManager(QWidget *parent = 0);
+    ~EmployeeManager();
 
 private slots:
     void on_savebutton_clicked();
@@ -72,8 +74,7 @@ private slots:
     void on_logoutbutton_clicked();
 
 private:
-    Ui::MyEmployees *ui;
-
+    Ui::EmployeeManager *ui;
 };
 
-#endif // MYEMPLOYEES_H
+#endif // EMPLOYEEMANAGER_H
