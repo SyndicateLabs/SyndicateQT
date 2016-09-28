@@ -24,7 +24,6 @@ EmployeeManager::EmployeeManager(QWidget *parent) :
 
     ui->loginpage->show();
     ui->addpage->hide();
-    ui->status_2->hide();
     ui->tabWidget->hide();
 
     createEmployeeDatabase();
@@ -65,7 +64,6 @@ void EmployeeManager::on_loginlogin_clicked()
            {
                closeEmployeeDatabase();
                ui->loginpage->hide();
-               ui->status_2->show();
                ui->addpage->show();
                ui->tabWidget->show();
                ui->loginusername->clear();
@@ -76,7 +74,6 @@ void EmployeeManager::on_loginlogin_clicked()
                closeEmployeeDatabase();
                ui->loginpage->show();
                ui->addpage->hide();
-               ui->status_2->hide();
                ui->tabWidget->hide();
                QMessageBox::critical(this,tr("Failed"),tr("Username and/or Password is Incorrect"));
            }
@@ -114,7 +111,6 @@ void EmployeeManager::on_loginusername_returnPressed()
            {
                closeEmployeeDatabase();
                ui->loginpage->hide();
-               ui->status_2->show();
                ui->addpage->show();
                ui->tabWidget->show();
                ui->loginusername->clear();
@@ -125,7 +121,6 @@ void EmployeeManager::on_loginusername_returnPressed()
                closeEmployeeDatabase();
                ui->loginpage->show();
                ui->addpage->hide();
-               ui->status_2->hide();
                ui->tabWidget->hide();
                QMessageBox::critical(this,tr("Failed"),tr("Username and/or Password is Incorrect"));
            }
@@ -163,7 +158,6 @@ void EmployeeManager::on_loginpassword_returnPressed()
            {
                closeEmployeeDatabase();
                ui->loginpage->hide();
-               ui->status_2->show();
                ui->addpage->show();
                ui->tabWidget->show();
                ui->loginusername->clear();
@@ -174,7 +168,6 @@ void EmployeeManager::on_loginpassword_returnPressed()
                closeEmployeeDatabase();
                ui->loginpage->show();
                ui->addpage->hide();
-               ui->status_2->hide();
                ui->tabWidget->hide();
                QMessageBox::critical(this,tr("Failed"),tr("Username and/or Password is Incorrect"));
            }
@@ -373,6 +366,5 @@ void EmployeeManager::on_logoutbutton_clicked()
 {    
     ui->loginpage->show();
     ui->addpage->hide();
-    ui->status_2->hide();
     ui->tabWidget->hide();
 }

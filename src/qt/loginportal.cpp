@@ -28,7 +28,6 @@ LoginPortal::LoginPortal(QWidget *parent) :
 
     ui->loginpage->show();
     ui->clockinpage->hide();
-    ui->portalstatus2->hide();
 
     createLoginDatabase();
 
@@ -79,7 +78,6 @@ void LoginPortal::on_portalloginlogin_clicked()
             {
                 login.closeEmployeeDatabase();
                 ui->loginpage->hide();
-                ui->portalstatus2->show();
                 ui->clockinpage->show();
                 ui->portalloginusername->clear();
                 ui->portalloginpassword->clear();
@@ -127,7 +125,6 @@ void LoginPortal::on_portalloginusername_returnPressed()
             {
                 login.closeEmployeeDatabase();
                 ui->loginpage->hide();
-                ui->portalstatus2->show();
                 ui->clockinpage->show();
                 ui->portalloginusername->clear();
                 ui->portalloginpassword->clear();
@@ -175,7 +172,6 @@ void LoginPortal::on_portalloginpassword_returnPressed()
             {
                 login.closeEmployeeDatabase();
                 ui->loginpage->hide();
-                ui->portalstatus2->show();
                 ui->clockinpage->show();
                 ui->portalloginusername->clear();
                 ui->portalloginpassword->clear();
