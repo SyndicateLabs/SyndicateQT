@@ -13,7 +13,7 @@
 #include <QClipboard>
 
 SendMessagesEntry::SendMessagesEntry(QWidget *parent) :
-    QFrame(parent, Qt::Window),
+    QFrame(parent),
     ui(new Ui::SendMessagesEntry),
     model(0)
 {

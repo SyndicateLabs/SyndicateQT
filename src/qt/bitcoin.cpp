@@ -171,9 +171,9 @@ int main(int argc, char *argv[])
     app.setOrganizationName("Syndicate");
     //XXX app.setOrganizationDomain("");
     if(GetBoolArg("-testnet", false)) // Separate UI settings for testnet
-        app.setApplicationName("Syndicate-testnet");
+        app.setApplicationName("Syndicate-Qt-testnet");
     else
-        app.setApplicationName("Syndicate");
+        app.setApplicationName("Syndicate-Qt");
 
     // ... then GUI settings:
     OptionsModel optionsModel;

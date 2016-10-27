@@ -1076,8 +1076,8 @@ To znamená, že je potřebný poplatek ve výši nejméně %2.</translation>
     <message>
         <location filename="../guiutil.cpp" line="+426"/>
         <location line="+12"/>
-        <source>Syndicate</source>
-        <translation>Syndicate</translation>
+        <source>Syndicate-Qt</source>
+        <translation>Syndicate-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1577,8 +1577,8 @@ To znamená, že je potřebný poplatek ve výši nejméně %2.</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Syndicate help message to get a list with possible Syndicate command-line options.</source>
-        <translation>Zobrazit Syndicate nápovědu pro zobrazení seznam dostupným možností příkazového řádku.</translation>
+        <source>Show the Syndicate-Qt help message to get a list with possible Syndicate command-line options.</source>
+        <translation>Zobrazit Syndicate-Qt nápovědu pro zobrazení seznam dostupným možností příkazového řádku.</translation>
     </message>
     <message>
         <location line="+3"/>
