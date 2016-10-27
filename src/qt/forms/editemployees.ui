@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EditEmployees</class>
+ <widget class="QDialog" name="EditEmployees">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>650</width>
+    <height>584</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="0" column="0" colspan="2">
+    <widget class="QLabel" name="label">
+     <property name="maximumSize">
+      <size>
+       <width>75</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline;&quot;&gt;Employee ID&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2" rowspan="2">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="EIN">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Employee ID:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="einlineedit2"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="permissions">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Permissions:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="permissionslineedit2"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="firstname">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;First Name:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="firstnameedit2"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="lastname">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Last Name:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="lastnameedit2"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="age">
+       <property name="text">
+        <string>Age:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="agelineedit2"/>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="dob">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Date of Birth: &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="doblineedit2"/>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="address">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Address:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLineEdit" name="addresslineedit2"/>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="city">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;City:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLineEdit" name="citylineedit2"/>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="state">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;State:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLineEdit" name="statelineedit2"/>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="zipcode">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Zip Code:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLineEdit" name="zipcodelineedit2"/>
+     </item>
+     <item row="10" column="0">
+      <widget class="QLabel" name="homephone">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Home Phone:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="1">
+      <widget class="QLineEdit" name="homelineedit2"/>
+     </item>
+     <item row="11" column="0">
+      <widget class="QLabel" name="cellphone">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Cell Phone:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="1">
+      <widget class="QLineEdit" name="celllineedit2"/>
+     </item>
+     <item row="12" column="0">
+      <widget class="QLabel" name="email">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Email:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="1">
+      <widget class="QLineEdit" name="emaillineedit2"/>
+     </item>
+     <item row="13" column="0">
+      <widget class="QLabel" name="username">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Username:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="1">
+      <widget class="QLineEdit" name="usernamelineedit2"/>
+     </item>
+     <item row="14" column="0">
+      <widget class="QLabel" name="password">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Password:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="1">
+      <widget class="QLineEdit" name="passwordlineedit2">
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QListView" name="einlistview">
+     <property name="maximumSize">
+      <size>
+       <width>75</width>
+       <height>16777215</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="statuslabel">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>10</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Status</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1" colspan="2">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="savebutton">
+       <property name="text">
+        <string>Save</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="deletebutton">
+       <property name="text">
+        <string>Delete</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+  <zorder>addresslineedit2</zorder>
+  <zorder>dob</zorder>
+  <zorder>address</zorder>
+  <zorder>doblineedit2</zorder>
+  <zorder>city</zorder>
+  <zorder>state</zorder>
+  <zorder>citylineedit2</zorder>
+  <zorder>statelineedit2</zorder>
+  <zorder>zipcodelineedit2</zorder>
+  <zorder>homelineedit2</zorder>
+  <zorder>homephone</zorder>
+  <zorder>zipcode</zorder>
+  <zorder>celllineedit2</zorder>
+  <zorder>cellphone</zorder>
+  <zorder>email</zorder>
+  <zorder>username</zorder>
+  <zorder>emaillineedit2</zorder>
+  <zorder>usernamelineedit2</zorder>
+  <zorder>passwordlineedit2</zorder>
+  <zorder>password</zorder>
+  <zorder>permissions</zorder>
+  <zorder>einlistview</zorder>
+  <zorder>einlineedit2</zorder>
+  <zorder>EIN</zorder>
+  <zorder>firstname</zorder>
+  <zorder>firstnameedit2</zorder>
+  <zorder>lastname</zorder>
+  <zorder>permissionslineedit2</zorder>
+  <zorder>agelineedit2</zorder>
+  <zorder>lastnameedit2</zorder>
+  <zorder>age</zorder>
+  <zorder>statuslabel</zorder>
+  <zorder>label</zorder>
+  <zorder>deletebutton</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -76,13 +76,13 @@ script: |
   export INSTALLNAMETOOL=${HOST}-install_name_tool
   export STRIP=${HOST}-strip
   chmod +x contrib/macdeploy/macdeployqtplus
-  OTOOL=${HOST}-otool INSTALLNAMETOOL=${HOST}-install_name_tool STRIP=${HOST}-strip contrib/macdeploy/macdeployqtplus Syndicate-Qt.app
+  OTOOL=${HOST}-otool INSTALLNAMETOOL=${HOST}-install_name_tool STRIP=${HOST}-strip contrib/macdeploy/macdeployqtplus Syndicate.app
   mkdir -p  dist/.background
   install contrib/macdeploy/background.png dist/.background
   install contrib/macdeploy/DS_Store dist/.DS_Store
   cd dist
   ln -sf /Applications Applications
   cd ..
-  genisoimage -no-cache-inodes -l -probe -V "Syndicate-Qt" -no-pad -r -apple -o Shadow.tmp.dmg dist
-  dmg dmg Syndicate-Qt.tmp.dmg $OUTDIR/Syndicate.dmg
+  genisoimage -no-cache-inodes -l -probe -V "Syndicate" -no-pad -r -apple -o Shadow.tmp.dmg dist
+  dmg dmg Syndicate.tmp.dmg $OUTDIR/Syndicate.dmg
   #

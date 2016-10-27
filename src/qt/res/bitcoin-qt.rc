@@ -19,13 +19,13 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "Syndicate"
-            VALUE "FileDescription",    "Syndicate-Qt (OSS GUI client for Syndicate)"
+            VALUE "FileDescription",    "Syndicate (OSS GUI client for Syndicate)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "Syndicate-qt"
+            VALUE "InternalName",       "Syndicate"
             VALUE "LegalCopyright",     "2009-2014 The Bitcoin developers, 2012-2014 The NovaCoin & PPCoin developers, 2014-2015 The Syndicate developers"
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "Syndicate-qt.exe"
-            VALUE "ProductName",        "Syndicate-Qt"
+            VALUE "OriginalFilename",   "Syndicate.exe"
+            VALUE "ProductName",        "Syndicate"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

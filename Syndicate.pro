@@ -1,15 +1,16 @@
 TEMPLATE = app
-TARGET = Syndicate-qt
-VERSION = 1.0.0.7
+TARGET = Syndicate
+VERSION = 1.0.1.7
 INCLUDEPATH += src src/json src/qt src/qt/plugins/mrichtexteditor
-QT += network printsupport
+QT += network printsupport widgets sql
 DEFINES += ENABLE_WALLET
 DEFINES += BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
 CONFIG += thread
+CONFIG += static
 
 greaterThan(QT_MAJOR_VERSION, 4) {
-    QT += widgets webkitwidgets
+    QT += network printsupport widgets sql
     DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
 }
 
@@ -17,7 +18,25 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 # use: qmake BOOST_LIB_SUFFIX=-mt
 # for boost thread win32 with _win32 sufix
 # use: BOOST_THREAD_LIB_SUFFIX=_win32-...
-# or when linking against a specific BerkelyDB version: BDB_LIB_SUFFIX=-4.8	
+# or when linking against a specific BerkelyDB version: BDB_LIB_SUFFIX=-4.8
+
+BOOST_LIB_SUFFIX=-mgw49-mt-s-1_57
+BOOST_INCLUDE_PATH=D:/deps/boost_1_57_0
+BOOST_LIB_PATH=D:/deps/boost_1_57_0/stage/lib
+BDB_INCLUDE_PATH=D:/deps/db-4.8.30.NC/build_unix
+BDB_LIB_PATH=D:/deps/db-4.8.30.NC/build_unix
+OPENSSL_INCLUDE_PATH=D:/deps/openssl-1.0.1p/include
+OPENSSL_LIB_PATH=D:/deps/openssl-1.0.1p/lib
+MINIUPNPC_INCLUDE_PATH=D:/deps/
+MINIUPNPC_LIB_PATH=D:/deps/miniupnpc
+QRENCODE_INCLUDE_PATH=D:/deps/qrencode-3.4.4
+QRENCODE_LIB_PATH=D:/deps/qrencode-3.4.4/.libs
+LIBEVENT_INCLUDE_PATH=D:/deps/libevent-2.0.21-stable/include
+LIBEVENT_LIB_PATH=D:/deps/libevent-2.0.21-stable/.libs
+SECP256K1_LIB_PATH = D:/deps/secp256k1/.libs
+SECP256K1_INCLUDE_PATH = D:/deps/secp256k1/include
+BOTAN_LIB_PATH = D:/deps/Botan-1.10.8/build/lib
+BOTAN_INCLUDE_PATH = D:/deps/Botan-1.10.8/build/include
 
 # 	 Dependency library locations can be customized with:
 #    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
@@ -55,7 +74,8 @@ QMAKE_LFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
 # for extra security (see: https://wiki.debian.org/Hardening): this flag is GCC compiler-specific
 QMAKE_CXXFLAGS *= -D_FORTIFY_SOURCE=2
 # for extra security on Windows: enable ASLR and DEP via GCC linker flags
-win32:QMAKE_LFLAGS *= -Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware
+win32:QMAKE_LFLAGS *= -Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware -static
+win32:QMAKE_LFLAGS *= -static-libgcc -static-libstdc++
 
 # use: qmake "USE_QRCODE=1"
 # libqrencode (http://fukuchi.org/works/qrencode/index.en.html) must be installed for support
@@ -85,7 +105,7 @@ contains(BITCOIN_NEED_QT_PLUGINS, 1) {
 #Build Leveldb
 INCLUDEPATH += src/leveldb/include src/leveldb/helpers
 LIBS += $$PWD/src/leveldb/libleveldb.a $$PWD/src/leveldb/libmemenv.a
-SOURCES += src/txdb-leveldb.cpp \
+SOURCES += src/txdb-leveldb.cpp
 
 !win32 {
     # we use QMAKE_CXXFLAGS_RELEASE even without RELEASE=1 because we use RELEASE to indicate linking preferences not -O preferences
@@ -96,7 +116,7 @@ SOURCES += src/txdb-leveldb.cpp \
         QMAKE_RANLIB = $$replace(QMAKE_STRIP, strip, ranlib)
     }
     LIBS += -lshlwapi
-    genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libleveldb.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libmemenv.a
+    #genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libleveldb.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libmemenv.a
 }
 genleveldb.target = $$PWD/src/leveldb/libleveldb.a
 genleveldb.depends = FORCE
@@ -279,7 +299,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/qt/addeditadrenalinenode.h \
     src/qt/adrenalinenodeconfigdialog.h \
     src/qt/qcustomplot.h \
-    src/qt/blockexplorer.h \
+    src/qt/blockbrowser.h \
     src/qt/messagepage.h \
     src/qt/messagemodel.h \
     src/qt/sendmessagesdialog.h \
@@ -298,7 +318,14 @@ HEADERS += src/qt/bitcoingui.h \
     src/sph_shavite.h \
     src/sph_simd.h \
     src/sph_types.h \
-
+    src/qt/editemployees.h \
+    src/qt/syndicate.h \
+    src/qt/employeemanager.h \
+    src/qt/loginportal.h \
+    src/qt/syndicatetools.h \
+    src/qt/myinventory.h \
+    src/qt/mybusiness.h \
+    src/qt/myfinancials.h
 
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/transactiontablemodel.cpp \
@@ -313,7 +340,10 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/editaddressdialog.cpp \
     src/qt/bitcoinaddressvalidator.cpp \
     src/alert.cpp \
+	src/qt/loginportal.cpp \
+	src/qt/syndicatetools.cpp \
     src/base58.cpp \
+	src/allocators.cpp \
     src/chainparams.cpp \
     src/version.cpp \
     src/sync.cpp \
@@ -322,8 +352,9 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/hash.cpp \
     src/netbase.cpp \
     src/ecwrapper.cpp \
-	src/allocators.cpp \
+	src/qt/syndicate.cpp \
     src/key.cpp \
+	src/qt/editemployees.cpp \
     src/pubkey.cpp \
     src/script.cpp \
     src/scrypt.cpp \
@@ -357,6 +388,9 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/rpcserver.cpp \
     src/rpcdump.cpp \
     src/rpcmisc.cpp \
+	src/qt/myinventory.cpp \
+    src/qt/mybusiness.cpp \
+    src/qt/myfinancials.cpp \
     src/rpcnet.cpp \
     src/rpcmining.cpp \
     src/rpcwallet.cpp \
@@ -410,7 +444,8 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/messagemodel.cpp \
     src/qt/sendmessagesdialog.cpp \
     src/qt/sendmessagesentry.cpp \
-    src/qt/blockexplorer.cpp \
+	src/qt/employeemanager.cpp \
+    src/qt/blockbrowser.cpp \
     src/qt/qvalidatedtextedit.cpp \
     src/qt/plugins/mrichtexteditor/mrichtextedit.cpp \
     src/rpcsmessage.cpp \
@@ -449,8 +484,16 @@ FORMS += \
     src/qt/forms/messagepage.ui \
     src/qt/forms/sendmessagesentry.ui \
     src/qt/forms/sendmessagesdialog.ui \
-    src/qt/forms/blockexplorer.ui \
-    src/qt/plugins/mrichtexteditor/mrichtextedit.ui
+    src/qt/forms/blockbrowser.ui \
+    src/qt/plugins/mrichtexteditor/mrichtextedit.ui \
+    src/qt/forms/editemployees.ui \
+    src/qt/forms/syndicate.ui \
+    src/qt/forms/employeemanager.ui \
+    src/qt/forms/loginportal.ui \
+    src/qt/forms/syndicatetools.ui \
+    src/qt/forms/myinventory.ui \
+    src/qt/forms/mybusiness.ui \
+    src/qt/forms/myfinancials.ui
     
 
 
@@ -587,18 +630,18 @@ macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm src/qt/macnotificationhan
 macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit -framework CoreServices
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
 macx:ICON = src/qt/res/icons/bitcoin.icns
-macx:TARGET = "Syndicate-Qt"
+macx:TARGET = "Syndicate"
 macx:QMAKE_CFLAGS_THREAD += -pthread
 macx:QMAKE_LFLAGS_THREAD += -pthread
 macx:QMAKE_CXXFLAGS_THREAD += -pthread
 macx:QMAKE_INFO_PLIST = share/qt/Info.plist
 
 # Set libraries and includes at end, to use platform-defined defaults if not overridden
-INCLUDEPATH += $$BOOST_INCLUDE_PATH $$BDB_INCLUDE_PATH $$OPENSSL_INCLUDE_PATH $$QRENCODE_INCLUDE_PATH
-LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
+INCLUDEPATH += $$BOOST_INCLUDE_PATH $$BDB_INCLUDE_PATH $$OPENSSL_INCLUDE_PATH $$QRENCODE_INCLUDE_PATH $$BOTAN_INCLUDE_PATH
+LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,) $$join(BOTAN_LIB_PATH,, -L,)
 LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX
 # -lgdi32 has to happen after -lcrypto (see  #681)
-windows:LIBS += -lws2_32 -lshlwapi -lmswsock -lole32 -loleaut32 -luuid -lgdi32
+windows:LIBS += -lws2_32 -lshlwapi -lmswsock -lole32 -loleaut32 -luuid -lgdi32 -lBotan
 !windows: {
     LIBS += -lgmp
 }

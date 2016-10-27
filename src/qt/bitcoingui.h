@@ -17,7 +17,8 @@ class SignVerifyMessageDialog;
 class Notificator;
 class RPCConsole;
 class MasternodeManager;
-class BlockExplorer;
+class BlockBrowser;
+class Syndicate;
 class MessagePage;
 class MessageModel;
 
@@ -79,7 +80,8 @@ private:
     SignVerifyMessageDialog *signVerifyMessageDialog;
     MasternodeManager *masternodeManagerPage;
     MessagePage *messagePage;
-    BlockExplorer *blockExplorer;
+    BlockBrowser *blockBrowser;
+	Syndicate *syndicatePage;
     QLabel* netLabel;
     QLabel *labelEncryptionIcon;
     QLabel *labelStakingIcon;
@@ -112,7 +114,8 @@ private:
     QAction *masternodeManagerAction;
     QAction *messageAction;
     QAction *showBackupsAction;
-    QAction *blockExplorerAction;
+    QAction *blockBrowserAction;
+    QAction *syndicatePageAction;
 
     QSystemTrayIcon *trayIcon;
     Notificator *notificator;
@@ -179,8 +182,8 @@ private slots:
     void gotoReceiveCoinsPage();
     /** Switch to send coins page */
     void gotoSendCoinsPage();
-    /** Switch to Block Explorer*/
-    void gotoBlockExplorer();
+    /** Switch to Block Browser*/
+    void gotoBlockBrowser();
     /** Switch to masternode manager page*/
     void gotoMasternodeManagerPage();
     /** Show Sign/Verify Message dialog and switch to sign message tab */
@@ -189,6 +192,8 @@ private slots:
     void gotoVerifyMessageTab(QString addr = "");
     /** Switch to message page*/
     void gotoMessagePage();
+	/** Switch to Syndicate page*/
+    void gotoSyndicate();
     /** Show configuration dialog */
     void optionsClicked();
     /** Show about dialog */

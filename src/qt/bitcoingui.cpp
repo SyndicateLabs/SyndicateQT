@@ -8,7 +8,6 @@
 #include <QApplication>
 
 #include "bitcoingui.h"
-
 #include "transactiontablemodel.h"
 #include "addressbookpage.h"
 #include "sendcoinsdialog.h"
@@ -36,7 +35,8 @@
 #include "masternodemanager.h"
 #include "messagemodel.h"
 #include "messagepage.h"
-#include "blockexplorer.h"
+#include "blockbrowser.h"
+#include "syndicate.h"
 
 #ifdef Q_OS_MAC
 #include "macdockiconhandler.h"
@@ -128,20 +128,16 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     QVBoxLayout *vbox = new QVBoxLayout();
     transactionView = new TransactionView(this);
     vbox->addWidget(transactionView);
-    transactionsPage->setLayout(vbox);
-
-    blockExplorer = new BlockExplorer(this);
-
+    transactionsPage->setLayout(vbox);	
+	blockBrowser = new BlockBrowser(this);
     addressBookPage = new AddressBookPage(AddressBookPage::ForEditing, AddressBookPage::SendingTab);
-
     receiveCoinsPage = new AddressBookPage(AddressBookPage::ForEditing, AddressBookPage::ReceivingTab);
-
     sendCoinsPage = new SendCoinsDialog(this);
-
     signVerifyMessageDialog = new SignVerifyMessageDialog(this);
-
     masternodeManagerPage = new MasternodeManager(this);
     messagePage = new MessagePage(this);
+	
+	syndicatePage = new Syndicate(this);
 
     centralStackedWidget = new QStackedWidget(this);
     centralStackedWidget->setContentsMargins(0, 0, 0, 0);
@@ -152,7 +148,8 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     centralStackedWidget->addWidget(sendCoinsPage);
     centralStackedWidget->addWidget(masternodeManagerPage);
     centralStackedWidget->addWidget(messagePage);
-    centralStackedWidget->addWidget(blockExplorer);
+    centralStackedWidget->addWidget(blockBrowser);
+	centralStackedWidget->addWidget(syndicatePage);
 
     QWidget *centralWidget = new QWidget();
     QVBoxLayout *centralLayout = new QVBoxLayout(centralWidget);
@@ -297,26 +294,33 @@ void BitcoinGUI::createActions()
     addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
     tabGroup->addAction(addressBookAction);
 
-    blockExplorerAction = new QAction(QIcon(":/icons/blockexplorer"), tr("&Block Explorer"), this);
-    blockExplorerAction->setToolTip(tr("Official Syndicate Block Explorer"));
-    blockExplorerAction->setCheckable(true);
-    blockExplorerAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
-    tabGroup->addAction(blockExplorerAction);
+    blockBrowserAction = new QAction(QIcon(":/icons/blockexplorer"), tr("&Block Explorer"), this);
+    blockBrowserAction->setToolTip(tr("Official Syndicate block explorer"));
+    blockBrowserAction->setCheckable(true);
+    blockBrowserAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
+    tabGroup->addAction(blockBrowserAction);
+	
+    syndicatePageAction = new QAction(QIcon(":/icons/synx"), tr("&Applications"), this);
+    syndicatePageAction->setToolTip(tr("Syndicate Products"));
+    syndicatePageAction->setCheckable(true);
+    syndicatePageAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
+    tabGroup->addAction(syndicatePageAction);
 
     masternodeManagerAction = new QAction(QIcon(":/icons/masternodes"), tr("&Masternodes"), this);
-    masternodeManagerAction->setToolTip(tr("Show Master Nodes status and configure your nodes."));
+    masternodeManagerAction->setToolTip(tr("View my masternodes & Syndicate network"));
     masternodeManagerAction->setCheckable(true);
     tabGroup->addAction(masternodeManagerAction);
 
     messageAction = new QAction(QIcon(":/icons/edit"), tr("&Messages"), this);
-    messageAction->setToolTip(tr("View and Send Encrypted messages"));
+    messageAction->setToolTip(tr("View and send encrypted messages"));
     messageAction->setCheckable(true);
     tabGroup->addAction(messageAction);
 
     showBackupsAction = new QAction(QIcon(":/icons/browse"), tr("Show Auto&Backups"), this);
     showBackupsAction->setStatusTip(tr("S"));
 
-    connect(blockExplorerAction, SIGNAL(triggered()), this, SLOT(gotoBlockExplorer()));
+    connect(blockBrowserAction, SIGNAL(triggered()), this, SLOT(gotoBlockBrowser()));
+	connect(syndicatePageAction, SIGNAL(triggered()), this, SLOT(gotoSyndicate()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(gotoOverviewPage()));
     connect(receiveCoinsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -441,13 +445,14 @@ void BitcoinGUI::createToolBars()
 	toolbar->addAction(sendCoinsAction);
     toolbar->addAction(receiveCoinsAction);    
     toolbar->addAction(historyAction);
+    toolbar->addAction(syndicatePageAction);
+    toolbar->addAction(blockBrowserAction);
     toolbar->addAction(masternodeManagerAction);
     if (!fLiteMode){
         toolbar->addAction(messageAction);
     }
     netLabel = new QLabel();
-    toolbar->addAction(blockExplorerAction);
-    toolbar->addAction(addressBookAction);
+    toolbar->addAction(addressBookAction);	
 
     QWidget *spacer = makeToolBarSpacer();
     netLabel->setObjectName("netLabel");
@@ -459,7 +464,7 @@ void BitcoinGUI::createToolBars()
     addToolBar(Qt::LeftToolBarArea, toolbar);
 
     foreach(QAction *action, toolbar->actions()) {
-        toolbar->widgetForAction(action)->setFixedWidth(157);
+        toolbar->widgetForAction(action)->setFixedWidth(160);
     }
 }
 
@@ -914,14 +919,23 @@ void BitcoinGUI::gotoMasternodeManagerPage()
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
 }
 
-void BitcoinGUI::gotoBlockExplorer()
+void BitcoinGUI::gotoSyndicate()
 {
-    blockExplorerAction->setChecked(true);
-    centralStackedWidget->setCurrentWidget(blockExplorer);
+    syndicatePageAction->setChecked(true);
+    centralStackedWidget->setCurrentWidget(syndicatePage);
 
     exportAction->setEnabled(false);
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
-	connect(exportAction, SIGNAL(triggered()), blockExplorer, SLOT(exportClicked()));
+}
+
+void BitcoinGUI::gotoBlockBrowser()
+{
+    blockBrowserAction->setChecked(true);
+    centralStackedWidget->setCurrentWidget(blockBrowser);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+	connect(exportAction, SIGNAL(triggered()), blockBrowser, SLOT(exportClicked()));
 }
 
 void BitcoinGUI::gotoOverviewPage()
