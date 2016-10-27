@@ -2,11 +2,7 @@
 #include "ui_masternodemanager.h"
 #include "addeditadrenalinenode.h"
 #include "adrenalinenodeconfigdialog.h"
-#include "masternodeconfig.h"
 
-
-#include "net.h"
-#include "util.h"
 #include "sync.h"
 #include "clientmodel.h"
 #include "walletmodel.h"
@@ -20,7 +16,8 @@
 #include "rpcserver.h"
 #include <boost/lexical_cast.hpp>
 #include <fstream>
-#include <base58.h>
+using namespace json_spirit;
+using namespace std;
 
 #include <QAbstractItemDelegate>
 #include <QPainter>
@@ -32,10 +29,6 @@
 #include <QApplication>
 #include <QClipboard>
 #include <QMessageBox>
-#include <QFile>
-
-using namespace json_spirit;
-using namespace std;
 
 MasternodeManager::MasternodeManager(QWidget *parent) :
     QWidget(parent),
@@ -48,8 +41,8 @@ MasternodeManager::MasternodeManager(QWidget *parent) :
     ui->editButton->setEnabled(false);
     ui->startButton->setEnabled(false);
 
-    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    ui->tableWidget_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->tableWidget_2->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateNodeList()));
@@ -210,8 +203,8 @@ void MasternodeManager::on_startButton_clicked()
     BOOST_FOREACH(CMasternodeConfig::CMasternodeEntry mne, masternodeConfig.getEntries()) {
         if(mne.getAlias() == sAlias) {
             std::string errorMessage;
-            std::string strDonateAddress = "";
-            std::string strDonationPercentage = "";
+            std::string strDonateAddress = mne.getDonationAddress();
+            std::string strDonationPercentage = mne.getDonationPercentage();
 
             bool result = activeMasternode.Register(mne.getIp(), mne.getPrivKey(), mne.getTxHash(), mne.getOutputIndex(), strDonateAddress, strDonationPercentage, errorMessage);
 
@@ -248,8 +241,8 @@ void MasternodeManager::on_startAllButton_clicked()
         total++;
 
         std::string errorMessage;
-        std::string strDonateAddress = "";
-        std::string strDonationPercentage = "";
+        std::string strDonateAddress = mne.getDonationAddress();
+        std::string strDonationPercentage = mne.getDonationPercentage();
 
         bool result = activeMasternode.Register(mne.getIp(), mne.getPrivKey(), mne.getTxHash(), mne.getOutputIndex(), strDonateAddress, strDonationPercentage, errorMessage);
 
@@ -277,8 +270,8 @@ void MasternodeManager::on_UpdateButton_clicked()
 {
     BOOST_FOREACH(CMasternodeConfig::CMasternodeEntry mne, masternodeConfig.getEntries()) {
         std::string errorMessage;
-        std::string strDonateAddress = "";
-        std::string strDonationPercentage = "";
+        std::string strDonateAddress = mne.getDonationAddress();
+        std::string strDonationPercentage = mne.getDonationPercentage();
 
         std::vector<CMasternode> vMasternodes = mnodeman.GetFullMasternodeVector();
         if (errorMessage == ""){

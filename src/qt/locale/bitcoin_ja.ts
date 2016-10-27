@@ -1075,7 +1075,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../guiutil.cpp" line="+426"/>
         <location line="+12"/>
-        <source>Syndicate</source>
+        <source>Syndicate-Qt</source>
         <translation>ブラックコインQT</translation>
     </message>
     <message>
@@ -1576,7 +1576,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Syndicate help message to get a list with possible Syndicate command-line options.</source>
+        <source>Show the Syndicate-Qt help message to get a list with possible Syndicate command-line options.</source>
         <translation>ブラックコインQTのコマンドラインのヘルプ情報を表示する。</translation>
     </message>
     <message>

@@ -27,6 +27,7 @@ class MessagePage : public QWidget
     Q_OBJECT
 
 public:
+
     explicit MessagePage(QWidget *parent = 0);
     ~MessagePage();
 
@@ -41,7 +42,7 @@ public slots:
 private:
     Ui::MessagePage *ui;
     MessageModel *model;
-
+    
     QMenu *contextMenu;
     QAction *replyAction;
     QAction *copyFromAddressAction;

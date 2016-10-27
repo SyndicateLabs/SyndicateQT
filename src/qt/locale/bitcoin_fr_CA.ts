@@ -1076,8 +1076,8 @@ Les montants inférieurs à  0.546 fois les frais minimum de relais apparaissent
     <message>
         <location filename="../guiutil.cpp" line="+426"/>
         <location line="+12"/>
-        <source>Syndicate</source>
-        <translation>Syndicate</translation>
+        <source>Syndicate-Qt</source>
+        <translation>Syndicate-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1577,8 +1577,8 @@ Les montants inférieurs à  0.546 fois les frais minimum de relais apparaissent
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Syndicate help message to get a list with possible Syndicate command-line options.</source>
-        <translation>Afficher le message d&apos;aide Syndicate afin d&apos;obtenir la liste des options de de L&apos;outil en ligne de commande Syndicate</translation>
+        <source>Show the Syndicate-Qt help message to get a list with possible Syndicate command-line options.</source>
+        <translation>Afficher le message d&apos;aide Syndicate-Qt afin d&apos;obtenir la liste des options de de L&apos;outil en ligne de commande Syndicate</translation>
     </message>
     <message>
         <location line="+3"/>

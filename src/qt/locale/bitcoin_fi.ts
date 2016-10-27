@@ -1081,8 +1081,8 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
     <message>
         <location filename="../guiutil.cpp" line="+426"/>
         <location line="+12"/>
-        <source>Syndicate</source>
-        <translation>Syndicate</translation>
+        <source>Syndicate-Qt</source>
+        <translation>Syndicate-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1582,8 +1582,8 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Syndicate help message to get a list with possible Syndicate command-line options.</source>
-        <translation>Näytä Syndicate:n avustusohje saadaksesi listan käytettävistä Syndicatein komentokehotteen määritteistä.</translation>
+        <source>Show the Syndicate-Qt help message to get a list with possible Syndicate command-line options.</source>
+        <translation>Näytä Syndicate-Qt:n avustusohje saadaksesi listan käytettävistä Syndicatein komentokehotteen määritteistä.</translation>
     </message>
     <message>
         <location line="+3"/>

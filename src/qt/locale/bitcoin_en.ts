@@ -1084,8 +1084,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../guiutil.cpp" line="+426"/>
         <location line="+12"/>
-        <source>Syndicate</source>
-        <translation>Syndicate</translation>
+        <source>Syndicate-Qt</source>
+        <translation>Syndicate-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1585,8 +1585,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Syndicate help message to get a list with possible Syndicate command-line options.</source>
-        <translation>Show the Syndicate help message to get a list with possible Syndicate command-line options.</translation>
+        <source>Show the Syndicate-Qt help message to get a list with possible Syndicate command-line options.</source>
+        <translation>Show the Syndicate-Qt help message to get a list with possible Syndicate command-line options.</translation>
     </message>
     <message>
         <location line="+3"/>

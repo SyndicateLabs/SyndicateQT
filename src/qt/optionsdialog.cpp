@@ -10,7 +10,6 @@
 #include <QIntValidator>
 #include <QLocale>
 #include <QMessageBox>
-#include <string>
 
 OptionsDialog::OptionsDialog(QWidget *parent) :
     QDialog(parent),
