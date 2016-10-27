@@ -1074,8 +1074,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     <message>
         <location filename="../guiutil.cpp" line="+426"/>
         <location line="+12"/>
-        <source>Syndicate-Qt</source>
-        <translation>Syndicate-Qt</translation>
+        <source>Syndicate</source>
+        <translation>Syndicate</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1575,8 +1575,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Syndicate-Qt help message to get a list with possible Syndicate command-line options.</source>
-        <translation>Prikaži Syndicate-Qt sporočilo za pomoč , ki prikaže vse možnosti ukazne vrstice Syndicate aplikacije</translation>
+        <source>Show the Syndicate help message to get a list with possible Syndicate command-line options.</source>
+        <translation>Prikaži Syndicate sporočilo za pomoč , ki prikaže vse možnosti ukazne vrstice Syndicate aplikacije</translation>
     </message>
     <message>
         <location line="+3"/>

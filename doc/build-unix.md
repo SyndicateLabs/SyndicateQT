@@ -77,7 +77,7 @@ Optional:
 Dependencies for the GUI: Ubuntu & Debian
 -----------------------------------------
 
-If you want to build Syndicate-Qt, make sure that the required packages for Qt development
+If you want to build Syndicate, make sure that the required packages for Qt development
 are installed. Qt 5 is necessary to build the GUI.
 If both Qt 4 and Qt 5 are installed, Qt 5 will be used.
 
@@ -89,7 +89,7 @@ libqrencode (optional) can be installed with:
 
     sudo apt-get install libqrencode-dev
 
-Once these are installed, they will be found by configure and a Syndicate-qt executable will be
+Once these are installed, they will be found by configure and a Syndicate executable will be
 built by default.
 
 Berkeley DB
@@ -143,7 +143,7 @@ With UPNP:
     make -f makefile.unix USE_UPNP= && \
     strip Syndicated
 
-To Build Syndicate-QT
+To Build Syndicate
 --------
 
 With UPNP:

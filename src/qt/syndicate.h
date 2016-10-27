@@ -3,6 +3,13 @@
 
 #include "employeemanager.h"
 #include "loginportal.h"
+<<<<<<< HEAD
+=======
+#include "syndicatetools.h"
+#include "mybusiness.h"
+#include "myfinancials.h"
+#include "myinventory.h"
+>>>>>>> parent of 1a604f1... Revert "Updates"
 
 #include <QWidget>
 #include <QDir>
@@ -38,12 +45,23 @@ private slots:
     void on_myfinancialsButton_clicked();
     void on_employeemanagerButton_clicked();
     void on_employeeportalButton_clicked();
+<<<<<<< HEAD
     void on_poeButton_clicked();
+=======
+    void on_toolButton_clicked();
+>>>>>>> parent of 1a604f1... Revert "Updates"
 
 private:
     Ui::Syndicate *ui;
     EmployeeManager *employeeman;
     LoginPortal *portal;
+<<<<<<< HEAD
+=======
+    SyndicateTools *tools;
+    MyInventory *inventory;
+    MyFinancials *financials;
+    MyBusiness *business;
+>>>>>>> parent of 1a604f1... Revert "Updates"
 };
 
 #endif // SYNDICATE_H

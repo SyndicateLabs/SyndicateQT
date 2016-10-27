@@ -1,5 +1,9 @@
 TEMPLATE = app
+<<<<<<< HEAD
 TARGET = Syndicate-qt
+=======
+TARGET = Syndicate
+>>>>>>> parent of 1a604f1... Revert "Updates"
 VERSION = 1.0.1.7
 INCLUDEPATH += src src/json src/qt src/qt/plugins/mrichtexteditor
 QT += network printsupport widgets sql
@@ -74,7 +78,8 @@ QMAKE_LFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
 # for extra security (see: https://wiki.debian.org/Hardening): this flag is GCC compiler-specific
 QMAKE_CXXFLAGS *= -D_FORTIFY_SOURCE=2
 # for extra security on Windows: enable ASLR and DEP via GCC linker flags
-win32:QMAKE_LFLAGS *= -Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware
+win32:QMAKE_LFLAGS *= -Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware -static
+win32:QMAKE_LFLAGS *= -static-libgcc -static-libstdc++
 
 # use: qmake "USE_QRCODE=1"
 # libqrencode (http://fukuchi.org/works/qrencode/index.en.html) must be installed for support
@@ -104,7 +109,7 @@ contains(BITCOIN_NEED_QT_PLUGINS, 1) {
 #Build Leveldb
 INCLUDEPATH += src/leveldb/include src/leveldb/helpers
 LIBS += $$PWD/src/leveldb/libleveldb.a $$PWD/src/leveldb/libmemenv.a
-SOURCES += src/txdb-leveldb.cpp \
+SOURCES += src/txdb-leveldb.cpp
 
 !win32 {
     # we use QMAKE_CXXFLAGS_RELEASE even without RELEASE=1 because we use RELEASE to indicate linking preferences not -O preferences
@@ -320,7 +325,15 @@ HEADERS += src/qt/bitcoingui.h \
     src/qt/editemployees.h \
     src/qt/syndicate.h \
     src/qt/employeemanager.h \
+<<<<<<< HEAD
     src/qt/loginportal.h
+=======
+    src/qt/loginportal.h \
+    src/qt/syndicatetools.h \
+    src/qt/myinventory.h \
+    src/qt/mybusiness.h \
+    src/qt/myfinancials.h
+>>>>>>> parent of 1a604f1... Revert "Updates"
 
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/transactiontablemodel.cpp \
@@ -336,6 +349,10 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/bitcoinaddressvalidator.cpp \
     src/alert.cpp \
 	src/qt/loginportal.cpp \
+<<<<<<< HEAD
+=======
+	src/qt/syndicatetools.cpp \
+>>>>>>> parent of 1a604f1... Revert "Updates"
     src/base58.cpp \
 	src/allocators.cpp \
     src/chainparams.cpp \
@@ -382,6 +399,9 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/rpcserver.cpp \
     src/rpcdump.cpp \
     src/rpcmisc.cpp \
+	src/qt/myinventory.cpp \
+    src/qt/mybusiness.cpp \
+    src/qt/myfinancials.cpp \
     src/rpcnet.cpp \
     src/rpcmining.cpp \
     src/rpcwallet.cpp \
@@ -480,7 +500,15 @@ FORMS += \
     src/qt/forms/editemployees.ui \
     src/qt/forms/syndicate.ui \
     src/qt/forms/employeemanager.ui \
+<<<<<<< HEAD
     src/qt/forms/loginportal.ui
+=======
+    src/qt/forms/loginportal.ui \
+    src/qt/forms/syndicatetools.ui \
+    src/qt/forms/myinventory.ui \
+    src/qt/forms/mybusiness.ui \
+    src/qt/forms/myfinancials.ui
+>>>>>>> parent of 1a604f1... Revert "Updates"
     
 
 
@@ -617,7 +645,7 @@ macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm src/qt/macnotificationhan
 macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit -framework CoreServices
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
 macx:ICON = src/qt/res/icons/bitcoin.icns
-macx:TARGET = "Syndicate-Qt"
+macx:TARGET = "Syndicate"
 macx:QMAKE_CFLAGS_THREAD += -pthread
 macx:QMAKE_LFLAGS_THREAD += -pthread
 macx:QMAKE_CXXFLAGS_THREAD += -pthread

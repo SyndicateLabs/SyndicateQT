@@ -19,7 +19,11 @@
      <property name="minimumSize">
       <size>
        <width>300</width>
+<<<<<<< HEAD
        <height>375</height>
+=======
+       <height>300</height>
+>>>>>>> parent of 1a604f1... Revert "Updates"
       </size>
      </property>
      <property name="styleSheet">
@@ -35,7 +39,11 @@
      <property name="minimumSize">
       <size>
        <width>300</width>
+<<<<<<< HEAD
        <height>375</height>
+=======
+       <height>300</height>
+>>>>>>> parent of 1a604f1... Revert "Updates"
       </size>
      </property>
      <property name="styleSheet">
@@ -51,7 +59,11 @@
      <property name="minimumSize">
       <size>
        <width>300</width>
+<<<<<<< HEAD
        <height>375</height>
+=======
+       <height>300</height>
+>>>>>>> parent of 1a604f1... Revert "Updates"
       </size>
      </property>
      <property name="styleSheet">
@@ -67,7 +79,11 @@
      <property name="minimumSize">
       <size>
        <width>300</width>
+<<<<<<< HEAD
        <height>375</height>
+=======
+       <height>300</height>
+>>>>>>> parent of 1a604f1... Revert "Updates"
       </size>
      </property>
      <property name="styleSheet">
@@ -83,7 +99,11 @@
      <property name="minimumSize">
       <size>
        <width>300</width>
+<<<<<<< HEAD
        <height>375</height>
+=======
+       <height>300</height>
+>>>>>>> parent of 1a604f1... Revert "Updates"
       </size>
      </property>
      <property name="styleSheet">
@@ -95,18 +115,30 @@
     </widget>
    </item>
    <item row="1" column="2">
+<<<<<<< HEAD
     <widget class="QPushButton" name="poeButton">
      <property name="minimumSize">
       <size>
        <width>300</width>
        <height>375</height>
+=======
+    <widget class="QPushButton" name="toolButton">
+     <property name="minimumSize">
+      <size>
+       <width>300</width>
+       <height>300</height>
+>>>>>>> parent of 1a604f1... Revert "Updates"
       </size>
      </property>
      <property name="styleSheet">
       <string notr="true">background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #2AABE4, stop: 1 #2289B6); border-radius: 7px; margin: 0px;</string>
      </property>
      <property name="text">
+<<<<<<< HEAD
       <string>Proof of Existence</string>
+=======
+      <string>Tools</string>
+>>>>>>> parent of 1a604f1... Revert "Updates"
      </property>
     </widget>
    </item>

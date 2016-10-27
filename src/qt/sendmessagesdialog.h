@@ -22,6 +22,7 @@ class SendMessagesDialog : public QDialog
     Q_OBJECT
 
 public:
+    Ui::SendMessagesDialog *ui;
 
     enum Mode {
         Encrypted,
@@ -56,7 +57,6 @@ public slots:
     void updateRemoveEnabled();
 
 private:
-    Ui::SendMessagesDialog *ui;
     MessageModel *model;
     bool fNewRecipientAllowed;
     Mode mode;
