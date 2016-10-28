@@ -7,13 +7,13 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Syndicate-Qt</string>
+	<string>Syndicate</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleExecutable</key>
-	<string>Syndicate-Qt</string>
+	<string>Syndicate</string>
 	<key>CFBundleIdentifier</key>
-	<string>co.Syndicate.Syndicate-Qt</string>
+	<string>co.Syndicate.Syndicate</string>
         <key>CFBundleURLTypes</key>
         <array>
           <dict>

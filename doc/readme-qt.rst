@@ -1,4 +1,4 @@
-Syndicate-qt: Qt5 GUI for Syndicate
+Syndicate: Qt5 GUI for Syndicate
 ===============================
 
 Linux

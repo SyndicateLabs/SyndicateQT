@@ -1076,8 +1076,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     <message>
         <location filename="../guiutil.cpp" line="+426"/>
         <location line="+12"/>
-        <source>Syndicate-Qt</source>
-        <translation>Syndicate-Qt</translation>
+        <source>Syndicate</source>
+        <translation>Syndicate</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1577,8 +1577,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Syndicate-Qt help message to get a list with possible Syndicate command-line options.</source>
-        <translation>Afișa mesajul de ajutor Syndicate-Qt pentru a obține o listă cu posibile opțiuni de linie de comandă Syndicate.</translation>
+        <source>Show the Syndicate help message to get a list with possible Syndicate command-line options.</source>
+        <translation>Afișa mesajul de ajutor Syndicate pentru a obține o listă cu posibile opțiuni de linie de comandă Syndicate.</translation>
     </message>
     <message>
         <location line="+3"/>

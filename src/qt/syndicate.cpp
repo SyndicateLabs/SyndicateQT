@@ -16,17 +16,20 @@ Syndicate::~Syndicate()
 
 void Syndicate::on_mybusinessButton_clicked()
 {
-
+    business = new MyBusiness (this);
+    business->show();
 }
 
 void Syndicate::on_myinventoryButton_clicked()
 {
-
+    inventory = new MyInventory(this);
+    inventory->show();
 }
 
 void Syndicate::on_myfinancialsButton_clicked()
 {
-
+    financials = new MyFinancials(this);
+    financials->show();
 }
 
 void Syndicate::on_employeemanagerButton_clicked()
@@ -41,7 +44,8 @@ void Syndicate::on_employeeportalButton_clicked()
     portal->show();
 }
 
-void Syndicate::on_poeButton_clicked()
+void Syndicate::on_toolButton_clicked()
 {
-
+    tools = new SyndicateTools(this);
+    tools->show();
 }

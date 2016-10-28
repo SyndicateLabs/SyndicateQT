@@ -1076,8 +1076,8 @@ Dit betekend dat een fee van %2 is vereist.</translation>
     <message>
         <location filename="../guiutil.cpp" line="+426"/>
         <location line="+12"/>
-        <source>Syndicate-Qt</source>
-        <translation>Syndicate-Qt</translation>
+        <source>Syndicate</source>
+        <translation>Syndicate</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1577,8 +1577,8 @@ Dit betekend dat een fee van %2 is vereist.</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Syndicate-Qt help message to get a list with possible Syndicate command-line options.</source>
-        <translation>Laat het Syndicate-QT help bericht zien om een lijst te krijgen met mogelijke Syndicate command-regel opties.</translation>
+        <source>Show the Syndicate help message to get a list with possible Syndicate command-line options.</source>
+        <translation>Laat het Syndicate help bericht zien om een lijst te krijgen met mogelijke Syndicate command-regel opties.</translation>
     </message>
     <message>
         <location line="+3"/>

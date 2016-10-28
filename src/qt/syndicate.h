@@ -3,6 +3,10 @@
 
 #include "employeemanager.h"
 #include "loginportal.h"
+#include "syndicatetools.h"
+#include "mybusiness.h"
+#include "myfinancials.h"
+#include "myinventory.h"
 
 #include <QWidget>
 #include <QDir>
@@ -38,12 +42,16 @@ private slots:
     void on_myfinancialsButton_clicked();
     void on_employeemanagerButton_clicked();
     void on_employeeportalButton_clicked();
-    void on_poeButton_clicked();
+    void on_toolButton_clicked();
 
 private:
     Ui::Syndicate *ui;
     EmployeeManager *employeeman;
     LoginPortal *portal;
+    SyndicateTools *tools;
+    MyInventory *inventory;
+    MyFinancials *financials;
+    MyBusiness *business;
 };
 
 #endif // SYNDICATE_H

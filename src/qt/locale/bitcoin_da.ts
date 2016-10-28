@@ -1076,8 +1076,8 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
     <message>
         <location filename="../guiutil.cpp" line="+426"/>
         <location line="+12"/>
-        <source>Syndicate-Qt</source>
-        <translation>Syndicate-Qt</translation>
+        <source>Syndicate</source>
+        <translation>Syndicate</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1577,8 +1577,8 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Syndicate-Qt help message to get a list with possible Syndicate command-line options.</source>
-        <translation>Vis Syndicate-Qt hjælpe besked for at få en liste med mulige Syndicate kommandolinjeparametre.</translation>
+        <source>Show the Syndicate help message to get a list with possible Syndicate command-line options.</source>
+        <translation>Vis Syndicate hjælpe besked for at få en liste med mulige Syndicate kommandolinjeparametre.</translation>
     </message>
     <message>
         <location line="+3"/>
