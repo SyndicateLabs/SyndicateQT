@@ -17,14 +17,7 @@
    <bool>true</bool>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0">
-    <widget class="QLineEdit" name="aliasLineEdit">
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0">
+   <item row="0" column="0" colspan="2">
     <widget class="QLabel" name="label">
      <property name="maximumSize">
       <size>
@@ -42,6 +35,36 @@ text-decoration: underline;
      </property>
     </widget>
    </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QLineEdit" name="aliasLineEdit">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QLineEdit" name="addressLineEdit">
+     <property name="frame">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QLineEdit" name="privkeyLineEdit"/>
+   </item>
+   <item row="4" column="0" colspan="2">
+    <widget class="QLineEdit" name="txhashLineEdit"/>
+   </item>
+   <item row="5" column="0" colspan="2">
+    <widget class="QLineEdit" name="outputindexLineEdit"/>
+   </item>
+   <item row="6" column="0" colspan="2">
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
    <item row="7" column="0">
     <widget class="QPushButton" name="okButton">
      <property name="text">
@@ -49,21 +72,7 @@ text-decoration: underline;
      </property>
     </widget>
    </item>
-   <item row="2" column="0">
-    <widget class="QLineEdit" name="addressLineEdit">
-     <property name="frame">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="0">
-    <widget class="Line" name="line">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="8" column="0">
+   <item row="7" column="1">
     <widget class="QPushButton" name="cancelButton">
      <property name="text">
       <string>&amp;Cancel</string>
@@ -72,15 +81,6 @@ text-decoration: underline;
       <bool>false</bool>
      </property>
     </widget>
-   </item>
-   <item row="4" column="0">
-    <widget class="QLineEdit" name="txhashLineEdit"/>
-   </item>
-   <item row="3" column="0">
-    <widget class="QLineEdit" name="privkeyLineEdit"/>
-   </item>
-   <item row="5" column="0">
-    <widget class="QLineEdit" name="outputindexLineEdit"/>
    </item>
   </layout>
  </widget>

@@ -24,7 +24,6 @@ private slots:
     void sha256Generator();
     void md5Generator();
     void on_browseFiles_clicked();
-
     void on_messageButton_clicked();
 
 private:

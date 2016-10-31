@@ -89,6 +89,7 @@ private slots:
     void on_loginusername_returnPressed();
     void on_loginpassword_returnPressed();
     void on_logoutbutton_clicked();
+    void on_viewemployeetable_doubleClicked(const QModelIndex &index);
 
 private:
     Ui::EmployeeManager *ui;

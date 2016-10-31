@@ -368,3 +368,10 @@ void EmployeeManager::on_logoutbutton_clicked()
     ui->addpage->hide();
     ui->tabWidget->hide();
 }
+
+void EmployeeManager::on_viewemployeetable_doubleClicked(const QModelIndex &index)
+{
+    EditEmployees editemployees;
+    editemployees.setModal(true);
+    editemployees.exec();
+}
