@@ -223,7 +223,7 @@
           <attribute name="title">
            <string>Add Employee</string>
           </attribute>
-          <layout class="QGridLayout" name="gridLayout_8">
+          <layout class="QGridLayout" name="gridLayout">
            <item row="0" column="0">
             <layout class="QGridLayout" name="gridLayout_3">
              <item row="0" column="0">
@@ -382,7 +382,7 @@
              </item>
             </layout>
            </item>
-           <item row="1" column="0">
+           <item row="1" column="1">
             <spacer name="verticalSpacer_3">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -396,25 +396,18 @@
             </spacer>
            </item>
            <item row="2" column="0">
-            <layout class="QGridLayout" name="gridLayout">
-             <item row="0" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
               <widget class="QPushButton" name="savebutton">
                <property name="text">
                 <string>Register Employee</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
-              <widget class="QPushButton" name="logoutbutton">
-               <property name="text">
-                <string>Logout</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
+             <item>
               <widget class="QPushButton" name="clearinfo">
                <property name="text">
-                <string>Clear Fields</string>
+                <string>Clear</string>
                </property>
               </widget>
              </item>
