@@ -710,6 +710,22 @@ void HelpMessageBox::showOrPrint()
 #endif
 }
 
+ClickableLabel::ClickableLabel( const QString& text, QWidget * parent ) :
+    QLabel(parent)
+
+{
+    this->setText(text);
+}
+
+ClickableLabel::~ClickableLabel()
+{
+}
+
+void ClickableLabel::mouseReleaseEvent ( QMouseEvent * event )
+{
+    emit clicked();
+}
+
 void SetBlackThemeQSS(QApplication& app)
 {
     app.setStyleSheet("QWidget        { background: rgb(41,44,48); }"

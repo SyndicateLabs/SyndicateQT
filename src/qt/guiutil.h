@@ -8,6 +8,7 @@
 #include <QProgressBar>
 #include <QString>
 #include <QTableView>
+#include <QLabel>
 
 #include <boost/filesystem.hpp>
 
@@ -20,6 +21,7 @@ class QWidget;
 class QDateTime;
 class QUrl;
 class QAbstractItemView;
+class QLabel;
 QT_END_NAMESPACE
 
 /** Utility functions used by the Bitcoin Qt UI.
@@ -176,6 +178,22 @@ namespace GUIUtil
     };
 
     void SetBlackThemeQSS(QApplication& app);
+	
+    class ClickableLabel : public QLabel
+    {
+
+    Q_OBJECT
+
+    public:
+        explicit ClickableLabel( const QString& text ="", QWidget * parent = 0 );
+        ~ClickableLabel();
+
+    signals:
+        void clicked();
+
+    protected:
+        void mouseReleaseEvent ( QMouseEvent * event );
+    };
 
 #if defined(Q_OS_MAC) && QT_VERSION >= 0x050000
     // workaround for Qt OSX Bug:
