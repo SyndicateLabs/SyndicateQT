@@ -1,17 +1,28 @@
-TEMPLATE = app
 TARGET = Syndicate
+TEMPLATE = app
 VERSION = 1.0.1.7
-INCLUDEPATH += src src/json src/qt src/qt/plugins/mrichtexteditor
-QT += network printsupport widgets sql
-DEFINES += ENABLE_WALLET
-DEFINES += BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
-CONFIG += no_include_pwd
-CONFIG += thread
-CONFIG += static
+
+greaterThan(QT_MAJOR_VERSION, 5) {
+    INCLUDEPATH += src src/json src/qt src/qt/plugins/mrichtexteditor
+    QT += core gui network widgets sql printsupport
+    DEFINES += ENABLE_WALLET
+    DEFINES += BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
+    CONFIG += static
+    CONFIG += no_include_pwd
+    CONFIG += thread
+    QMAKE_CXXFLAGS = -fpermissive
+}
 
 greaterThan(QT_MAJOR_VERSION, 4) {
-    QT += network printsupport widgets sql
+    INCLUDEPATH += src src/json src/qt src/qt/plugins/mrichtexteditor
+    QT += core gui network widgets sql printsupport
+    DEFINES += ENABLE_WALLET
+    DEFINES += BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
     DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
+    CONFIG += static
+    CONFIG += no_include_pwd
+    CONFIG += thread
+    QMAKE_CXXFLAGS = -fpermissive
 }
 
 # for boost 1.37, add -mt to the boost libraries
@@ -19,35 +30,16 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 # for boost thread win32 with _win32 sufix
 # use: BOOST_THREAD_LIB_SUFFIX=_win32-...
 # or when linking against a specific BerkelyDB version: BDB_LIB_SUFFIX=-4.8
+# Dependency library locations can be customized with:
+# BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
+# BDB_LIB_PATH, OPENSSL_INCLUDE_PATH and OPENSSL_LIB_PATH respectively
 
-BOOST_LIB_SUFFIX=-mgw49-mt-s-1_57
-BOOST_INCLUDE_PATH=D:/deps/boost_1_57_0
-BOOST_LIB_PATH=D:/deps/boost_1_57_0/stage/lib
-BDB_INCLUDE_PATH=D:/deps/db-4.8.30.NC/build_unix
-BDB_LIB_PATH=D:/deps/db-4.8.30.NC/build_unix
-OPENSSL_INCLUDE_PATH=D:/deps/openssl-1.0.1p/include
-OPENSSL_LIB_PATH=D:/deps/openssl-1.0.1p/lib
-MINIUPNPC_INCLUDE_PATH=D:/deps/
-MINIUPNPC_LIB_PATH=D:/deps/miniupnpc
-QRENCODE_INCLUDE_PATH=D:/deps/qrencode-3.4.4
-QRENCODE_LIB_PATH=D:/deps/qrencode-3.4.4/.libs
-LIBEVENT_INCLUDE_PATH=D:/deps/libevent-2.0.21-stable/include
-LIBEVENT_LIB_PATH=D:/deps/libevent-2.0.21-stable/.libs
-SECP256K1_LIB_PATH = D:/deps/secp256k1/.libs
-SECP256K1_INCLUDE_PATH = D:/deps/secp256k1/include
-BOTAN_LIB_PATH = D:/deps/Botan-1.10.8/build/lib
-BOTAN_INCLUDE_PATH = D:/deps/Botan-1.10.8/build/include
-
-# 	 Dependency library locations can be customized with:
-#    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
-#    BDB_LIB_PATH, OPENSSL_INCLUDE_PATH and OPENSSL_LIB_PATH respectively
-
-# workaround for boost 1.58
+# Workaround for boost 1.58
 DEFINES += BOOST_VARIANT_USE_RELAXED_GET_BY_DEFAULT
 
-OBJECTS_DIR = build
-MOC_DIR = build
 UI_DIR = build
+MOC_DIR = build
+OBJECTS_DIR = build
 
 # use: qmake "RELEASE=1"
 contains(RELEASE, 1) {
@@ -57,18 +49,16 @@ contains(RELEASE, 1) {
     macx:QMAKE_LFLAGS += -mmacosx-version-min=10.7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
     macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
 
-
     !windows:!macx {
         # Linux: static link
         # LIBS += -Wl,-Bdynamic
     }
 }
 
-
 # for extra security against potential buffer overflows: enable GCCs Stack Smashing Protection
 QMAKE_CXXFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
 QMAKE_LFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
-# We need to exclude this for Windows cross compile with MinGW 4.2.x, as it will result in a non-working executable!
+# We need to exclude this for Windows cross-compile with MinGW 4.2.x, as it will result in a non-working executable!
 # This can be enabled for Windows, when we switch to MinGW >= 4.4.x.
 
 # for extra security (see: https://wiki.debian.org/Hardening): this flag is GCC compiler-specific
@@ -85,7 +75,6 @@ contains(USE_QRCODE, 1) {
     LIBS += -lqrencode
 }
 
-
 # use: qmake "USE_DBUS=1" or qmake "USE_DBUS=0"
 linux:count(USE_DBUS, 0) {
     USE_DBUS=1
@@ -100,7 +89,6 @@ contains(BITCOIN_NEED_QT_PLUGINS, 1) {
     DEFINES += BITCOIN_NEED_QT_PLUGINS
     QTPLUGIN += qcncodecs qjpcodecs qtwcodecs qkrcodecs qtaccessiblewidgets
 }
-
 
 #Build Leveldb
 INCLUDEPATH += src/leveldb/include src/leveldb/helpers
@@ -118,13 +106,13 @@ SOURCES += src/txdb-leveldb.cpp
     LIBS += -lshlwapi
     #genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libleveldb.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libmemenv.a
 }
+
 genleveldb.target = $$PWD/src/leveldb/libleveldb.a
 genleveldb.depends = FORCE
 PRE_TARGETDEPS += $$PWD/src/leveldb/libleveldb.a
 QMAKE_EXTRA_TARGETS += genleveldb
 # Gross ugly hack that depends on qmake internals, unfortunately there is no other way to do it.
 QMAKE_CLEAN += $$PWD/src/leveldb/libleveldb.a; cd $$PWD/src/leveldb ; $(MAKE) clean
-
 
 #Build Secp256k1
 INCLUDEPATH += src/secp256k1/include
@@ -175,7 +163,7 @@ contains(USE_O0, 1) {
 }
 
 QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wall -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter -Wstack-protector
-QMAKE_CXXFLAGS_WARN_ON += -Wno-unused-variable -fpermissive
+QMAKE_CXXFLAGS_WARN_ON += -Wno-unused-variable
 
 windows:QMAKE_CXXFLAGS_WARN_ON += -Wno-cpp -Wno-maybe-uninitialized
 !macx:QMAKE_CXXFLAGS_WARN_ON += -Wno-unused-local-typedefs
@@ -494,10 +482,8 @@ FORMS += \
     src/qt/forms/myinventory.ui \
     src/qt/forms/mybusiness.ui \
     src/qt/forms/myfinancials.ui
-    
-
-
-contains(USE_QRCODE, 1) {
+	
+	contains(USE_QRCODE, 1) {
 HEADERS += src/qt/qrcodedialog.h
 SOURCES += src/qt/qrcodedialog.cpp
 FORMS += src/qt/forms/qrcodedialog.ui
@@ -540,7 +526,7 @@ isEmpty(BOOST_THREAD_LIB_SUFFIX) {
 
 isEmpty(BDB_LIB_PATH) {
     macx:BDB_LIB_PATH = /usr/local/Cellar/berkeley-db4/4.8.30/lib
-    windows:BDB_LIB_PATH=C:/dev/coindeps32/bdb-4.8/lib
+    windows:BDB_LIB_PATH=D:/deps/db-4.8.30.NC/build_unix
 }
 
 isEmpty(BDB_LIB_SUFFIX) {
@@ -549,25 +535,27 @@ isEmpty(BDB_LIB_SUFFIX) {
 
 isEmpty(BDB_INCLUDE_PATH) {
     macx:BDB_INCLUDE_PATH = /usr/local/Cellar/berkeley-db4/4.8.30/include
-    windows:BDB_INCLUDE_PATH=C:/dev/coindeps32/bdb-4.8/include
+    windows:BDB_INCLUDE_PATH=D:/deps/db-4.8.30.NC/build_unix
 }
 
 isEmpty(BOOST_LIB_PATH) {
     macx:BOOST_LIB_PATH = /usr/local/Cellar/boost/1.59.0/lib
-    windows:BOOST_LIB_PATH=C:/dev/coindeps32/boost_1_57_0/lib
+    windows:BOOST_LIB_PATH=D:/deps/boost_1_57_0/stage/lib
 }
 
 isEmpty(BOOST_INCLUDE_PATH) {
     macx:BOOST_INCLUDE_PATH = /usr/local/Cellar/boost/1.59.0/include
-    windows:BOOST_INCLUDE_PATH=C:/dev/coindeps32/boost_1_57_0/include
+    windows:BOOST_INCLUDE_PATH=D:/deps/boost_1_57_0
 }
 
 isEmpty(QRENCODE_LIB_PATH) {
     macx:QRENCODE_LIB_PATH = /usr/local/lib
+	windows:QRENCODE_LIB_PATH=D:/deps/qrencode-3.4.4/.libs
 }
 
 isEmpty(QRENCODE_INCLUDE_PATH) {
     macx:QRENCODE_INCLUDE_PATH = /usr/local/include
+	windows:QRENCODE_INCLUDE_PATH=D:/deps/qrencode-3.4.4
 }
 
 isEmpty(MINIUPNPC_LIB_SUFFIX) {
@@ -576,22 +564,32 @@ isEmpty(MINIUPNPC_LIB_SUFFIX) {
 
 isEmpty(MINIUPNPC_INCLUDE_PATH) {
     macx:MINIUPNPC_INCLUDE_PATH=/usr/local/Cellar/miniupnpc/1.9.20151008/include
-    windows:MINIUPNPC_INCLUDE_PATH=C:/dev/coindeps32/miniupnpc-1.9
+    windows:MINIUPNPC_INCLUDE_PATH=D:/deps/
 }
 
 isEmpty(MINIUPNPC_LIB_PATH) {
     macx:MINIUPNPC_LIB_PATH=/usr/local/Cellar/miniupnpc/1.9.20151008/lib
-    windows:MINIUPNPC_LIB_PATH=C:/dev/coindeps32/miniupnpc-1.9
+    windows:MINIUPNPC_LIB_PATH=D:/deps/miniupnpc
 }
 
 isEmpty(OPENSSL_INCLUDE_PATH) {
     macx:OPENSSL_INCLUDE_PATH = /usr/local/openssl-1.0.1p/include
-    windows:OPENSSL_INCLUDE_PATH=C:/dev/coindeps32/openssl-1.0.1p/include
+    windows:OPENSSL_INCLUDE_PATH=D:/deps/openssl-1.0.1p/include
 }
 
 isEmpty(OPENSSL_LIB_PATH) {
     macx:OPENSSL_LIB_PATH = /usr/local/openssl-1.0.1p/lib
-    windows:OPENSSL_LIB_PATH=C:/dev/coindeps32/openssl-1.0.1p/lib
+    windows:OPENSSL_LIB_PATH=D:/deps/openssl-1.0.1p/lib
+}
+
+isEmpty(BOTAN_LIB_PATH){
+	macx:BOTAN_LIB_PATH = /usr/local/Botan-1.10.8/build/lib	
+	windows:BOTAN_LIB_PATH=D:/deps/Botan-1.10.8/build/lib	
+}
+
+isEmpty(BOTAN_INCLUDE_PATH){
+	macx:BOTAN_INCLUDE_PATH = /usr/local/Botan-1.10.8/build/include
+	windows:BOTAN_INCLUDE_PATH=D:/deps/Botan-1.10.8/build/include
 }
 
 # use: qmake "USE_UPNP=1" ( enabled by default; default)
