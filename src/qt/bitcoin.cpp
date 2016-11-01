@@ -4,7 +4,7 @@
 
 #include <QApplication>
 
-#include "bitcoingui.h"
+#include "syndicategui.h"
 #include "clientmodel.h"
 #include "walletmodel.h"
 #include "optionsmodel.h"
@@ -40,7 +40,7 @@ Q_IMPORT_PLUGIN(qtaccessiblewidgets)
 #endif
 
 // Need a global reference for the notifications to find the GUI
-static BitcoinGUI *guiref;
+static SyndicateGUI *guiref;
 static QSplashScreen *splashref;
 
 static void ThreadSafeMessageBox(const std::string& message, const std::string& caption, unsigned int style)
@@ -102,7 +102,7 @@ static std::string Translate(const char* psz)
 static void handleRunawayException(std::exception *e)
 {
     PrintExceptionContinue(e, "Runaway exception");
-    QMessageBox::critical(0, "Runaway exception", BitcoinGUI::tr("A fatal error occurred. Syndicate can no longer continue safely and will quit.") + QString("\n\n") + QString::fromStdString(strMiscWarning));
+    QMessageBox::critical(0, "Runaway exception", SyndicateGUI::tr("A fatal error occurred. Syndicate can no longer continue safely and will quit.") + QString("\n\n") + QString::fromStdString(strMiscWarning));
     exit(1);
 }
 
@@ -250,7 +250,7 @@ int main(int argc, char *argv[])
 
         boost::thread_group threadGroup;
 
-        BitcoinGUI window;
+        SyndicateGUI window;
         guiref = &window;
 
         QTimer* pollShutdownTimer = new QTimer(guiref);

@@ -7,7 +7,7 @@
 
 #include <QApplication>
 
-#include "bitcoingui.h"
+#include "syndicategui.h"
 #include "transactiontablemodel.h"
 #include "addressbookpage.h"
 #include "sendcoinsdialog.h"
@@ -75,7 +75,7 @@ extern CWallet* pwalletMain;
 extern int64_t nLastCoinStakeSearchInterval;
 double GetPoSKernelPS();
 
-BitcoinGUI::BitcoinGUI(QWidget *parent):
+SyndicateGUI::SyndicateGUI(QWidget *parent):
     QMainWindow(parent),
     clientModel(0),
     walletModel(0),
@@ -251,7 +251,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     gotoOverviewPage();
 }
 
-BitcoinGUI::~BitcoinGUI()
+SyndicateGUI::~SyndicateGUI()
 {
     if(trayIcon) // Hide tray icon, as deleting will let it linger until quit (on Ubuntu)
         trayIcon->hide();
@@ -260,7 +260,7 @@ BitcoinGUI::~BitcoinGUI()
 #endif
 }
 
-void BitcoinGUI::createActions()
+void SyndicateGUI::createActions()
 {
     QActionGroup *tabGroup = new QActionGroup(this);
 
@@ -382,7 +382,7 @@ void BitcoinGUI::createActions()
     connect(verifyMessageAction, SIGNAL(triggered()), this, SLOT(gotoVerifyMessageTab()));
 }
 
-void BitcoinGUI::createMenuBar()
+void SyndicateGUI::createMenuBar()
 {
 #ifdef Q_OS_MAC
     appMenuBar = new QMenuBar();
@@ -423,7 +423,7 @@ static QWidget* makeToolBarSpacer()
     return spacer;
 }
 
-void BitcoinGUI::createToolBars()
+void SyndicateGUI::createToolBars()
 {
     fLiteMode = GetBoolArg("-litemode", false);
 
@@ -468,7 +468,7 @@ void BitcoinGUI::createToolBars()
     }
 }
 
-void BitcoinGUI::setClientModel(ClientModel *clientModel)
+void SyndicateGUI::setClientModel(ClientModel *clientModel)
 {
     if(!fOnlyTor)
     netLabel->setText("CLEARNET");
@@ -522,7 +522,7 @@ void BitcoinGUI::setClientModel(ClientModel *clientModel)
     }
 }
 
-void BitcoinGUI::setWalletModel(WalletModel *walletModel)
+void SyndicateGUI::setWalletModel(WalletModel *walletModel)
 {
     this->walletModel = walletModel;
     if(walletModel)
@@ -552,7 +552,7 @@ void BitcoinGUI::setWalletModel(WalletModel *walletModel)
     }
 }
 
-void BitcoinGUI::setMessageModel(MessageModel *messageModel)
+void SyndicateGUI::setMessageModel(MessageModel *messageModel)
 {
     this->messageModel = messageModel;
     if(messageModel)
@@ -569,7 +569,7 @@ void BitcoinGUI::setMessageModel(MessageModel *messageModel)
     }
 }
 
-void BitcoinGUI::createTrayIcon()
+void SyndicateGUI::createTrayIcon()
 {
     QMenu *trayIconMenu;
 #ifndef Q_OS_MAC
@@ -609,7 +609,7 @@ void BitcoinGUI::createTrayIcon()
 }
 
 #ifndef Q_OS_MAC
-void BitcoinGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
+void SyndicateGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
 {
     if(reason == QSystemTrayIcon::Trigger)
     {
@@ -619,7 +619,7 @@ void BitcoinGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
 }
 #endif
 
-void BitcoinGUI::lockIconClicked()
+void SyndicateGUI::lockIconClicked()
 {
     if(!walletModel)
         return;
@@ -628,7 +628,7 @@ void BitcoinGUI::lockIconClicked()
         unlockWallet();
 }
 
-void BitcoinGUI::optionsClicked()
+void SyndicateGUI::optionsClicked()
 {
     if(!clientModel || !clientModel->getOptionsModel())
         return;
@@ -637,14 +637,14 @@ void BitcoinGUI::optionsClicked()
     dlg.exec();
 }
 
-void BitcoinGUI::aboutClicked()
+void SyndicateGUI::aboutClicked()
 {
     AboutDialog dlg;
     dlg.setModel(clientModel);
     dlg.exec();
 }
 
-void BitcoinGUI::setNumConnections(int count)
+void SyndicateGUI::setNumConnections(int count)
 {
     QString icon;
     switch(count)
@@ -659,7 +659,7 @@ void BitcoinGUI::setNumConnections(int count)
     labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Syndicate network", "", count));
 }
 
-void BitcoinGUI::setNumBlocks(int count)
+void SyndicateGUI::setNumBlocks(int count)
 {
     QString tooltip;
 
@@ -744,7 +744,7 @@ void BitcoinGUI::setNumBlocks(int count)
     statusBar()->setVisible(true);
 }
 
-void BitcoinGUI::message(const QString &title, const QString &message, bool modal, unsigned int style)
+void SyndicateGUI::message(const QString &title, const QString &message, bool modal, unsigned int style)
 {
     QString strTitle = tr("Syndicate") + " - ";
     // Default to information icon
@@ -790,7 +790,7 @@ void BitcoinGUI::message(const QString &title, const QString &message, bool moda
         notificator->notify((Notificator::Class)nNotifyIcon, strTitle, message);
 }
 
-void BitcoinGUI::error(const QString &title, const QString &message, bool modal)
+void SyndicateGUI::error(const QString &title, const QString &message, bool modal)
 {
     // Report errors from network/worker thread
     if(modal)
@@ -801,7 +801,7 @@ void BitcoinGUI::error(const QString &title, const QString &message, bool modal)
     }
 }
 
-void BitcoinGUI::changeEvent(QEvent *e)
+void SyndicateGUI::changeEvent(QEvent *e)
 {
     QMainWindow::changeEvent(e);
 #ifndef Q_OS_MAC // Ignored on Mac
@@ -820,7 +820,7 @@ void BitcoinGUI::changeEvent(QEvent *e)
 #endif
 }
 
-void BitcoinGUI::closeEvent(QCloseEvent *event)
+void SyndicateGUI::closeEvent(QCloseEvent *event)
 {
     if(clientModel)
     {
@@ -835,7 +835,7 @@ void BitcoinGUI::closeEvent(QCloseEvent *event)
     QMainWindow::closeEvent(event);
 }
 
-void BitcoinGUI::askFee(qint64 nFeeRequired, bool *payFee)
+void SyndicateGUI::askFee(qint64 nFeeRequired, bool *payFee)
 {
     if (!clientModel || !clientModel->getOptionsModel())
         return;
@@ -849,7 +849,7 @@ void BitcoinGUI::askFee(qint64 nFeeRequired, bool *payFee)
     *payFee = (retval == QMessageBox::Yes);
 }
 
-void BitcoinGUI::incomingTransaction(const QModelIndex & parent, int start, int end)
+void SyndicateGUI::incomingTransaction(const QModelIndex & parent, int start, int end)
 {
 	// Prevent balloon-spam when initial block download is in progress
     if(!walletModel || !clientModel || clientModel->inInitialBlockDownload() || walletModel->processingQueuedTransactions())
@@ -880,7 +880,7 @@ void BitcoinGUI::incomingTransaction(const QModelIndex & parent, int start, int 
                           .arg(address), icon);
 }
 
-void BitcoinGUI::incomingMessage(const QModelIndex & parent, int start, int end)
+void SyndicateGUI::incomingMessage(const QModelIndex & parent, int start, int end)
 {
     if(!messageModel)
         return;
@@ -909,7 +909,7 @@ void BitcoinGUI::incomingMessage(const QModelIndex & parent, int start, int end)
     };
 }
 
-void BitcoinGUI::clearWidgets()
+void SyndicateGUI::clearWidgets()
 {
     centralStackedWidget->setCurrentWidget(centralStackedWidget->widget(0));
     for(int i = centralStackedWidget->count(); i>0; i--){
@@ -919,7 +919,7 @@ void BitcoinGUI::clearWidgets()
     }
 }
 
-void BitcoinGUI::gotoMasternodeManagerPage()
+void SyndicateGUI::gotoMasternodeManagerPage()
 {
     masternodeManagerAction->setChecked(true);
     centralStackedWidget->setCurrentWidget(masternodeManagerPage);
@@ -928,7 +928,7 @@ void BitcoinGUI::gotoMasternodeManagerPage()
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
 }
 
-void BitcoinGUI::gotoSyndicate()
+void SyndicateGUI::gotoSyndicate()
 {
     syndicatePageAction->setChecked(true);
     centralStackedWidget->setCurrentWidget(syndicatePage);
@@ -937,7 +937,7 @@ void BitcoinGUI::gotoSyndicate()
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
 }
 
-void BitcoinGUI::gotoBlockBrowser()
+void SyndicateGUI::gotoBlockBrowser()
 {
     blockBrowserAction->setChecked(true);
     centralStackedWidget->setCurrentWidget(blockBrowser);
@@ -947,7 +947,7 @@ void BitcoinGUI::gotoBlockBrowser()
 	connect(exportAction, SIGNAL(triggered()), blockBrowser, SLOT(exportClicked()));
 }
 
-void BitcoinGUI::gotoOverviewPage()
+void SyndicateGUI::gotoOverviewPage()
 {
     overviewAction->setChecked(true);
     centralStackedWidget->setCurrentWidget(overviewPage);
@@ -956,7 +956,7 @@ void BitcoinGUI::gotoOverviewPage()
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
 }
 
-void BitcoinGUI::gotoHistoryPage()
+void SyndicateGUI::gotoHistoryPage()
 {
     historyAction->setChecked(true);
     centralStackedWidget->setCurrentWidget(transactionsPage);
@@ -966,7 +966,7 @@ void BitcoinGUI::gotoHistoryPage()
     connect(exportAction, SIGNAL(triggered()), transactionView, SLOT(exportClicked()));
 }
 
-void BitcoinGUI::gotoAddressBookPage()
+void SyndicateGUI::gotoAddressBookPage()
 {
     addressBookAction->setChecked(true);
     centralStackedWidget->setCurrentWidget(addressBookPage);
@@ -976,7 +976,7 @@ void BitcoinGUI::gotoAddressBookPage()
     connect(exportAction, SIGNAL(triggered()), addressBookPage, SLOT(exportClicked()));
 }
 
-void BitcoinGUI::gotoReceiveCoinsPage()
+void SyndicateGUI::gotoReceiveCoinsPage()
 {
     receiveCoinsAction->setChecked(true);
     centralStackedWidget->setCurrentWidget(receiveCoinsPage);
@@ -986,7 +986,7 @@ void BitcoinGUI::gotoReceiveCoinsPage()
     connect(exportAction, SIGNAL(triggered()), receiveCoinsPage, SLOT(exportClicked()));
 }
 
-void BitcoinGUI::gotoSendCoinsPage()
+void SyndicateGUI::gotoSendCoinsPage()
 {
     sendCoinsAction->setChecked(true);
     centralStackedWidget->setCurrentWidget(sendCoinsPage);
@@ -995,7 +995,7 @@ void BitcoinGUI::gotoSendCoinsPage()
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
 }
 
-void BitcoinGUI::gotoSignMessageTab(QString addr)
+void SyndicateGUI::gotoSignMessageTab(QString addr)
 {
     // call show() in showTab_SM()
     signVerifyMessageDialog->showTab_SM(true);
@@ -1004,7 +1004,7 @@ void BitcoinGUI::gotoSignMessageTab(QString addr)
         signVerifyMessageDialog->setAddress_SM(addr);
 }
 
-void BitcoinGUI::gotoVerifyMessageTab(QString addr)
+void SyndicateGUI::gotoVerifyMessageTab(QString addr)
 {
     // call show() in showTab_VM()
     signVerifyMessageDialog->showTab_VM(true);
@@ -1013,7 +1013,7 @@ void BitcoinGUI::gotoVerifyMessageTab(QString addr)
         signVerifyMessageDialog->setAddress_VM(addr);
 }
 
-void BitcoinGUI::gotoMessagePage()
+void SyndicateGUI::gotoMessagePage()
 {
     messageAction->setChecked(true);
     centralStackedWidget->setCurrentWidget(messagePage);
@@ -1023,14 +1023,14 @@ void BitcoinGUI::gotoMessagePage()
     connect(exportAction, SIGNAL(triggered()), messagePage, SLOT(exportClicked()));
 }
 
-void BitcoinGUI::dragEnterEvent(QDragEnterEvent *event)
+void SyndicateGUI::dragEnterEvent(QDragEnterEvent *event)
 {
     // Accept only URIs
     if(event->mimeData()->hasUrls())
         event->acceptProposedAction();
 }
 
-void BitcoinGUI::dropEvent(QDropEvent *event)
+void SyndicateGUI::dropEvent(QDropEvent *event)
 {
     if(event->mimeData()->hasUrls())
     {
@@ -1052,7 +1052,7 @@ void BitcoinGUI::dropEvent(QDropEvent *event)
     event->acceptProposedAction();
 }
 
-void BitcoinGUI::handleURI(QString strURI)
+void SyndicateGUI::handleURI(QString strURI)
 {
     // URI has to be valid
     if (sendCoinsPage->handleURI(strURI))
@@ -1064,7 +1064,7 @@ void BitcoinGUI::handleURI(QString strURI)
         notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid Syndicate address or malformed URI parameters."));
 }
 
-void BitcoinGUI::setEncryptionStatus(int status)
+void SyndicateGUI::setEncryptionStatus(int status)
 {
     if(fWalletUnlockStakingOnly)
     {
@@ -1113,7 +1113,7 @@ void BitcoinGUI::setEncryptionStatus(int status)
     }
 }
 
-void BitcoinGUI::encryptWallet()
+void SyndicateGUI::encryptWallet()
 {
     if(!walletModel)
         return;
@@ -1125,7 +1125,7 @@ void BitcoinGUI::encryptWallet()
     setEncryptionStatus(walletModel->getEncryptionStatus());
 }
 
-void BitcoinGUI::backupWallet()
+void SyndicateGUI::backupWallet()
 {
     QString saveDir = QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
     QString filename = QFileDialog::getSaveFileName(this, tr("Backup Wallet"), saveDir, tr("Wallet Data (*.dat)"));
@@ -1136,14 +1136,14 @@ void BitcoinGUI::backupWallet()
     }
 }
 
-void BitcoinGUI::changePassphrase()
+void SyndicateGUI::changePassphrase()
 {
     AskPassphraseDialog dlg(AskPassphraseDialog::ChangePass, this);
     dlg.setModel(walletModel);
     dlg.exec();
 }
 
-void BitcoinGUI::unlockWallet()
+void SyndicateGUI::unlockWallet()
 {
     if(!walletModel)
         return;
@@ -1158,7 +1158,7 @@ void BitcoinGUI::unlockWallet()
     }
 }
 
-void BitcoinGUI::lockWallet()
+void SyndicateGUI::lockWallet()
 {
     if(!walletModel)
         return;
@@ -1166,7 +1166,7 @@ void BitcoinGUI::lockWallet()
     walletModel->setWalletLocked(true);
 }
 
-void BitcoinGUI::showNormalIfMinimized(bool fToggleHidden)
+void SyndicateGUI::showNormalIfMinimized(bool fToggleHidden)
 {
     // activateWindow() (sometimes) helps with keyboard focus on Windows
     if (isHidden())
@@ -1188,12 +1188,12 @@ void BitcoinGUI::showNormalIfMinimized(bool fToggleHidden)
         hide();
 }
 
-void BitcoinGUI::toggleHidden()
+void SyndicateGUI::toggleHidden()
 {
     showNormalIfMinimized(true);
 }
 
-void BitcoinGUI::updateWeight()
+void SyndicateGUI::updateWeight()
 {
     if (!pwalletMain)
         return;
@@ -1209,7 +1209,7 @@ void BitcoinGUI::updateWeight()
     nWeight = pwalletMain->GetStakeWeight();
 }
 
-void BitcoinGUI::updateStakingIcon()
+void SyndicateGUI::updateStakingIcon()
 {
     updateWeight();
 
@@ -1260,13 +1260,13 @@ void BitcoinGUI::updateStakingIcon()
     }
 }
 
-void BitcoinGUI::detectShutdown()
+void SyndicateGUI::detectShutdown()
 {
     if (ShutdownRequested())
         QMetaObject::invokeMethod(QCoreApplication::instance(), "quit", Qt::QueuedConnection);
 }
 
-void BitcoinGUI::showProgress(const QString &title, int nProgress)
+void SyndicateGUI::showProgress(const QString &title, int nProgress)
 {
     if (nProgress == 0)
     {

@@ -1,5 +1,5 @@
-﻿#ifndef BITCOINGUI_H
-#define BITCOINGUI_H
+﻿#ifndef SYNDICATEGUI_H
+#define SYNDICATEGUI_H
 
 #include <QMainWindow>
 #include <QSystemTrayIcon>
@@ -36,13 +36,13 @@ QT_END_NAMESPACE
   Bitcoin GUI main class. This class represents the main window of the Bitcoin UI. It communicates with both the client and
   wallet models to give the user an up-to-date view of the current core state.
 */
-class BitcoinGUI : public QMainWindow
+class SyndicateGUI : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit BitcoinGUI(QWidget *parent = 0);
-    ~BitcoinGUI();
+    explicit SyndicateGUI(QWidget *parent = 0);
+    ~SyndicateGUI();
 
     /** Set the client model.
         The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.
@@ -236,4 +236,4 @@ private slots:
     void showProgress(const QString &title, int nProgress);
 };
 
-#endif // BITCOINGUI_H
+#endif // SYNDICATEGUI_H

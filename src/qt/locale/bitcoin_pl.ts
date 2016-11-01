@@ -303,9 +303,9 @@ Możesz dodać kolejny adres dla każdego wysyłającego aby określić od kogo 
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>SyndicateGUI</name>
     <message>
-        <location filename="../bitcoingui.cpp" line="+297"/>
+        <location filename="../syndicategui.cpp" line="+297"/>
         <source>Sign &amp;message...</source>
         <translation>Podpisz wiado&amp;mość...</translation>
     </message>

@@ -310,9 +310,9 @@ T채m채 tuote sis채lt채채 OpenSSL-projektin kehitt채m채채 ohjelmistoa OpenSSL-ty�
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>SyndicateGUI</name>
     <message>
-        <location filename="../bitcoingui.cpp" line="+297"/>
+        <location filename="../syndicategui.cpp" line="+297"/>
         <source>Sign &amp;message...</source>
         <translation>Allekirjoita &amp;viesti...</translation>
     </message>

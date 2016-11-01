@@ -309,9 +309,9 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>SyndicateGUI</name>
     <message>
-        <location filename="../bitcoingui.cpp" line="+297"/>
+        <location filename="../syndicategui.cpp" line="+297"/>
         <source>Sign &amp;message...</source>
         <translation>消息签名(&amp;M)...</translation>
     </message>
