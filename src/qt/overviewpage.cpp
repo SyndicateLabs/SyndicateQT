@@ -602,6 +602,11 @@ void OverviewPage::toggleDarksend(){
 
 void OverviewPage::updatePlot(int count)
 {
+   bool fIsInitialDownload = IsInitialBlockDownload();
+
+   if (!fIsInitialDownload)
+   {
+
     // Double Check to make sure we don't try to update the plot when it is disabled
     if (!GetBoolArg("-chart", true)) { return; }
 
@@ -675,4 +680,10 @@ void OverviewPage::updatePlot(int count)
     ui->diffplot->replot();
 
     // if(fDebug) { printf("Plot: Done!\n"); }
+
+   }
+   else
+   {
+
+   }
  }

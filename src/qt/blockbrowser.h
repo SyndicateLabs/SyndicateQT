@@ -58,6 +58,9 @@ public slots:
 
 private slots:
 
+    QString lastBlocks();
+    QString sendRequest(QString url);
+
 private:
     Ui::BlockBrowser *ui;
     ClientModel *model;

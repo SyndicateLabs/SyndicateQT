@@ -12,8 +12,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>861</width>
-    <height>437</height>
+    <width>728</width>
+    <height>577</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -30,366 +30,760 @@
   </property>
   <layout class="QGridLayout" name="gridLayout_3">
    <item row="0" column="0">
-    <widget class="QWidget" name="blockContainer" native="true">
-     <layout class="QGridLayout" name="gridLayout_2">
-      <item row="0" column="0">
-       <widget class="QSpinBox" name="heightBox">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>131</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximum">
-         <number>99999999</number>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QPushButton" name="blockButton">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>26</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Jump to Block</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" colspan="2">
-       <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0">
-         <widget class="QLabel" name="heightLabel_2">
-          <property name="text">
-           <string>Block Height:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="heightLabel">
-          <property name="minimumSize">
-           <size>
-            <width>550</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>0</string>
-          </property>
-          <property name="textInteractionFlags">
-           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="hashLabel">
-          <property name="text">
-           <string>Block Hash:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="hashBox">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>0x0</string>
-          </property>
-          <property name="textInteractionFlags">
-           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="merkleLabel">
-          <property name="text">
-           <string>Block Merkle:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLabel" name="merkleBox">
-          <property name="minimumSize">
-           <size>
-            <width>187</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>0x0</string>
-          </property>
-          <property name="textInteractionFlags">
-           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="nonceLabel">
-          <property name="text">
-           <string>Block nNonce:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="1">
-         <widget class="QLabel" name="nonceBox">
-          <property name="text">
-           <string>0</string>
-          </property>
-          <property name="textInteractionFlags">
-           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="0">
-         <widget class="QLabel" name="bitsLabel">
-          <property name="text">
-           <string>Block nBits:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="1">
-         <widget class="QLabel" name="bitsBox">
-          <property name="text">
-           <string>0</string>
-          </property>
-          <property name="textInteractionFlags">
-           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="0">
-         <widget class="QLabel" name="timeLabel">
-          <property name="text">
-           <string>Block Timestamp:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="1">
-         <widget class="QLabel" name="timeBox">
-          <property name="text">
-           <string>0</string>
-          </property>
-          <property name="textInteractionFlags">
-           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="0">
-         <widget class="QLabel" name="hardLabel">
-          <property name="text">
-           <string>Block Difficulty:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="1">
-         <widget class="QLabel" name="hardBox">
-          <property name="text">
-           <string>0.00</string>
-          </property>
-          <property name="textInteractionFlags">
-           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="0">
-         <widget class="QLabel" name="pawLabel">
-          <property name="text">
-           <string>Block Hashrate:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="1">
-         <widget class="QLabel" name="pawBox">
-          <property name="text">
-           <string>0 KH/s</string>
-          </property>
-          <property name="textInteractionFlags">
-           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLineEdit" name="txBox">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>131</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="inputMask">
-         <string comment="Transaction ID" extracomment="Transaction ID"/>
-        </property>
-        <property name="placeholderText">
-         <string comment="Transaction ID" extracomment="Transaction ID"/>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QPushButton" name="txButton">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>26</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Decode Transaction</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0" colspan="2">
-       <layout class="QGridLayout" name="topgrid">
-        <property name="topMargin">
-         <number>9</number>
-        </property>
-        <property name="bottomMargin">
-         <number>9</number>
-        </property>
-        <item row="0" column="0">
-         <widget class="QLabel" name="txLabel">
-          <property name="text">
-           <string>Transaction ID:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="txID">
-          <property name="text">
-           <string>N/A</string>
-          </property>
-          <property name="textInteractionFlags">
-           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="valueLabel">
-          <property name="text">
-           <string>Value out:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="valueBox">
-          <property name="text">
-           <string>N/A</string>
-          </property>
-          <property name="textInteractionFlags">
-           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="feesLabel">
-          <property name="text">
-           <string>Fees:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="1">
-         <widget class="QLabel" name="inputBox">
-          <property name="text">
-           <string>N/A</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-          </property>
-          <property name="textInteractionFlags">
-           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="1">
-         <widget class="QLabel" name="outputBox">
-          <property name="text">
-           <string>N/A</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-          </property>
-          <property name="textInteractionFlags">
-           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="0">
-         <widget class="QLabel" name="inputLabel">
-          <property name="text">
-           <string>Inputs:</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLabel" name="feesBox">
-          <property name="text">
-           <string>N/A</string>
-          </property>
-          <property name="textInteractionFlags">
-           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="outputLabel">
-          <property name="text">
-           <string>Outputs:</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-     <zorder>txButton</zorder>
-     <zorder>heightBox</zorder>
-     <zorder>blockButton</zorder>
-     <zorder>txBox</zorder>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Recent Blocks</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QLabel" name="cbLabel">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_2">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_3">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_4">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_5">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_6">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_7">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_8">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_9">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_10">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_11">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_12">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_13">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_14">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_15">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_16">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_17">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_18">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_19">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_20">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_21">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_22">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_23">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_24">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="cbLabel_25">
+           <property name="text">
+            <string>CB</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="1">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="CBTX">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+           <property name="textInteractionFlags">
+            <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_12">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_19">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_20">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_21">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_22">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_23">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_24">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_25">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_2">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_3">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_4">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_5">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_6">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_7">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_8">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_9">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_10">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_11">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_13">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_14">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_15">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_16">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_17">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CBTX_18">
+           <property name="text">
+            <string>CBTX</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Block Dissector</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="0" column="0">
+        <widget class="QWidget" name="blockContainer" native="true">
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <widget class="QSpinBox" name="heightBox">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>131</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximum">
+             <number>99999999</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="blockButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>26</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Jump to Block</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QPushButton" name="txButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>26</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Decode Transaction</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" colspan="2">
+           <layout class="QGridLayout" name="topgrid">
+            <property name="topMargin">
+             <number>9</number>
+            </property>
+            <property name="bottomMargin">
+             <number>9</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QLabel" name="txLabel">
+              <property name="text">
+               <string>Transaction ID:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="txID">
+              <property name="text">
+               <string>N/A</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="valueLabel">
+              <property name="text">
+               <string>Value out:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="valueBox">
+              <property name="text">
+               <string>N/A</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="feesLabel">
+              <property name="text">
+               <string>Fees:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLabel" name="inputBox">
+              <property name="text">
+               <string>N/A</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLabel" name="outputBox">
+              <property name="text">
+               <string>N/A</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="inputLabel">
+              <property name="text">
+               <string>Inputs:</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="feesBox">
+              <property name="text">
+               <string>N/A</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="outputLabel">
+              <property name="text">
+               <string>Outputs:</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLineEdit" name="txBox">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>131</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="inputMask">
+             <string comment="Transaction ID" extracomment="Transaction ID"/>
+            </property>
+            <property name="placeholderText">
+             <string comment="Transaction ID" extracomment="Transaction ID"/>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" colspan="2">
+           <layout class="QGridLayout" name="gridLayout">
+            <item row="0" column="0">
+             <widget class="QLabel" name="heightLabel_2">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Block Height:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="heightLabel">
+              <property name="minimumSize">
+               <size>
+                <width>550</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="hashLabel">
+              <property name="text">
+               <string>Block Hash:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="hashBox">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>0x0</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="merkleLabel">
+              <property name="text">
+               <string>Block Merkle:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="merkleBox">
+              <property name="minimumSize">
+               <size>
+                <width>187</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>0x0</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="nonceLabel">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Block nNonce:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLabel" name="nonceBox">
+              <property name="text">
+               <string>0</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="bitsLabel">
+              <property name="text">
+               <string>Block nBits:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLabel" name="bitsBox">
+              <property name="text">
+               <string>0</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QLabel" name="timeLabel">
+              <property name="text">
+               <string>Block Timestamp:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QLabel" name="timeBox">
+              <property name="text">
+               <string>0</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <widget class="QLabel" name="hardLabel">
+              <property name="text">
+               <string>Block Difficulty:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="1">
+             <widget class="QLabel" name="hardBox">
+              <property name="text">
+               <string>0.00</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QLabel" name="pawLabel">
+              <property name="text">
+               <string>Block Hashrate:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="1">
+             <widget class="QLabel" name="pawBox">
+              <property name="text">
+               <string>0 KH/s</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+         <zorder>txButton</zorder>
+         <zorder>heightBox</zorder>
+         <zorder>blockButton</zorder>
+         <zorder>txBox</zorder>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
   </layout>

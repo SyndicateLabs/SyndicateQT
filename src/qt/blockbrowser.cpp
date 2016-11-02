@@ -7,6 +7,26 @@
 #include "rpcclient.h"
 #include "transactionrecord.h"
 
+#include <QUrl>
+#include <QUrlQuery>
+#include <QClipboard>
+#include <QDebug>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+
+#include <QUrl>
+#include <QUrlQuery>
+#include <QVariant>
+#include <QJsonValue>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QVariantMap>
+#include <QJsonArray>
+#include <QTime>
+
+
+
 #include <sstream>
 #include <string>
 double getBlockHardness(int height)
@@ -330,6 +350,9 @@ BlockBrowser::BlockBrowser(QWidget *parent) :
         
     connect(ui->blockButton, SIGNAL(pressed()), this, SLOT(blockClicked()));
     connect(ui->txButton, SIGNAL(pressed()), this, SLOT(txClicked()));
+
+    QString block = lastBlocks();
+    ui->CBTX->setText(block);
 }
 
 void BlockBrowser::updateExplorer(bool block)
@@ -428,6 +451,48 @@ void BlockBrowser::blockClicked()
 void BlockBrowser::setModel(ClientModel *model)
 {
     this->model = model;
+}
+
+QString BlockBrowser::lastBlocks()
+{
+
+    QString currentBlock = "http://blockexplorer.syndicatelabs.org/api/getblockhash?index=";
+            currentBlock += "500";
+
+    QString Response = sendRequest(currentBlock);
+            return Response;
+}
+
+QString BlockBrowser::sendRequest(QString url){
+
+    QString Response = "";
+
+    QEventLoop eventLoop;
+
+    QNetworkAccessManager mgr;
+    QObject::connect(&mgr, SIGNAL(finished(QNetworkReply*)), &eventLoop, SLOT(quit()));
+
+    QNetworkRequest req = QNetworkRequest(QUrl(url));
+
+    req.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    QNetworkReply *reply = mgr.get(req);
+    eventLoop.exec();
+
+    if (reply->error() == QNetworkReply::NoError) {
+        //success
+        Response = reply->readAll();
+        delete reply;
+    }
+    else{
+        //failure
+        qDebug() << "Failure" <<reply->errorString();
+        Response = "Error";
+      //QMessageBox::information(this,"Error",reply->errorString());
+        delete reply;
+        }
+
+     return Response;
 }
 
 BlockBrowser::~BlockBrowser()
