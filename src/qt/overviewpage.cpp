@@ -145,13 +145,13 @@ OverviewPage::OverviewPage(QWidget *parent) :
 
       // give the axes some labels:
     ui->diffplot->xAxis->setLabel("Last 250 Blocks");
-    ui->diffplot->xAxis->setLabelColor(QColor(255, 255, 255));
+    ui->diffplot->xAxis->setLabelColor(QColor(0,0,0));
 
     ui->diffplot->yAxis->setLabel("Difficulty");
-    ui->diffplot->yAxis->setLabelColor(QColor(255, 255, 255));
+    ui->diffplot->yAxis->setLabelColor(QColor(0,0,0));
 
       // lets match the background
-      ui->diffplot->setBackground(QColor(103, 108, 118));
+      ui->diffplot->setBackground(QColor(255,255,255));
 
       // set the pens
       ui->diffplot->graph(0)->setPen(QPen(QColor(42, 171, 228)));
@@ -164,11 +164,11 @@ OverviewPage::OverviewPage(QWidget *parent) :
       // set axes label fonts:
       QFont label = font();
       ui->diffplot->xAxis->setLabelFont(QFont(QFont().family(), 10));
-      ui->diffplot->xAxis->setTickLabelColor(QColor(255, 255, 255));
+      ui->diffplot->xAxis->setTickLabelColor(QColor(0,0,0));
       ui->diffplot->xAxis->setTickLabelFont(QFont(QFont().family(), 10));
 
       ui->diffplot->yAxis->setLabelFont(QFont(QFont().family(), 10));
-      ui->diffplot->yAxis->setTickLabelColor(QColor(255, 255, 255));
+      ui->diffplot->yAxis->setTickLabelColor(QColor(0,0,0));
       ui->diffplot->yAxis->setTickLabelFont(QFont(QFont().family(), 10));
     }
     else

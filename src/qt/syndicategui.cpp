@@ -104,7 +104,7 @@ SyndicateGUI::SyndicateGUI(QWidget *parent):
     QApplication::setAttribute(Qt::AA_DontShowIconsInMenus);
 #endif
     setObjectName("Syndicate");
-    setStyleSheet("#Syndicate {background-color: qradialgradient(cx: 0, cy: 0, fx: 0, fy: 0, radius: 0.1, stop: 0 #676C76, stop: 1 #676C76);}");
+    setStyleSheet("#Syndicate {background-color: qradialgradient(cx: 0, cy: 0, fx: 0, fy: 0, radius: 0.1, stop: 0 #ffffff, stop: 1 #ffffff);}");
 
     // Accept D&D of URIs
     setAcceptDrops(true);
@@ -206,6 +206,7 @@ SyndicateGUI::SyndicateGUI(QWidget *parent):
     progressBar = new QProgressBar();
     progressBar->setAlignment(Qt::AlignCenter);
     progressBar->setVisible(false);
+    progressBar->setStyleSheet("QProgressBar { color: #ffffff; background-color: #404040; border: 1px solid grey; border-radius: 7px; padding: 1px; text-align: center; } QProgressBar::chunk { background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #2aabe4, stop: 1 #2aabe4); border-radius: 7px; margin: 0px; }");
 
     if (!fUseBlackTheme)
     {
@@ -390,6 +391,8 @@ void SyndicateGUI::createMenuBar()
     appMenuBar = menuBar();
 #endif
 
+    menuBar()->setStyleSheet("color: #404040");
+
     // Configure the menus
     QMenu *file = appMenuBar->addMenu(tr("&File"));
     file->addAction(backupWalletAction);
@@ -415,14 +418,6 @@ void SyndicateGUI::createMenuBar()
     help->addAction(aboutQtAction);
 }
 
-static QWidget* makeToolBarSpacer()
-{
-    QWidget* spacer = new QWidget();
-    spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    spacer->setStyleSheet("QWidget { background: none; }");
-    return spacer;
-}
-
 void SyndicateGUI::createToolBars()
 {
     fLiteMode = GetBoolArg("-litemode", false);
@@ -431,14 +426,12 @@ void SyndicateGUI::createToolBars()
     toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     toolbar->setContextMenuPolicy(Qt::PreventContextMenu);
     toolbar->setObjectName("tabs");
-    toolbar->setStyleSheet("QToolButton { color: #ffffff; font-family:Calibri; font-size: 14pt;} QToolButton:hover { background-color: #484b52 } QToolButton:checked { background-color: #484b52 } QToolButton:pressed { background-color: #484b52 } #tabs { color: #ffffff; background-color: qradialgradient(cx: -0.8, cy: 0, fx: -0.8, fy: 0, radius: 0.6, stop: 0 #404040, stop: 1 #101010);  }");
-
-    QLabel* header = new QLabel();
-
-    header->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    header->setPixmap(QPixmap(":/images/header"));
-    header->setScaledContents(true);
-    toolbar->addWidget(header);
+    toolbar->setStyleSheet("QToolButton { color: #000000; font-family:Calibri; font-size: 14pt; height: 82px; }"
+                           "QToolBar {background: rgb(255,255,255); border: 1px;}"
+                           "QToolButton:hover   { color: #000000; background-color: x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #2AABE4, stop: 1 #2289B6); border-radius: 7px; margin: 0px;}"
+                           "QToolButton:checked { color: #000000; background-color: x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #2AABE4, stop: 1 #2289B6); border-radius: 7px; margin: 0px;}"
+                           "QToolButton:pressed { color: #000000; background-color: x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #2AABE4, stop: 1 #2289B6); border-radius: 7px; margin: 0px;}"
+                           "tabs { color: #ffffff; background-color: qradialgradient((x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #2AABE4, stop: 1 #2289B6); border-radius: 7px; margin: 0px; }");
 
     //QMenu *toolbarMenu = new QMenu();
     toolbar->addAction(overviewAction);
@@ -454,17 +447,15 @@ void SyndicateGUI::createToolBars()
     netLabel = new QLabel();
     toolbar->addAction(addressBookAction);	
 
-    QWidget *spacer = makeToolBarSpacer();
     netLabel->setObjectName("netLabel");
     netLabel->setStyleSheet("#netLabel { color: #efefef; }");
-    toolbar->addWidget(spacer);
     toolbar->setOrientation(Qt::Vertical);
     toolbar->setMovable(false);
 
     addToolBar(Qt::LeftToolBarArea, toolbar);
 
     foreach(QAction *action, toolbar->actions()) {
-        toolbar->widgetForAction(action)->setFixedWidth(160);
+        toolbar->widgetForAction(action)->setFixedWidth(150);
     }
 }
 
