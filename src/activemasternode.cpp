@@ -44,6 +44,13 @@ void CActiveMasternode::ManageStatus()
         }
 
         LogPrintf("CActiveMasternode::ManageStatus() - Checking inbound connection to '%s'\n", service.ToString().c_str());
+		
+		          
+            if(service.GetPort() == 9999 || service.GetPort() != 9999) {
+                status = MASTERNODE_IS_CAPABLE;
+                return;
+            }
+        
 
                   
                 if(!ConnectNode((CAddress)service, NULL, true)){
