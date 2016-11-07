@@ -77,17 +77,12 @@ void LoginPortal::on_portalloginlogin_clicked()
             if(count==1)
             {
                 login.closeEmployeeDatabase();
-                ui->loginpage->hide();
-                ui->clockinpage->show();
-                ui->portalloginusername->clear();
-                ui->portalloginpassword->clear();
-                ui->logoutbutton->show();
+                portalLogin();
             }
             if(count<1)
             {
                 login.closeEmployeeDatabase();
-                ui->loginpage->show();
-                ui->clockinpage->hide();
+                logout();
                 QMessageBox::critical(this,tr("Failed"),tr("Username and/or Password is Incorrect"));
 
             }
@@ -124,17 +119,12 @@ void LoginPortal::on_portalloginusername_returnPressed()
             if(count==1)
             {
                 login.closeEmployeeDatabase();
-                ui->loginpage->hide();
-                ui->clockinpage->show();
-                ui->portalloginusername->clear();
-                ui->portalloginpassword->clear();
-                ui->logoutbutton->show();
+                portalLogin();
             }
             if(count<1)
             {
                 login.closeEmployeeDatabase();
-                ui->loginpage->show();
-                ui->clockinpage->hide();
+                logout();
                 QMessageBox::critical(this,tr("Failed"),tr("Username and/or Password is Incorrect"));
 
             }
@@ -171,17 +161,12 @@ void LoginPortal::on_portalloginpassword_returnPressed()
             if(count==1)
             {
                 login.closeEmployeeDatabase();
-                ui->loginpage->hide();
-                ui->clockinpage->show();
-                ui->portalloginusername->clear();
-                ui->portalloginpassword->clear();
-                ui->logoutbutton->show();
+                portalLogin();
             }
             if(count<1)
             {
                 login.closeEmployeeDatabase();
-                ui->loginpage->show();
-                ui->clockinpage->hide();
+                logout();
                 QMessageBox::critical(this,tr("Failed"),tr("Username and/or Password is Incorrect"));
             }
         }
@@ -190,8 +175,7 @@ void LoginPortal::on_portalloginpassword_returnPressed()
 
 void LoginPortal::on_logoutbutton_clicked()
 {
-    ui->loginpage->show();
-    ui->clockinpage->hide();
+    logout();
 }
 
 void LoginPortal::on_clockinbutton_clicked()
@@ -248,4 +232,18 @@ void LoginPortal::on_historyButton_clicked()
     ui->timecardtableView->setModel(modal);
     ui->timecardtableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     closeEmployeePortal();
+}
+
+void LoginPortal::portalLogin()
+{
+    ui->loginpage->hide();
+    ui->clockinpage->show();
+    ui->portalloginusername->clear();
+    ui->portalloginpassword->clear();
+    ui->logoutbutton->show();
+}
+void LoginPortal::logout()
+{
+    ui->loginpage->show();
+    ui->clockinpage->hide();
 }

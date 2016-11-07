@@ -56,16 +56,12 @@ void MyInventory::on_inventoryLoginButton_clicked()
            if(count==1)
            {
                empman.closeEmployeeDatabase();
-               ui->loginPage->hide();
-               ui->inventoryPage->show();
-               ui->inventoryUsername->clear();
-               ui->inventoryPassword->clear();
+               login();
            }
            if(count<1)
            {
                empman.closeEmployeeDatabase();
-               ui->loginPage->show();
-               ui->inventoryPage->hide();
+               logout();
                QMessageBox::critical(this,tr("Failed"),tr("Username and/or Password is Incorrect"));
            }
        }
@@ -101,16 +97,12 @@ void MyInventory::on_inventoryUsername_returnPressed()
            if(count==1)
            {
                empman.closeEmployeeDatabase();
-               ui->loginPage->hide();
-               ui->inventoryPage->show();
-               ui->inventoryUsername->clear();
-               ui->inventoryPassword->clear();
+               login();
            }
            if(count<1)
            {
                empman.closeEmployeeDatabase();
-               ui->loginPage->show();
-               ui->inventoryPage->hide();
+               logout();
                QMessageBox::critical(this,tr("Failed"),tr("Username and/or Password is Incorrect"));
            }
        }
@@ -146,18 +138,28 @@ void MyInventory::on_inventoryPassword_returnPressed()
            if(count==1)
            {
                empman.closeEmployeeDatabase();
-               ui->loginPage->hide();
-               ui->inventoryPage->show();
-               ui->inventoryUsername->clear();
-               ui->inventoryPassword->clear();
+               login();
            }
            if(count<1)
            {
                empman.closeEmployeeDatabase();
-               ui->loginPage->show();
-               ui->inventoryPage->hide();
+               logout();
                QMessageBox::critical(this,tr("Failed"),tr("Username and/or Password is Incorrect"));
            }
        }
    }
+}
+
+void MyInventory::login()
+{
+    ui->loginPage->hide();
+    ui->inventoryPage->show();
+    ui->inventoryUsername->clear();
+    ui->inventoryPassword->clear();
+}
+
+void MyInventory::logout()
+{
+    ui->loginPage->show();
+    ui->inventoryPage->hide();
 }

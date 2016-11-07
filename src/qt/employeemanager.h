@@ -76,6 +76,9 @@ public:
         closeEmployeeDatabase();
     }
 
+    void login();
+    void logout();
+
 public:
     explicit EmployeeManager(QWidget *parent = 0);
     ~EmployeeManager();

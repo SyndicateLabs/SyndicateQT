@@ -17,6 +17,9 @@ public:
     explicit MyInventory(QWidget *parent = 0);
     ~MyInventory();
 
+    void login();
+    void logout();
+
 private slots:
     void on_inventoryLoginButton_clicked();
     void on_inventoryPassword_returnPressed();

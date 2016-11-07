@@ -21,12 +21,10 @@ EmployeeManager::EmployeeManager(QWidget *parent) :
     ui->setupUi(this);
 
     setWindowTitle(tr("Employee Manager"));
-
+    createEmployeeDatabase();
     ui->loginpage->show();
     ui->addpage->hide();
     ui->tabWidget->hide();
-
-    createEmployeeDatabase();
 }
 
 EmployeeManager::~EmployeeManager()
@@ -63,18 +61,12 @@ void EmployeeManager::on_loginlogin_clicked()
            if(count==1)
            {
                closeEmployeeDatabase();
-               ui->loginpage->hide();
-               ui->addpage->show();
-               ui->tabWidget->show();
-               ui->loginusername->clear();
-               ui->loginpassword->clear();
+               login();
            }
            if(count<1)
            {
                closeEmployeeDatabase();
-               ui->loginpage->show();
-               ui->addpage->hide();
-               ui->tabWidget->hide();
+               logout();
                QMessageBox::critical(this,tr("Failed"),tr("Username and/or Password is Incorrect"));
            }
        }
@@ -110,18 +102,12 @@ void EmployeeManager::on_loginusername_returnPressed()
            if(count==1)
            {
                closeEmployeeDatabase();
-               ui->loginpage->hide();
-               ui->addpage->show();
-               ui->tabWidget->show();
-               ui->loginusername->clear();
-               ui->loginpassword->clear();
+               login();
            }
            if(count<1)
            {
                closeEmployeeDatabase();
-               ui->loginpage->show();
-               ui->addpage->hide();
-               ui->tabWidget->hide();
+               logout();
                QMessageBox::critical(this,tr("Failed"),tr("Username and/or Password is Incorrect"));
            }
        }
@@ -157,18 +143,12 @@ void EmployeeManager::on_loginpassword_returnPressed()
            if(count==1)
            {
                closeEmployeeDatabase();
-               ui->loginpage->hide();
-               ui->addpage->show();
-               ui->tabWidget->show();
-               ui->loginusername->clear();
-               ui->loginpassword->clear();
+               login();
            }
            if(count<1)
            {
                closeEmployeeDatabase();
-               ui->loginpage->show();
-               ui->addpage->hide();
-               ui->tabWidget->hide();
+               logout();
                QMessageBox::critical(this,tr("Failed"),tr("Username and/or Password is Incorrect"));
            }
        }
@@ -364,9 +344,7 @@ void EmployeeManager::on_editemployees_clicked()
 
 void EmployeeManager::on_logoutbutton_clicked()
 {    
-    ui->loginpage->show();
-    ui->addpage->hide();
-    ui->tabWidget->hide();
+    logout();
 }
 
 void EmployeeManager::on_viewemployeetable_doubleClicked(const QModelIndex &index)
@@ -374,4 +352,20 @@ void EmployeeManager::on_viewemployeetable_doubleClicked(const QModelIndex &inde
     EditEmployees editemployees;
     editemployees.setModal(true);
     editemployees.exec();
+}
+
+void EmployeeManager::login()
+{
+    ui->loginpage->hide();
+    ui->addpage->show();
+    ui->tabWidget->show();
+    ui->loginusername->clear();
+    ui->loginpassword->clear();
+}
+
+void EmployeeManager::logout()
+{
+    ui->loginpage->show();
+    ui->addpage->hide();
+    ui->tabWidget->hide();
 }

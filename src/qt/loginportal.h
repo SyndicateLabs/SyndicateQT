@@ -79,6 +79,9 @@ public:
         closeEmployeePortal();
     }
 
+    void portalLogin();
+    void logout();
+
 public:
     explicit LoginPortal(QWidget *parent = 0);
     ~LoginPortal();
