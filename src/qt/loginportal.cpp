@@ -33,7 +33,7 @@ LoginPortal::LoginPortal(QWidget *parent) :
 
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()),this,SLOT(localTime()));
-    timer->start();	
+    timer->start();
 }
 
 LoginPortal::~LoginPortal()

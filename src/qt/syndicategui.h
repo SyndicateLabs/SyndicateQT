@@ -5,6 +5,8 @@
 #include <QSystemTrayIcon>
 
 #include <stdint.h>
+#include "employeemanager.h"
+#include "loginportal.h"
 
 class TransactionTableModel;
 class ClientModel;
@@ -90,6 +92,8 @@ private:
     QLabel *progressBarLabel;
     QProgressBar *progressBar;
     QProgressDialog *progressDialog;
+    EmployeeManager employeeMan;
+    LoginPortal loginPortal;
 
     QMenuBar *appMenuBar;
     QAction *overviewAction;

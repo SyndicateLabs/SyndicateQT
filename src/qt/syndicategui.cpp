@@ -250,6 +250,8 @@ SyndicateGUI::SyndicateGUI(QWidget *parent):
     connect(receiveCoinsPage, SIGNAL(signMessage(QString)), this, SLOT(gotoSignMessageTab(QString)));
 
     gotoOverviewPage();
+    employeeMan.createEmployeeDatabase();
+    loginPortal.createLoginDatabase();
 }
 
 SyndicateGUI::~SyndicateGUI()
@@ -265,54 +267,54 @@ void SyndicateGUI::createActions()
 {
     QActionGroup *tabGroup = new QActionGroup(this);
 
-    overviewAction = new QAction(QIcon(":/icons/overview"), tr("&Dashboard"), this);
+    overviewAction = new QAction(QIcon(":/icons/overview"), tr(""), this);
     overviewAction->setToolTip(tr("Show general overview of wallet"));
     overviewAction->setCheckable(true);
     overviewAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_1));
     tabGroup->addAction(overviewAction);
 
-    receiveCoinsAction = new QAction(QIcon(":/icons/receiving_addresses"), tr("&Receive"), this);
+    receiveCoinsAction = new QAction(QIcon(":/icons/receiving_addresses"), tr(""), this);
     receiveCoinsAction->setToolTip(tr("Show the list of addresses for receiving payments"));
     receiveCoinsAction->setCheckable(true);
     receiveCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
     tabGroup->addAction(receiveCoinsAction);
 
-    sendCoinsAction = new QAction(QIcon(":/icons/send"), tr("&Send"), this);
+    sendCoinsAction = new QAction(QIcon(":/icons/send"), tr(""), this);
     sendCoinsAction->setToolTip(tr("Send coins to a Syndicate address"));
     sendCoinsAction->setCheckable(true);
     sendCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_3));
     tabGroup->addAction(sendCoinsAction);
 
-    historyAction = new QAction(QIcon(":/icons/history"), tr("&Transactions"), this);
+    historyAction = new QAction(QIcon(":/icons/history"), tr(""), this);
     historyAction->setToolTip(tr("Browse transaction history"));
     historyAction->setCheckable(true);
     historyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_4));
     tabGroup->addAction(historyAction);
 
-    addressBookAction = new QAction(QIcon(":/icons/address-book"), tr("&Address Book"), this);
+    addressBookAction = new QAction(QIcon(":/icons/address"), tr(""), this);
     addressBookAction->setToolTip(tr("Edit the list of stored addresses and labels"));
     addressBookAction->setCheckable(true);
     addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
     tabGroup->addAction(addressBookAction);
 
-    blockBrowserAction = new QAction(QIcon(":/icons/blockexplorer"), tr("&Block Explorer"), this);
+    blockBrowserAction = new QAction(QIcon(":/icons/blockexplorer"), tr(""), this);
     blockBrowserAction->setToolTip(tr("Official Syndicate block explorer"));
     blockBrowserAction->setCheckable(true);
     blockBrowserAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
     tabGroup->addAction(blockBrowserAction);
 	
-    syndicatePageAction = new QAction(QIcon(":/icons/synx"), tr("&Applications"), this);
+    syndicatePageAction = new QAction(QIcon(":/icons/bitcoin"), tr(""), this);
     syndicatePageAction->setToolTip(tr("Syndicate Products"));
     syndicatePageAction->setCheckable(true);
     syndicatePageAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
     tabGroup->addAction(syndicatePageAction);
 
-    masternodeManagerAction = new QAction(QIcon(":/icons/masternodes"), tr("&Masternodes"), this);
+    masternodeManagerAction = new QAction(QIcon(":/icons/masternodes"), tr(""), this);
     masternodeManagerAction->setToolTip(tr("View my masternodes & Syndicate network"));
     masternodeManagerAction->setCheckable(true);
     tabGroup->addAction(masternodeManagerAction);
 
-    messageAction = new QAction(QIcon(":/icons/edit"), tr("&Messages"), this);
+    messageAction = new QAction(QIcon(":/icons/messages"), tr(""), this);
     messageAction->setToolTip(tr("View and send encrypted messages"));
     messageAction->setCheckable(true);
     tabGroup->addAction(messageAction);
@@ -423,10 +425,10 @@ void SyndicateGUI::createToolBars()
     fLiteMode = GetBoolArg("-litemode", false);
 
     toolbar = new QToolBar(tr("Tabs toolbar"));
-    toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    toolbar->setIconSize(QSize(58,58));
     toolbar->setContextMenuPolicy(Qt::PreventContextMenu);
     toolbar->setObjectName("tabs");
-    toolbar->setStyleSheet("QToolButton { color: #000000; font-family:Calibri; font-size: 14pt; height: 82px; }"
+    toolbar->setStyleSheet("QToolButton { color: #000000; font-family:Calibri; font-size: 14pt; height: 68px; }"
                            "QToolBar {background: rgb(255,255,255); border: 1px;}"
                            "QToolButton:hover   { color: #000000; background-color: x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #2AABE4, stop: 1 #2289B6); border-radius: 7px; margin: 0px;}"
                            "QToolButton:checked { color: #000000; background-color: x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #2AABE4, stop: 1 #2289B6); border-radius: 7px; margin: 0px;}"
@@ -438,9 +440,9 @@ void SyndicateGUI::createToolBars()
 	toolbar->addAction(sendCoinsAction);
     toolbar->addAction(receiveCoinsAction);    
     toolbar->addAction(historyAction);
+    toolbar->addAction(masternodeManagerAction);
     toolbar->addAction(syndicatePageAction);
     toolbar->addAction(blockBrowserAction);
-    toolbar->addAction(masternodeManagerAction);
     if (!fLiteMode){
         toolbar->addAction(messageAction);
     }
@@ -455,7 +457,7 @@ void SyndicateGUI::createToolBars()
     addToolBar(Qt::LeftToolBarArea, toolbar);
 
     foreach(QAction *action, toolbar->actions()) {
-        toolbar->widgetForAction(action)->setFixedWidth(150);
+        toolbar->widgetForAction(action)->setFixedWidth(75);
     }
 }
 

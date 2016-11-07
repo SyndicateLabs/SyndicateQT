@@ -28,7 +28,6 @@
         <file alias="add">res/icons/add.png</file>
         <file alias="bitcoin_testnet">res/icons/Syndicate-80.png</file>
         <file alias="toolbar_testnet">res/icons/Syndicate-16.png</file>
-        <file alias="edit">res/icons/edit.png</file>
         <file alias="history">res/icons/history.png</file>
         <file alias="overview">res/icons/overview.png</file>
 		<file alias="masternodes">res/icons/masternodes.png</file>
@@ -60,6 +59,8 @@
 		<file alias="financials">res/icons/financials.png</file>
 		<file alias="portal">res/icons/portal.png</file>
 		<file alias="tools">res/icons/tools.png</file>
+		<file alias="messages">res/icons/messages.png</file>
+		<file alias="address">res/icons/address.png</file>
     </qresource>
     <qresource prefix="/icons/black">
         <file alias="connect_0">res/icons/black/connect0_16.png</file>
