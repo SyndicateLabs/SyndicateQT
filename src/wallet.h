@@ -965,7 +965,7 @@ public:
 
     CAmount GetImmatureWatchOnlyCredit(const bool& fUseCache=true) const
     {
-        if ((IsCoinBase() || IsCoinStake()) && GetBlocksToMaturity() > 0 && IsInMainChain())
+        if (IsCoinBase() && GetBlocksToMaturity() > 0 && IsInMainChain())
         {
             if (fUseCache && fImmatureWatchCreditCached)
                 return nImmatureWatchCreditCached;
@@ -990,10 +990,9 @@ public:
             return nAvailableWatchCreditCached;
 
         CAmount nCredit = 0;
-        uint256 hashTx = GetHash();
         for (unsigned int i = 0; i < vout.size(); i++)
         {
-            if (!pwallet->IsSpent(hashTx, i))
+            if (!IsSpent(i))
             {
                 const CTxOut &txout = vout[i];
                 nCredit += pwallet->GetCredit(txout, ISMINE_WATCH_ONLY);

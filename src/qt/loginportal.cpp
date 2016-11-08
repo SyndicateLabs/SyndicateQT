@@ -161,7 +161,9 @@ void LoginPortal::on_portalloginpassword_returnPressed()
             if(count==1)
             {
                 login.closeEmployeeDatabase();
+                ui->nameLabel->setText(ui->portalloginusername->text());
                 portalLogin();
+
             }
             if(count<1)
             {
