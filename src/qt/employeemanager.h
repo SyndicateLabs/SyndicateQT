@@ -78,21 +78,22 @@ public:
 
     void login();
     void logout();
+    void viewEmployees();
 
 public:
     explicit EmployeeManager(QWidget *parent = 0);
     ~EmployeeManager();
 
 private slots:
-    void on_savebutton_clicked();
     void on_viewemployees_clicked();
-    void on_clearinfo_clicked();
     void on_editemployees_clicked();
     void on_loginlogin_clicked();
     void on_loginusername_returnPressed();
     void on_loginpassword_returnPressed();
     void on_logoutbutton_clicked();
     void on_viewemployeetable_doubleClicked(const QModelIndex &index);
+
+    void on_pushButton_clicked();
 
 private:
     Ui::EmployeeManager *ui;

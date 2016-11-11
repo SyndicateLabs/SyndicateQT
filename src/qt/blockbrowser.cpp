@@ -350,9 +350,6 @@ BlockBrowser::BlockBrowser(QWidget *parent) :
         
     connect(ui->blockButton, SIGNAL(pressed()), this, SLOT(blockClicked()));
     connect(ui->txButton, SIGNAL(pressed()), this, SLOT(txClicked()));
-
-    QString block = lastBlocks();
-    ui->CBTX->setText(block);
 }
 
 void BlockBrowser::updateExplorer(bool block)

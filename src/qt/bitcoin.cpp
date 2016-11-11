@@ -27,6 +27,8 @@
 #include <QTranslator>
 #include <QSplashScreen>
 #include <QLibraryInfo>
+#include <QStyle>
+#include <QDesktopWidget>
 
 #if defined(BITCOIN_NEED_QT_PLUGINS) && !defined(_BITCOIN_QT_PLUGINS_INCLUDED)
 #define _BITCOIN_QT_PLUGINS_INCLUDED
@@ -284,6 +286,14 @@ int main(int argc, char *argv[])
                 else
                 {
                     window.show();
+                    window.setGeometry(
+                                QStyle::alignedRect(
+                                    Qt::LeftToRight,
+                                    Qt::AlignCenter,
+                                    window.size(),
+                                    qApp->desktop()->availableGeometry()
+                                    )
+                                );
                 }
 
                 // Now that initialization/startup is done, process any command-line
