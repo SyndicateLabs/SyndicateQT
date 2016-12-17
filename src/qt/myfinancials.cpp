@@ -7,6 +7,7 @@ MyFinancials::MyFinancials(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowTitle(tr("My Financials"));
+    setWindowFlags(Qt::Window);
 }
 
 MyFinancials::~MyFinancials()

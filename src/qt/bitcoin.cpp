@@ -272,11 +272,11 @@ int main(int argc, char *argv[])
 
                 ClientModel clientModel(&optionsModel);
                 WalletModel walletModel(pwalletMain, &optionsModel);
-		MessageModel messageModel(pwalletMain, &walletModel);
+				MessageModel messageModel(pwalletMain, &walletModel);
 
                 window.setClientModel(&clientModel);
                 window.setWalletModel(&walletModel);
-		window.setMessageModel(&messageModel);
+				window.setMessageModel(&messageModel);
 
                 // If -min option passed, start window minimized.
                 if(GetBoolArg("-min", false))
@@ -306,7 +306,7 @@ int main(int argc, char *argv[])
                 window.hide();
                 window.setClientModel(0);
                 window.setWalletModel(0);
-		window.setMessageModel(0);
+				window.setMessageModel(0);
                 guiref = 0;
             }
             // Shutdown the core and its threads, but don't exit Bitcoin-Qt here

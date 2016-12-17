@@ -13,6 +13,7 @@ SyndicateTools::SyndicateTools(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowTitle(tr("Tools"));
+    setWindowFlags(Qt::Window);
     ui->filePath->setPlaceholderText("Please enter a file path or browse..");
 }
 

@@ -9,7 +9,8 @@
 #include <vector>
 #include <cstring>
 #include <string>
-
+#include <QPainter>
+#include <QFrame>
 #include <QDebug>
 #include <QFileInfo>
 #include <QDir>
@@ -17,6 +18,7 @@
 #include <QMessageBox>
 #include <QTimer>
 #include <QDateTime>
+#include <QtWidgets>
 
 LoginPortal::LoginPortal(QWidget *parent) :
     QDialog(parent),
@@ -25,12 +27,10 @@ LoginPortal::LoginPortal(QWidget *parent) :
     ui->setupUi(this);
 
     setWindowTitle(tr("Employee Portal"));
-
+    setWindowFlags(Qt::Window);
     ui->loginpage->show();
     ui->clockinpage->hide();
-
     createLoginDatabase();
-
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()),this,SLOT(localTime()));
     timer->start();
@@ -45,7 +45,7 @@ void LoginPortal::localTime()
 {
     QTime localTime = QTime::currentTime();
     QString timetext = localTime.toString("hh : mm : ss");
-    ui->currenttime->setText(timetext);
+    ui->currentTime->setText(timetext);
 }
 
 void LoginPortal::on_portalloginlogin_clicked()
@@ -161,7 +161,7 @@ void LoginPortal::on_portalloginpassword_returnPressed()
             if(count==1)
             {
                 login.closeEmployeeDatabase();
-                ui->nameLabel->setText(ui->portalloginusername->text());
+                ui->namelabel->setText(ui->portalloginusername->text());
                 portalLogin();
 
             }

@@ -7,6 +7,7 @@ MyBusiness::MyBusiness(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowTitle(tr("My Business"));
+    setWindowFlags(Qt::Window);
 }
 
 MyBusiness::~MyBusiness()

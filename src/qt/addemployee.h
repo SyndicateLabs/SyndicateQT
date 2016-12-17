@@ -24,6 +24,7 @@ private slots:
 private:
     Ui::AddEmployee *ui;
     EmployeeManager emp;
+
 };
 
 #endif // ADDEMPLOYEE_H

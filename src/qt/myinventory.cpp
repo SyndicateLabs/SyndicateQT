@@ -1,6 +1,8 @@
 #include "myinventory.h"
 #include "ui_myinventory.h"
 
+#include "addproduct.h"
+
 #include <QFile>
 #include <QDebug>
 #include <fstream>
@@ -20,6 +22,12 @@ MyInventory::MyInventory(QWidget *parent) :
     setWindowTitle(tr("My Inventory"));
     ui->loginPage->show();
     ui->inventoryPage->hide();
+    createInventoryDatabase();
+    setWindowFlags(Qt::Window);
+    listSum();
+    netSum();
+    quanSum();
+    profitTotal();
 }
 
 MyInventory::~MyInventory()
@@ -57,6 +65,7 @@ void MyInventory::on_inventoryLoginButton_clicked()
            {
                empman.closeEmployeeDatabase();
                login();
+               viewInventory();
            }
            if(count<1)
            {
@@ -98,6 +107,7 @@ void MyInventory::on_inventoryUsername_returnPressed()
            {
                empman.closeEmployeeDatabase();
                login();
+               viewInventory();
            }
            if(count<1)
            {
@@ -139,6 +149,7 @@ void MyInventory::on_inventoryPassword_returnPressed()
            {
                empman.closeEmployeeDatabase();
                login();
+               viewInventory();
            }
            if(count<1)
            {
@@ -162,4 +173,83 @@ void MyInventory::logout()
 {
     ui->loginPage->show();
     ui->inventoryPage->hide();
+}
+
+void MyInventory::on_addProductButton_clicked()
+{
+    AddProduct add;
+    add.setModal(true);
+    add.exec();
+}
+
+void MyInventory::viewInventory()
+{
+    openInventoryDatabase();
+    inventorymodal=new QSqlQueryModel();
+    QSqlQuery* query2=new QSqlQuery(inventorydb);
+    query2->prepare("select [Product Name], Manufacturer, Quantity, SKU, "
+                   "Barcode, [Retail Price], [Vendor Cost], Discount FROM inventoryinfo");
+    query2->exec();
+    inventorymodal->setQuery(*query2);
+    ui->inventoryTable->setModel(inventorymodal);
+    ui->inventoryTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    closeInventoryDatabase();
+}
+
+void MyInventory::listSum()
+{
+    openInventoryDatabase();
+    QSqlQuery query;
+    query.exec("SELECT SUM ([Retail Price]) FROM inventoryinfo");
+    if (query.next())
+    {
+        currentSum.append(query.value(0).toString());
+    }
+    query.finish();
+    double total = currentSum.toDouble();
+    QString totalSum = QString::number(total);
+    ui->listSum->setText("$" + totalSum);
+    closeInventoryDatabase();
+}
+
+void MyInventory::netSum()
+{
+    openInventoryDatabase();
+    QSqlQuery query;
+    query.exec("SELECT SUM ([Vendor Cost]) FROM inventoryinfo");
+    if (query.next())
+    {
+        currentNet.append(query.value(0).toString());
+    }
+    query.finish();
+    double total = currentNet.toDouble();
+    QString totalSum = QString::number(total);
+    ui->netSum->setText("$" + totalSum);
+    closeInventoryDatabase();
+}
+
+void MyInventory::quanSum()
+{
+    openInventoryDatabase();    
+    QSqlQuery query;
+    query.exec("SELECT SUM (Quantity) FROM inventoryinfo");
+    if (query.next())
+    {
+        quantSum.append(query.value(0).toString());
+    }
+    query.finish();
+    ui->quanSum->setText(quantSum);
+    closeInventoryDatabase();
+}
+
+void MyInventory::profitTotal()
+{
+    double list = currentSum.toDouble();
+    double cost = currentNet.toDouble();
+
+    double net = list - cost;
+
+    QString profitTotal = QString::number(net);
+
+    ui->profitSum->setText('$' + profitTotal);
 }

@@ -20,7 +20,7 @@ EmployeeManager::EmployeeManager(QWidget *parent) :
     ui(new Ui::EmployeeManager)
 {
     ui->setupUi(this);
-
+    setWindowFlags(Qt::Window);
     setWindowTitle(tr("Employee Manager"));
     createEmployeeDatabase();
     ui->loginpage->show();
