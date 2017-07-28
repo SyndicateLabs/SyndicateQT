@@ -83,7 +83,7 @@ If both Qt 4 and Qt 5 are installed, Qt 5 will be used.
 
 To build with Qt 5 (recommended) you need the following:
 
-    sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
+    sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqt5webkit5-dev
 
 libqrencode (optional) can be installed with:
 
